@@ -1,10 +1,47 @@
 <!doctype html>
 <html lang="ja">
-<head>
-	<meta charset="UTF-8">
-	<title>ポートフォリオ</title>
-</head>
-<body>
-	<h1>Kouki Ogata's Portfolio</h1>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Ogata Kouki's Portfolio</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="curtain"></div>
+        <div class="load-screen">Loading...</div>
+        </div>
+        <div class="world">
+            <img src="hycuragatｊ４３.png" alt="アイコン" width="200px">
+        </div>
+        <div class="wed">
+            <div class="header">
+                <div class="pop-assets">
+                    <img src="" alt="">
+                </div>
+                <div class="icon">
+                    <img src="https://cdn.discordapp.com/attachments/1027152914873069610/1039476375356178472/IMG_1789.jpg" alt="アイコン" width="300px">
+                </div>
+                <div class="pop-assets">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="container">
+                <h1 class="screen-name">Kouki</h1>
+                <h2 class="about"></h2>
+                <p class="desc">
+                </p>
+            </div>
+            <div class="links">
+                <p><a class="link-panel" href="a.html">    Works    </a></p>
+                <p><a class="link-panel" href="b.html">   Biography    </a></p>
+                <p><a class="link-panel" href="c.html">   Get in touch   </a></p>
+            </div>
+        </div>    
+        <script>
+            window.addEventListener('load', e => {
+                let target1 = document.querySelector('.curtain');
+                let target2 = document.querySelector('.load-screen');
+                target1.style.display = target2.style.display = 'none';
+            });
+        </script>
+    </body>
 </html>
