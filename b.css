@@ -22,16 +22,12 @@ body {
     text-align: center;
 }
 
-.item2 {
-    text-align: left;
-    margin-left: 550px;
-    margin-right: 500px;
+{
+    width: auto;
 }
-
-li {
-    line-height: 2.5;
+ul {
+    text-align: center;
 }
-
 .curtain {
     position: fixed;
     width: 100%;
