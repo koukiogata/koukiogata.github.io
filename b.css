@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-    background-color: #667791;
+    background-color: #ffffff;
     max-width: 100%;
 }
 
@@ -22,12 +22,6 @@ body {
     text-align: center;
 }
 
-{
-    width: auto;
-}
-ul {
-    text-align: center;
-}
 .curtain {
     position: fixed;
     width: 100%;
