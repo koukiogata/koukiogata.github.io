@@ -1,23 +1,18 @@
-@charset "utf-8";
+@charset "UTF-8";
+body {
+    background-color:#ffffff;
+    max-width:100%;
+}
 
 * {
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: #ffffff;
-    max-width: 100%;
-}
-.img  {
-    background-image: url(kasihara.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
 
-.world {
+.header {
     border-bottom: 2px solid #000000;
+    background-color: #ffffff;
 }
 
 .links {
@@ -53,11 +48,12 @@ a {
   }
   
   a:link, a:visited, a:focus {
+    background: #ffffff;
     color: #000000;
   }
   
   a:hover {
-    background-color: #56befa;
+    background-color: #d3efff;
   
 }
   a:active {
@@ -65,39 +61,50 @@ a {
     color: rgb(255, 255, 255);
   }
 
-.header {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.icon {
-   height: 80px;
-   margin: 60px 20px 0px 0px;
-}
-
-img {
-   border-radius: 50%;
-   object-fit: cover;
-   object-position:54% 36%;
-}
-
-.screen-name {
+h1 {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 70px;
-    color: rgb(0, 0, 0);
-    margin: 60px 20px 0px 0px ;
-    height: 80px;
+    font-size: 60px;
+    margin-top: 50px;
 }
 
-.container {
-    margin: 50px 300px;
+.About {
+    text-align: center;
 }
 
-.about {
-    text-align: left;
-    font-weight: 200;
-    font-size: larger;
+form {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.flexbox   {
+    display:flex;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    border-radius: 0.3rem;
+}
+
+ul {
+    margin: 10px;
+}
+
+.item2 {
+    margin-top: 20px;
+}
+
+input.example1 {
+    width: 300px; 
+}
+
+textarea.example2 {
+    width: 300px;
+    height: 150px;
+}
+
+.submit {
+    text-align: center;
 }
 
 .curtain {

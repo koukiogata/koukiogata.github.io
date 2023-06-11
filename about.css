@@ -1,0 +1,185 @@
+@charset "UTF-8";
+body {
+    background-color: #ffffff;
+    max-width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0; 
+}
+
+
+.header {
+    border-bottom: 2px solid #000000;
+}
+.world {
+    background-color: #ffffff;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+}
+
+p {
+    display: inline;
+}
+
+.link-panel {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 100;
+    width: 100px;
+    padding: 20px 10px;
+    margin: 0px 5px;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+p:last-child a {
+    margin-right: 0;
+  }
+  
+a:link, a:visited, a:focus {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+a:hover {
+    background-color: #d3efff;
+  
+}
+a:active {
+    background: rgba(4, 0, 255, 0.473);
+    color: rgb(255, 255, 255);
+  }
+
+.ujvp {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+#jo-{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.self {
+    margin: 100px 50px 100px 50px ;
+}
+
+.item {
+   text-align: left;
+   margin-top: 25px;
+}
+
+.accordion{
+    margin: 70px 0px 10px;
+    padding: 20px 0px 10px;
+    background-color: #000000;
+}
+
+.accordion-hidden{
+    display: none;
+  }
+
+  .accordion-open {
+    display: block;
+    padding: 10px ;
+    background: #000010;
+    cursor: pointer;
+    margin: 10px ;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-size: x-large;
+    border-bottom: 2px solid #ffffff ;
+  }
+
+  .accordion-close {
+    display: block ;
+    height: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 0;
+    opacity: 1;
+    transition: 1s;
+    margin: 0px 10px;
+    text-align: center;
+  }
+
+  .accordion-close p {
+    font-weight: 100;
+  }
+
+  .accordion-hidden:checked + .accordion-open + .accordion-close {
+    height: auto;
+    opacity: 1;
+    padding: 20px ;
+    font-weight: 700;
+    margin: 0px 10px;
+  }
+
+#container {
+    display:flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.hobby {
+    padding: 30px;
+    border-left: 2px solid #000000 ;
+    border-right: 2px solid #000000 ;
+}
+
+.skill {
+    padding: 30px;
+    border-right: 2px solid #000000;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 80px;
+}
+
+li {    
+    font-size: 20px;
+    font-weight: bold;
+    list-style: none;
+    padding: 30px 0px 10px 0px;
+}
+
+.curtain {
+    position: fixed;
+    width: 100%;
+    height: 120%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 2;
+}
+
+.load-screen {
+    z-index: 3;
+    position: fixed;
+    margin: auto;
+    top: 50vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    color: white;
+}
