@@ -70,19 +70,28 @@ a:active {
 }
 
 #jo-{
-    display: flex;
-    justify-content: center;
-    text-align: center;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     margin-top: 60px;
+    text-align: center;
 }
 
 .self {
-    margin: 100px 50px 100px 50px ;
+    text-align: left;
+    margin: 0px 50px 100px 50px ;
+}
+
+.img {
+    margin: 0px 50px 0px;
+}
+
+img {
+    padding-left: 0%;
 }
 
 .item {
-   text-align: left;
    margin-top: 25px;
+   padding-left: 0%;
 }
 
 .accordion{
@@ -133,9 +142,10 @@ a:active {
   }
 
 #container {
-    display:flex;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     justify-content: center;
-    margin-top: 80px;
+    margin: 80px 10px;
 }
 
 .hobby {
@@ -146,7 +156,9 @@ a:active {
 
 .skill {
     padding: 30px;
+    border-left: 2px solid #000000 ;
     border-right: 2px solid #000000;
+
 }
 
 h1 {
@@ -161,6 +173,41 @@ li {
     list-style: none;
     padding: 30px 0px 10px 0px;
 }
+
+@media (max-width:480px) {
+
+
+    .link-panel {
+        font-size: 15px;
+        font-family: monospace;
+        font-weight: 50;
+        width: 50px;
+        padding: 20px 10px;
+        margin: 0px 5px;
+    }
+
+    #container {
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-content: center;
+        margin: 80px 10px;
+    }
+    #jo-{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        text-align: center;
+    }
+    
+    .self {
+        margin: 0px 50px;
+    }
+
+    img {
+        width: 200px;
+    }
+
+}
+
 
 .curtain {
     position: fixed;

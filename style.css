@@ -91,13 +91,72 @@ img {
 }
 
 .container {
-    margin: 50px 300px;
+    padding: 50px 300px;
 }
 
 .about {
     text-align: left;
     font-weight: 200;
     font-size: larger;
+}
+
+@media (max-width:480px) {
+
+
+    .link-panel {
+        font-size: 15px;
+        font-family: monospace;
+        font-weight: 50;
+        width: 50px;
+        padding: 20px 10px;
+        margin: 0px 5px;
+    }
+
+    .img {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .container {
+        padding: 40px 100px;
+    }
+
+    .about {
+        text-align: center;
+        font-weight: 100;
+        font-size: larger;
+    }
+
+    .abuot br {
+        display: none;
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .icon {
+       height: 40px;
+       margin: 60px 20px 0px 0px;
+    }
+    
+    img {
+       border-radius: 50%;
+       object-fit: cover;
+       object-position:54% 36%;
+    }
+    
+    .screen-name {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+        margin: 60px 20px 0px 0px ;
+        padding-top: 20px;
+        height: 40px;
+    }
 }
 
 .curtain {
