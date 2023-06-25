@@ -8,6 +8,10 @@ body {
     background-color:#ffffff;
     max-width: 100%;
 }
+
+.smile {
+    display: none;
+}
 /*ここから*/
 .world {
     border-bottom: 2px solid #000000;
