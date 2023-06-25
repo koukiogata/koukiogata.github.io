@@ -14,6 +14,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    background-color: #c7c7c7;
+   background-blend-mode: hard-light
 }
 
 .world {
@@ -96,7 +98,7 @@ img {
 
 .about {
     text-align: left;
-    font-weight: 200;
+    font-weight: 400;
     font-size: larger;
 }
 
@@ -117,15 +119,16 @@ img {
         height: 100%;
         background-repeat: no-repeat;
         background-size: cover;
+        background-color: #c7c7c7;
+        background-blend-mode: hard-light;
     }
     .container {
-        padding: 40px 100px;
+        padding: 20px 100px 120px;
     }
 
     .about {
-        text-align: center;
-        font-weight: 100;
-        font-size: larger;
+        font-weight: 400;
+        font-size:small;
     }
 
     .abuot br {
