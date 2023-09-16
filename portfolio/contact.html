@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ogata Kouki's Portfolio</title>
+</head>
+<body>
+    <div class="curtain"></div>
+    <div class="load-screen">Loading...</div>
+    </div>
+    <div class="header">
+        <div class="world">
+            <div class="links">
+                <p><a class="link-panel" href="index.html">   Home   </a></p>
+                <p><a class="link-panel" href="works.html">    Works    </a></p>
+                <p><a class="link-panel" href="about.html">   About    </a></p>
+                <p><a class="link-panel" href="contact.html">   Contact   </a></p>
+            </div>
+        </div>
+    </div>
+    <div class="About">
+        <h1>Contact form</h1>
+        <p>Webサイトをご覧いただき誠にありがとうございます。私について気にな<br>
+            ることがありましたら、下記のメッセージフォームをご利用ください。</p>
+    </div>
+    <div class="container">
+        <form action="blog.php" method="post">
+            <div class="flexbox">
+                <form action="blog.php" method="POST">
+                <ul>
+                    <li class="item">name</li>
+                        <input type="text" name="name" rows="10" class="example1">
+                    <li class="item2">Email</li>
+                        <input type="text" name="Email" rows="10" class="example1">
+                </ul>
+                <ul>
+                    <li class="item">message</li>
+                        <textarea name="message"  id="content"cols="30" rows="10" class="example2"></textarea>
+                </ul>
+            </div>
+            <div class="submit">
+                <input type="submit" value="send">
+            </div>
+        </form>
+    </div>
+    <script>
+        window.addEventListener('load', e => {
+            let target1 = document.querySelector('.curtain');
+            let target2 = document.querySelector('.load-screen');
+            target1.style.display = target2.style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,185 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    max-width: 100%;
+}
+.img  {
+    background-image: url(kasihara.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-color: #c7c7c7;
+   background-blend-mode: hard-light
+}
+
+.world {
+    border-bottom: 2px solid #000000;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+}
+
+p {
+    display: inline;
+}
+
+.link-panel {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 100;
+    width: 100px;
+    padding: 20px 10px;
+    margin: 0px 5px;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  p:last-child a {
+    margin-right: 0;
+  }
+  
+  a:link, a:visited, a:focus {
+    color: #000000;
+  }
+  
+  a:hover {
+    background-color: #56befa;
+  
+}
+  a:active {
+    background: rgba(4, 0, 255, 0.473);
+    color: rgb(255, 255, 255);
+  }
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.icon {
+   height: 80px;
+   margin: 60px 20px 0px 0px;
+}
+
+img {
+   border-radius: 50%;
+   object-fit: cover;
+   object-position:54% 36%;
+}
+
+.screen-name {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 70px;
+    color: rgb(0, 0, 0);
+    margin: 60px 20px 0px 0px ;
+    height: 80px;
+}
+
+.container {
+    padding: 50px 300px;
+}
+
+.about {
+    text-align: left;
+    font-weight: 400;
+    font-size: larger;
+}
+
+@media (max-width:480px) {
+
+
+    .link-panel {
+        font-size: 15px;
+        font-family: monospace;
+        font-weight: 50;
+        width: 50px;
+        padding: 20px 10px;
+        margin: 0px 5px;
+    }
+
+    .img {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #c7c7c7;
+        background-blend-mode: hard-light;
+    }
+    .container {
+        padding: 20px 100px 120px;
+    }
+
+    .about {
+        font-weight: 400;
+        font-size:small;
+    }
+
+    .abuot br {
+        display: none;
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .icon {
+       height: 40px;
+       margin: 60px 20px 0px 0px;
+    }
+    
+    img {
+       border-radius: 50%;
+       object-fit: cover;
+       object-position:54% 36%;
+    }
+    
+    .screen-name {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+        margin: 60px 20px 0px 0px ;
+        padding-top: 20px;
+        height: 40px;
+    }
+}
+
+.curtain {
+    position: fixed;
+    width: 100%;
+    height: 120%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 2;
+}
+
+.load-screen {
+    z-index: 3;
+    position: fixed;
+    margin: auto;
+    top: 50vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    color: white;
+}

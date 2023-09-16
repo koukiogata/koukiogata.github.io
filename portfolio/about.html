@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="about.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ogata Kouki's Portfolio</title>
+</head>
+<body>
+    <div class="curtain"></div>
+    <div class="load-screen">Loading...</div>
+    </div>
+    <div class="header">
+        <div class="World">
+            <div class="links">
+                <p><a class="link-panel" href="index.html">   Home   </a></p>
+                <p><a class="link-panel" href="works.html">    Works    </a></p>
+                <p><a class="link-panel" href="about.html">   About    </a></p>
+                <p><a class="link-panel" href="contact.html">   Contact   </a></p>
+            </div>
+        </div>
+    </div>
+    <div id="jo-">
+        <div class="img">
+            <img src="風景art.jpg" alt="アイコン" width="300px">
+        </div>
+        <div class="self">
+            <div class="item">
+                <p>名前：尾方晧気</p>
+            </div>
+            <div class="item">
+                <p>出身地：奈良県</p>
+            </div>
+            <div class="item">
+                <p>生年月日：2002年3月5日</p>
+            </div>
+            <div class="item">
+                <p>橿原学院高等学校　卒業</p>
+            </div>
+            <div class="item">
+                <p>バンタンデザイン研究所大阪校　卒業</p>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div class="hobby">
+            <ul>
+                <h1>life</h1>
+                <li>ランニング</li>
+                <p>
+                    私は時間が空いた時外に出てランニングすることがあります。</br>
+                    日々のストレスの解消やリラックスになるのでやってます。</p>
+                <li>絵を描くこと</li>
+                <p>
+                    Web制作で集中力が続かなかった時は、絵を描きます。
+                </p>
+                <li>友達と旅行に行くこと</li>
+                <p>
+                    旅行に行っている時は、日常のストレスから解放された気分を</br>
+                    感じられます。旅行から帰ってくると明日も頑張ろう！という</br>
+                    気持ちになります。なので定期的に友達と旅行に行きます。
+                </p>
+            </ul>
+        </div>
+        <div class="skill">
+            <ul>
+                <h1>skill</h1>
+                <li>Photoshop</li>
+                <p>
+                    背景や人物などの写真の加工や画像の組み合わせができます。
+                </p>
+                <li>Illustrator</li>
+                <p>
+                    テキストを配置したりロゴやイラストなどもできます。
+                </p>
+                <li>HTML</li>
+                <p>
+                    HTMLは基礎的なタグを使用してページを一から作成できます。
+                </p>
+                <li>CSS</li>
+                <p>
+                    CSSはモダンなプロパティを使いこなせます。
+                </p>
+            </ul>
+        </div>
+    </div>
+    <div id="item2">
+        <div class="accordion">
+            <input type="checkbox" id="check1" class="accordion-hidden">
+            <label for="check1" class="accordion-open">mission</label>
+            <label for="check1" class="accordion-close">
+                <p>好きな言葉は「努力は夢中に勝てない」です。これは高校での創作活動や、大学</br>
+                    での課題制作などで実感したことから好きになった言葉です。夢中になりながら</br>
+                    楽しんでイキイキと課題に取り組むことは、自分の人生を有意義に生きるために</br>
+                    重要であると考えています。
+                </p>
+            </label>
+          
+            <input type="checkbox" id="check2" class="accordion-hidden">
+            <label for="check2" class="accordion-open">style</label>
+            <label for="check2" class="accordion-close">
+                <p>私は何か物事に取り組んでいる時に、集中力が切れてしまうことがよくあります。</br>
+                    独学でプログラミングをしている時、一時間が限界でした、これに対し、同じ作業</br>
+                    をするのではなく、目標を決め短時間で分けて作業することにしています。</br>
+                </p>
+            </label>
+          
+            <input type="checkbox" id="check3" class="accordion-hidden">
+            <label for="check3" class="accordion-open">idea</label>
+            <label for="check3" class="accordion-close">
+                <p>インターネット発祥の文化と、それを取り巻く独特の空気感がすごく好きです。</br>
+                    80・90年代のアニメようなコントラストの強い配色とSF映画のガタカのような</br>
+                    空気感に惹かれました。浮かんだイメージ、ファッション、空間のアイデア、</br>
+                    いろんなものを混ぜながら空想的なデザインにすることが好きです。
+                </p>
+            </label>
+          
+            <input type="checkbox" id="check4" class="accordion-hidden">
+            <label for="check4" class="accordion-open">vision</label>
+            <label for="check4" class="accordion-close">
+                <p>私はITエンジニアになり大きなプロジェクトに関わっていきたいです。3年以内</br>
+                    に部下3名のマネジメントや事業の立ち上げに関わりたいと思っています。まず</br>
+                    は現場で経験を積みながら1年目以降に資格取得を積極的に行っていきたいと思</br>
+                    っています。
+                </p>
+            </label>
+          </div>
+    </div>
+    <script>
+        window.addEventListener('load', e => {
+            let target1 = document.querySelector('.curtain');
+            let target2 = document.querySelector('.load-screen');
+            target1.style.display = target2.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
