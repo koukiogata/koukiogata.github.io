@@ -1,55 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>Ogata Kouki's Portfolio</title>
-        <link rel="stylesheet" href="./style.css">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-    </head>
-    <body>
-        <div class="curtain"></div>
-        <div class="load-screen">Loading...</div>
-        <div class="img">
-            <div class="world">
-                <div class="links">
-                    <p><a class="link-panel" href="index.html">   Home   </a></p>
-                    <p><a class="link-panel" href="works.html">    Works    </a></p>
-                    <p><a class="link-panel" href="about.html">   About    </a></p>
-                    <p><a class="link-panel" href="contact.html">    Cotact   </a></p>
-                </div>
-            </div>
-            <div class="wed">
-                <div class="smile">
-                    
-                </div>
-                <div class="header">
-                    <div class="pop-assets">
-                        <img src="" alt="">
-                    </div>
-                    <div class="icon">
-                        <img src="https://cdn.discordapp.com/attachments/1027152914873069610/1039476375356178472/IMG_1789.jpg"
-                        alt="アイコン" width="80px" height="80px">
-                    </div>
-                    <div class="pop-assets">
-                        <img src="" alt="">
-                    </div>
-                    
-                    <h1 class="screen-name">Kouki</h1>
-                </div>
-                <div class="container">
-                    <p class="about">
-                        ファッション専門学校を卒業したWEBデザイナーです。ECサイトの様なWEBページを一から構築できるようになるまで技術を高めたいです。私は自分のブランドプロデュースすることを目標として今まで数々のデザインや服の作り方などを学んできました。そしてweb技術を習得し自分自身のデザインしたECサイトで自分のファッションブランドでマーケティングすることを目指しています。
-                    <p class="desc">
-                    </p>
-                </div>
-            </div>
-        </div>    
-        <script>
-            window.addEventListener('load', e => {
-                let target1 = document.querySelector('.curtain');
-                let target2 = document.querySelector('.load-screen');
-                target1.style.display = target2.style.display = 'none';
-            });
-        </script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <title>kouki's portfolio</title>
+</head>
+<body>
+    <div class="content">
+        <div class="inner">
+            <ul>
+                <li>
+                    <a href="index.html">home</a>
+                    <a href="works.html">works</a>
+                    <a href="about.html">about</a>
+                </li>
+                <li>
+                    <h1>portfolio | Home</h1> 
+                </li>
+                <li>
+                    <h2>kouki</h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="primary">
+        <div class="secondray">
+            <img src="/image/bird.png" alt="" width="50px" height="50px">
+            <h3>cloud_design</h3>
+        </div>
+        <nav class="table">
+            <a href="works.html#table">banner</a>
+            <a href="works.html#product-content">LPpage</a>
+        </nav>
+    </div>
+</body>
 </html>

@@ -1,0 +1,7 @@
+@media screen and (min-with:356px){
+    .content .inner {
+        display: flex;
+        flex-direction: column;
+        
+    }
+}
