@@ -19,6 +19,10 @@
     margin: 0 2px;
 } 
 
+.content .inner ul li a:hover{
+    color:#cccccc;
+}
+
 .content .inner ul li h2{
     font-weight: 12;
 }
@@ -43,12 +47,10 @@
     justify-content: space-around;
     margin-bottom: 30px;
     width: 100%;
-    border: 1px solid #03c;
+    box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
+    padding: 10px 0;
 }
 
-.content .inner ul li a:hover{
-    color:#cccccc;
-}
 
 .card-text {
     flex-basis:  500px;
@@ -56,17 +58,27 @@
 
 .card-text h2{
     padding-top: 10px;
+    padding-bottom: 5px;
     font-size: 1em;
 }
 .card-text p{
-    font-size: 16px; 
+    font-size: 70%; 
     line-height: 1.5;
+    padding-bottom: 30px;
+
 }
 
 .card-img {
     flex-basis: 300px;
+    padding: 20px 5px 0 5px;
 }
 
+#product-content {
+    margin: 10px;
+    padding: 50px 10px 100px 10px;
+    box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
+    margin-bottom: 50px;
+}
 
 .product-img{
     text-align: center;
@@ -101,10 +113,76 @@
 
 .minew a{
     text-decoration: none;
-    font-size: 
 }
 
 .minew {
     margin: 0 100px;
     margin-bottom: 50px;
+}
+
+@media screen and (max-width:768px){
+    .content .inner {
+        max-width: 100%;
+        margin: 0 10px;
+        margin-top: auto;
+        margin-bottom: 50px;
+    }
+    
+    .content .inner ul{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .content .inner ul li{
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        padding: 5px;
+    }
+    
+    .content .inner ul li a{
+        margin-right: 20px;
+        font-size: 20px;
+        margin-bottom: 30px;
+    } 
+
+    #table .secondray {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+
+    .card-container {
+        margin-bottom: 100px;
+    }
+
+    .card-text {
+        text-align: center;
+    }
+
+    .card-text p {
+        text-align: left;
+        padding: 30px;
+        font-size: 50%;
+    }
+
+    .product-text {
+        margin-top: 100px;
+        justify-content: space-around;
+    }
+
+    .product-text a{
+        font-size: 10px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    
+    .product-text h3{
+        font-size: 20px;
+        font-weight: 10 ;
+    }
+
+    .minew {
+        margin: 0 10px;
+        font-size: 30%;
+    }
 }
