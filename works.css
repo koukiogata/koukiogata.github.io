@@ -70,7 +70,8 @@ nav .inner ul li a:hover{
     margin-bottom: 30px;
     width: 100%;
     box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
-    padding: 10px 0;
+    padding: 40px 0;
+    border-radius: 10px;
 }
 
 
@@ -84,7 +85,6 @@ nav .inner ul li a:hover{
     font-size: 1em;
 }
 .card-text p{
-    font-size: 70%; 
     line-height: 1.5;
     padding-bottom: 30px;
 
@@ -92,7 +92,7 @@ nav .inner ul li a:hover{
 
 .card-img {
     flex-basis: 300px;
-    padding: 20px 5px 0 5px;
+    padding: 0px 5px 0 5px;
 }
 
 #product-content {
@@ -100,6 +100,7 @@ nav .inner ul li a:hover{
     padding: 50px 10px 100px 10px;
     box-shadow: 0 10px 25px 0 rgba(60, 194, 235, 0.5);
     margin-bottom: 50px;
+    border-radius: 10px;
 }
 
 .product-img{
