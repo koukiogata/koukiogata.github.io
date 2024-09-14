@@ -1,0 +1,102 @@
+@charset "UTF-8";
+@import url(reset.css);
+
+body {
+    font-family: 'Roboto', sans-serif; /* ウェブサイト全体に適用 */
+}
+/* 外側のコンテナのスタイリング */
+#outer-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ローディングコンテナのスタイリング */
+#loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* テキストコンテナのスタイリング */
+#text-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: fit-content; /* コンテンツに合わせて幅を調整 */
+}
+
+/* visualのラッパーのスタイリング */
+#visual-wrapper {
+    width: auto; /* visual要素の幅を自動に設定 */
+    overflow: hidden; /* はみ出た内容を隠す */
+    position: absolute; /* 絶対位置指定 */
+    left: 100%; /* Kの右端からスタート */
+    white-space: nowrap; /* 改行を防ぐ */
+}
+
+#visual {
+    display: none;
+    font-size: 5em;
+    position: relative; /* 相対位置指定 */
+    left: 0; /* 初期位置を親要素の端に設定 */
+    margin-left: 10px;
+}
+
+
+/* ローディング要素のスタイリング */
+#loading {
+    font-size: 5em;
+    visibility: visible;
+    /* animation: bounceIn 1.5s ease-in-out forwards; アニメーションを適用 */
+}
+
+/* @keyframes bounceIn {
+    0% {
+        transform: translateY(100%); /* 画面下からスタート */
+    /* } */
+    /* 30% { */
+        /* transform: translateY(-10%); 小さく跳ねる */
+    /* } */
+    /* 100% { */
+        /* transform: translateY(0); 元の位置に戻る */
+    /* } */
+/* } */ 
+#frame {
+    stroke-dasharray: 1200;  /* 長方形の周囲の長さ */
+    stroke-dashoffset: 1200; /* 初期状態で線が見えないように全周分オフセット */
+    animation: draw-frame 3s linear forwards; /* 2秒で描画、アニメーションは線形に */
+}
+
+@keyframes draw-frame {
+    to {
+        stroke-dashoffset: 0; /* 終了時に線が完全に見えるように */
+    }
+}
+@media (max-width: 768px) {
+    svg {
+        transform: translate(-50%, -50%) scale(0.4); /* モバイルデバイスのためにサイズを縮小 */
+    }
+  
+}
+
+@media (max-width: 480px) {
+    svg {
+        transform: translate(-50%, -50%) scale(0.2); /* 更に小さいデバイスでさらに縮小 */
+    }
+  
+}
+/* ベーススタイル */
+#text-container {
+    font-size: clamp(6px, 1vw, 20px); /* デフォルトのフォントサイズ */
+    fill: #333; /* テキストカラー */
+}
+svg {
+    padding: 30px;
+}
+
+/* タブレットサイズのデバイスに対応 */
+
