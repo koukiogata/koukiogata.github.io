@@ -115,3 +115,14 @@ svg {
 .backcolor {
     background-color: #cc6464;
 }
+svg:hover {
+    cursor: pointer;  /* ホバー時にカーソルをポインタに変更 */
+    opacity: 0.8;     /* ホバー時に透明度を下げる */
+}
+
+svg rect:hover {
+    fill: rgb(255, 255, 255);        /* ホバー時にrect要素の塗りつぶし色を赤に変更 */
+}
+svg rect:active {
+    fill: rgb(255, 255, 255);        /* ホバー時にrect要素の塗りつぶし色を赤に変更 */
+}

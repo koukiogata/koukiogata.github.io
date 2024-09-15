@@ -5,10 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const frame = document.getElementById('frame'); // frame要素の取得を追加
     const svg = document.querySelector('svg');
     const background = document.getElementById('background');
-
+    const outerContainer = document.getElementById('outer-container')
 
     svg.style.display = 'none';
 
+    document.body.style.overflow = 'hidden';
 
     // Kのアニメーション定義と実行
     loading.animate([
@@ -59,6 +60,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     ], {
                         duration: 500,
                         fill: 'forwards'
+                    });
+                    svg.addEventListener('click', function() {
+                        // outer-containerのフェードアウトアニメーションを設定（中央から透明になっていく）
+                        outerContainer.animate([
+                            { transform: 'scaleY(1)', opacity: 1 }, // 元の大きさから開始
+                            { transform: 'scaleY(1)', opacity: 0 }  // 垂直方向に縮小しながら透明になる
+                        ], {
+                            duration: 500,
+                            easing: 'ease-in-out',
+                            fill: 'forwards'
+                        }).finished.then(() => {
+                            outerContainer.style.display = 'none';
+                            document.body.style.overflow = 'auto'; // アニメーションが完了したら表示を非表示にする
+                        });
                     });
                 });
 
