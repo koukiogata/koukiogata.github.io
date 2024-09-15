@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const background = document.getElementById('background');
     const outerContainer = document.getElementById('outer-container')
 
-    svg.style.display = 'none';
-
     document.body.style.overflow = 'hidden';
+    svg.style.display = 'none';
 
     // Kのアニメーション定義と実行
     loading.animate([

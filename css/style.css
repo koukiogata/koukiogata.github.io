@@ -15,10 +15,14 @@ body {
 }
 /* 外側のコンテナのスタイリング */
 #outer-container {
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
 }
 
 /* ローディングコンテナのスタイリング */
