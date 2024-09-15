@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const textContainer = document.getElementById('text-container');
     const frame = document.getElementById('frame'); // frame要素の取得を追加
     const svg = document.querySelector('svg');
+    const background = document.getElementById('background');
+
 
     svg.style.display = 'none';
 
@@ -38,13 +40,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }).finished.then(() => {
                 svg.style.display = 'block';
                 // textContainerアニメーション完了後にframeのアニメーションを開始
-                    frame.animate([
-                        { strokeDashoffset: 1200 },
-                        { strokeDashoffset: 0 }
+                frame.animate([
+                    { strokeDashoffset: 1200 },
+                    { strokeDashoffset: 0 }
+                ], {
+                    duration: 2000,
+                    fill: 'forwards'
+                }).finished.then(() => {
+                    frame.setAttribute('fill', 'black');
+                    frame.setAttribute('stroke', 'white');
+                    loading.style.color = 'white';
+                    visual.style.color = 'white';
+                    // SVGアニメーション完了後に背景のオパシティを1に変更
+                    background.style.opacity = 1;
+                    background.animate([
+                        { transform: 'scaleY(0)' }, // 中央から始まる拡大
+                        { transform: 'scaleY(1)' } // 画面全体をカバー
                     ], {
-                        duration: 2000,
+                        duration: 500,
                         fill: 'forwards'
                     });
+                });
+
             });
         }, 1000); // 0.5秒の遅延
     };
