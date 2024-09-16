@@ -1,18 +1,26 @@
 @charset "UTF-8";
 @import url(reset.css);
 
-body {
-    font-family: 'Roboto', sans-serif; /* ウェブサイト全体に適用 */
+* {
+    box-sizing: border-box;
 }
+body {
+    font-family: 'Roboto', sans-serif;
+    /* ウェブサイト全体に適用 */
+}
+
 #background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black; /* 任意の背景色 */
-    transition: opacity 0.5s ease; /* オパシティのトランジション */
+    background-color: black;
+    /* 任意の背景色 */
+    transition: opacity 0.5s ease;
+    /* オパシティのトランジション */
 }
+
 /* 外側のコンテナのスタイリング */
 #outer-container {
     position: fixed;
@@ -34,7 +42,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     width: 100%;
 }
 
@@ -43,24 +50,36 @@ body {
     display: flex;
     align-items: center;
     position: relative;
-    width: fit-content; /* コンテンツに合わせて幅を調整 */
-    z-index: 10; 
+    width: fit-content;
+    /* コンテンツに合わせて幅を調整 */
+    z-index: 10;
+    font-size: clamp(6px, 1vw, 20px);
+    /* デフォルトのフォントサイズ */
+    fill: #333;
+    /* テキストカラー */
 }
 
 /* visualのラッパーのスタイリング */
 #visual-wrapper {
-    width: auto; /* visual要素の幅を自動に設定 */
-    overflow: hidden; /* はみ出た内容を隠す */
-    position: absolute; /* 絶対位置指定 */
-    left: 100%; /* Kの右端からスタート */
-    white-space: nowrap; /* 改行を防ぐ */
+    width: auto;
+    /* visual要素の幅を自動に設定 */
+    overflow: hidden;
+    /* はみ出た内容を隠す */
+    position: absolute;
+    /* 絶対位置指定 */
+    left: 100%;
+    /* Kの右端からスタート */
+    white-space: nowrap;
+    /* 改行を防ぐ */
 }
 
 #visual {
     display: none;
     font-size: 5em;
-    position: relative; /* 相対位置指定 */
-    left: 0; /* 初期位置を親要素の端に設定 */
+    position: relative;
+    /* 相対位置指定 */
+    left: 0;
+    /* 初期位置を親要素の端に設定 */
     margin-left: 10px;
 }
 
@@ -68,68 +87,189 @@ body {
 /* ローディング要素のスタイリング */
 #loading {
     font-size: 5em;
-    visibility: visible;
+    /* visibility: visible; */
     /* animation: bounceIn 1.5s ease-in-out forwards; アニメーションを適用 */
 }
 
 /* @keyframes bounceIn {
     0% {
         transform: translateY(100%); /* 画面下からスタート */
-    /* } */
-    /* 30% { */
-        /* transform: translateY(-10%); 小さく跳ねる */
-    /* } */
-    /* 100% { */
-        /* transform: translateY(0); 元の位置に戻る */
-    /* } */
-/* } */ 
+/* } */
+/* 30% { */
+/* transform: translateY(-10%); 小さく跳ねる */
+/* } */
+/* 100% { */
+/* transform: translateY(0); 元の位置に戻る */
+/* } */
+/* } */
 #frame {
-    stroke-dasharray: 1200;  /* 長方形の周囲の長さ */
-    stroke-dashoffset: 1200; /* 初期状態で線が見えないように全周分オフセット */
-    animation: draw-frame 3s linear forwards; /* 2秒で描画、アニメーションは線形に */
+    stroke-dasharray: 1200;
+    /* 長方形の周囲の長さ */
+    stroke-dashoffset: 1200;
+    /* 初期状態で線が見えないように全周分オフセット */
+    animation: draw-frame 3s linear forwards;
+    /* 2秒で描画、アニメーションは線形に */
 }
 
 @keyframes draw-frame {
     to {
-        stroke-dashoffset: 0; /* 終了時に線が完全に見えるように */
+        stroke-dashoffset: 0;
+        /* 終了時に線が完全に見えるように */
     }
 }
+
 @media (max-width: 768px) {
     svg {
-        transform: translate(-50%, -50%) scale(0.4); /* モバイルデバイスのためにサイズを縮小 */
+        transform: translate(-50%, -50%) scale(0.4);
+        /* モバイルデバイスのためにサイズを縮小 */
     }
-  
+
 }
 
 @media (max-width: 480px) {
     svg {
-        transform: translate(-50%, -50%) scale(0.2); /* 更に小さいデバイスでさらに縮小 */
+        transform: translate(-50%, -50%) scale(0.2);
+        /* 更に小さいデバイスでさらに縮小 */
     }
-  
+
 }
-/* ベーススタイル */
-#text-container {
-    font-size: clamp(6px, 1vw, 20px); /* デフォルトのフォントサイズ */
-    fill: #333; /* テキストカラー */
-}
+
 svg {
     color: #fff;
+    max-width: 100%; /* 要素がはみ出さないように最大幅を設定 */
+    height: auto;
 }
+
 /* タブレットサイズのデバイスに対応 */
 .backcolor {
     background-color: #cc6464;
 }
+
 svg:hover {
-    cursor: pointer;  /* ホバー時にカーソルをポインタに変更 */
-    opacity: 0.8;     /* ホバー時に透明度を下げる */
+    cursor: pointer;
+    /* ホバー時にカーソルをポインタに変更 */
+    opacity: 0.8;
+    /* ホバー時に透明度を下げる */
 }
 
 svg rect:hover {
-    fill: rgb(255, 255, 255);        /* ホバー時にrect要素の塗りつぶし色を赤に変更 */
+    fill: rgb(255, 255, 255);
+    /* ホバー時にrect要素の塗りつぶし色を赤に変更 */
 }
+
 svg rect:active {
-    fill: rgb(255, 255, 255);        /* ホバー時にrect要素の塗りつぶし色を赤に変更 */
+    fill: rgb(255, 255, 255);
+    /* ホバー時にrect要素の塗りつぶし色を赤に変更 */
 }
+
 header img {
     width: 100%;
+}
+
+#header {
+    background-color: #D9D9D9;
+    width: 30vw;
+    position: fixed;
+    /* opacity: 0; */
+}
+
+.header-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    ul {
+        width: 100%;
+        text-align: center;
+
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #B1B1B1;
+            font-size: 20px;
+            list-style: none;
+        }
+
+        li:nth-child(1) {
+            border-top: 1px solid #B1B1B1;
+        }
+    }
+}
+#main,  #about {
+    width: 100%; /* 100vw ではなく 100% に変更 */
+}
+#main {
+    height: 100vh;
+    background-color: #fff;
+
+    .main-contenir {
+        height: 100vh;
+        display: flex;
+        justify-content: right;
+
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            align-items: center;
+            width: 70vw;
+
+            h1 {
+                right: 0;
+                text-align: center;
+                font-size: 4vw;
+
+            }
+
+            p {
+                display: flex;
+                justify-content: center;
+                align-items: center; /* テキストと線を縦方向に中央揃え */
+            }
+
+            p::before,
+            p::after {
+                content: "";
+                display: inline-block;
+                width: 50px;
+                /* 横線の幅 */
+                height: 1px;
+                /* 横線の太さ */
+                background-color: black;
+                /* 横線の色 */
+            }
+
+            p::before {
+                margin-right: 10px;
+                /* テキストと線の間の余白 */
+            }
+
+            p::after {
+                margin-left: 10px;
+                /* テキストと線の間の余白 */
+            }
+
+        }
+    }
+
+    #about {
+        height: 100vh;
+        display: flex;
+        justify-content: right;
+        
+        .about-wrapper {
+            background-color: #000;
+            height: 100vh;
+            width: 70vw;
+        }
+
+        h2 {
+            color: #fff;
+        }
+        p{
+            color:#fff;
+        }
+    }
 }
