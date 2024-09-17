@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <script src="script.js" defer></script>
     <title>k-criert/portfolio</title>
 </head>
+
 <body>
+
     <body>
         <!-- ローディング画面用の要素、初めは非表示 -->
         <div id="outer-container">
@@ -21,37 +24,66 @@
                         <div id="visual">CREATE</div>
                     </div>
                 </div>
-                <svg width="70vw" height="20vw" viewBox="0 0 500 100" preserveAspectRatio="xMidYMid meet" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                    <rect id="frame" x="0" y="0" width="500" height="100" fill="none"fill="white" stroke="black" stroke-width="3" />
+                <svg width="70vw" height="20vw" viewBox="0 0 500 100" preserveAspectRatio="xMidYMid meet"
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <rect id="frame" x="0" y="0" width="500" height="100" fill="none" fill="white" stroke="black"
+                        stroke-width="3" />
                 </svg>
-                
+
             </div>
         </div>
         <header id="header">
             <div class="header-wrapper">
                 <ul>
-                    <li>TOP</li>
-                    <li>ABOUT</li>
-                    <li>WORKS</li>
-                    <li>TESTIMONIALS</li>
-                    <li>SNS</li>
+                    <li><a href="#top" id="top-btn">TOP</a></li>
+                    <li><a href="#about" id="about-btn">ABOUT</a></li>
+                    <li><a href="#works" id="works-btn">WORKS</a></li>
+                    <li><a href="#testimonials" id="testimonials-btn">TESTIMONIALS</a></li>
+                    <li><a href="#sns" id="sns-btn">SNS</a></li>
                 </ul>
             </div>
         </header>
-        <main id="main">
-            <div class="main-contenir">
-                <div class="main-wrapper">
+        <main id="top" class="scroll-section">
+            <div class="top-contenir">
+                <div class="top-wrapper">
                     <h1>K-CREATE</h1>
-                    <p class="main-text-line">Designing the Future</p>
+                    <p class="top-text-line">Designing the Future</p>
                 </div>
             </div>
-            <section id="about">
-                <div class="about-wrapper">
-                    <h2>KOUKI</h2>
-                    <p>2002/03/05</p>
+            <section id="about" class="scroll-section">
+                <div id="about-flex">
+                    <div class="about-wrapper">
+                        <div class="about-contenir">
+                            <div class="about-text">
+                                <h2>KOUKI</h2>
+                                <p>2002/03/05</p>
+                            </div>
+                            <img src="image/tobias-rademacher-uTjbuFbhTug-unsplash 1.jpg" alt="">
+                        </div>
+                        <div class="about-paragraph">
+                            <p>こんにちは、koukと申します。WEBデザインに興味を持ち始めて2年が経ちました。この期間の中で、多様なクライアントの要望に応える機会をいただき、数々の発見とともに失敗から学ぶ貴重な経験をしてきました。
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
+                <div id="about-flex">
+                    <div class="about-wrapper skli">
+                        <p> HTML、CSS、JavaScript、最新のフレームワークやライブラリ（React、Vue.jsなど）にも精通しており、レスポンシブデザインとクロスブラウザ対応を常に心掛けています。
+                        </p>
+                        <div class="skli-sheet">
+                            <ul>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Javascript</li>
+                                <li>Vue.js</li>
+                                <li>React</li>
+                            </ul>
+                        </div>
+                    </div>
             </section>
         </main>
     </body>
 </body>
+
 </html>

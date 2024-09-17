@@ -1,9 +1,7 @@
 @charset "UTF-8";
 @import url(reset.css);
 
-* {
-    box-sizing: border-box;
-}
+
 body {
     font-family: 'Roboto', sans-serif;
     /* ウェブサイト全体に適用 */
@@ -136,7 +134,8 @@ body {
 
 svg {
     color: #fff;
-    max-width: 100%; /* 要素がはみ出さないように最大幅を設定 */
+    max-width: 100%;
+    /* 要素がはみ出さないように最大幅を設定 */
     height: auto;
 }
 
@@ -168,10 +167,16 @@ header img {
 
 #header {
     background-color: #D9D9D9;
-    width: 30vw;
+    width: 30%;
     position: fixed;
     /* opacity: 0; */
 }
+
+/* @media screen and (max-width: 770px){
+    header {
+        display: none;
+    }
+} */
 
 .header-wrapper {
     height: 100vh;
@@ -185,10 +190,28 @@ header img {
         text-align: center;
 
         li {
-            padding: 10px 0;
             border-bottom: 1px solid #B1B1B1;
             font-size: 20px;
             list-style: none;
+        }
+        
+        a {
+            padding: 10px 0;
+            color: #000;
+            text-decoration: none;
+            width: 100%;
+            display: block;
+        }
+
+       
+
+        #top-btn.active {
+            background-color: #fff;
+        }
+
+        #about-btn.active {
+            background-color: #000000;
+            color: #d9d9d9;
         }
 
         li:nth-child(1) {
@@ -196,19 +219,23 @@ header img {
         }
     }
 }
-#main,  #about {
-    width: 100%; /* 100vw ではなく 100% に変更 */
+
+#top,
+#about {
+    width: 100%;
+    /* 100vw ではなく 100% に変更 */
 }
-#main {
+
+#top {
     height: 100vh;
     background-color: #fff;
 
-    .main-contenir {
+    .top-contenir {
         height: 100vh;
         display: flex;
         justify-content: right;
 
-        .main-wrapper {
+        .top-wrapper {
             display: flex;
             justify-content: center;
             flex-direction: column;
@@ -226,7 +253,8 @@ header img {
             p {
                 display: flex;
                 justify-content: center;
-                align-items: center; /* テキストと線を縦方向に中央揃え */
+                align-items: center;
+                /* テキストと線を縦方向に中央揃え */
             }
 
             p::before,
@@ -254,22 +282,113 @@ header img {
         }
     }
 
-    #about {
+    #about-flex {
         height: 100vh;
         display: flex;
         justify-content: right;
-        
+        border-bottom: 1px solid #5d5d5d;
+
         .about-wrapper {
             background-color: #000;
             height: 100vh;
             width: 70vw;
+
+            .about-contenir {
+                display: flex;
+
+                .about-text {
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 30%;
+                    margin: 3rem;
+
+                    h2 {
+                        text-align: left;
+                        font-size: 3vw;
+                        padding: 2vw 0;
+                        position: relative;
+                        color: #d9d9d9;
+                    }
+
+                    p {
+                        font-size: 10px;
+                        position: absolute;
+                        color: #d9d9d9;
+                    }
+                }
+
+                img {
+                    width: 70%;
+                }
+            }
         }
 
-        h2 {
-            color: #fff;
+        .about-paragraph {
+            color: #d9d9d9;
+            width: 100%;
         }
-        p{
-            color:#fff;
+
+        .about-paragraph p {
+            padding: 1.5rem calc(90 / 1366 * 100%);
+            line-height: 1.5;
+            max-width: 50vw;
+
         }
+
+        .skli {
+            p {
+                padding: 0 calc(90 / 1366 * 100%);
+                padding-top: calc(90 / 1366 * 100%);
+                color: #fff;
+                line-height: 1.5;
+            }
+
+            ul {
+                width: 30vw;
+
+            }
+
+            li {
+                color: #d9d9d9;
+                list-style: none;
+                margin: 1rem 0;
+                padding: 2rem 0;
+                border-bottom: 3px solid #d9d9d9;
+            }
+
+            li:nth-child(1) {
+                width: 90%;
+            }
+
+            li:nth-child(2) {
+                width: 85%;
+
+            }
+
+            li:nth-child(3) {
+                width: 70%;
+
+            }
+
+            li:nth-child(4) {
+                width: 40%;
+
+            }
+
+            li:nth-child(5) {
+                width: 20%;
+
+            }
+
+            .skli-sheet {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
     }
 }
