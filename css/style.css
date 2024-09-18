@@ -1,8 +1,11 @@
 @charset "UTF-8";
 @import url(reset.css);
 
-
+html, body {
+    overflow: hidden; /* 全体でスクロールを無効にする */
+}
 body {
+    
     font-family: 'Roboto', sans-serif;
     /* ウェブサイト全体に適用 */
 }
@@ -29,6 +32,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    /* overflow: hidden; */
 }
 
 /* ローディングコンテナのスタイリング */
@@ -172,11 +176,27 @@ header img {
     /* opacity: 0; */
 }
 
-/* @media screen and (max-width: 770px){
+@media screen and (max-width: 770px) {
     header {
         display: none;
     }
-} */
+
+    .top-wrapper {
+        flex-grow: 1; 
+        justify-content: flex-start; /* 必要に応じて配置を調整（左揃えや中央揃えなど） */
+    }
+    
+
+    #top,
+    #about {
+        width: 100vw;
+        /* 100vw ではなく 100% に変更 */
+    }
+    .about-wrapper {
+        flex-grow: 1;
+    }
+
+}
 
 .header-wrapper {
     height: 100vh;
@@ -194,7 +214,7 @@ header img {
             font-size: 20px;
             list-style: none;
         }
-        
+
         a {
             padding: 10px 0;
             color: #000;
@@ -203,7 +223,7 @@ header img {
             display: block;
         }
 
-       
+
 
         #top-btn.active {
             background-color: #fff;
@@ -295,15 +315,15 @@ header img {
 
             .about-contenir {
                 display: flex;
-
+                
                 .about-text {
                     display: flex;
                     justify-content: end;
                     align-items: center;
                     flex-direction: column;
                     width: 30%;
-                    margin: 3rem;
-
+                    margin: 2vw;
+                    
                     h2 {
                         text-align: left;
                         font-size: 3vw;
@@ -311,14 +331,13 @@ header img {
                         position: relative;
                         color: #d9d9d9;
                     }
-
+                    
                     p {
                         font-size: 10px;
-                        position: absolute;
                         color: #d9d9d9;
                     }
                 }
-
+                
                 img {
                     width: 70%;
                 }
