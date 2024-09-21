@@ -1,13 +1,20 @@
 @charset "UTF-8";
 @import url(reset.css);
 
-html, body {
-    overflow: hidden; /* 全体でスクロールを無効にする */
+:root {
+    --paragraph-padding: calc(90 / 1366 * 100%);
+
 }
+
+/* html, body {
+    } */
 body {
-    
     font-family: 'Roboto', sans-serif;
     /* ウェブサイト全体に適用 */
+}
+
+p {
+    line-height: 1.5;
 }
 
 #background {
@@ -182,19 +189,24 @@ header img {
     }
 
     .top-wrapper {
-        flex-grow: 1; 
-        justify-content: flex-start; /* 必要に応じて配置を調整（左揃えや中央揃えなど） */
+        flex-grow: 1;
+        justify-content: flex-start;
+        /* 必要に応じて配置を調整（左揃えや中央揃えなど） */
     }
-    
+
 
     #top,
-    #about {
+    #about,
+    #works {
         width: 100vw;
         /* 100vw ではなく 100% に変更 */
     }
-    .about-wrapper {
+
+    .about-wrapper,
+    .works-wrapper {
         flex-grow: 1;
     }
+
 
 }
 
@@ -234,6 +246,22 @@ header img {
             color: #d9d9d9;
         }
 
+        #works-btn.active {
+            background-color: #3C3C3C;
+            color: #d9d9d9;
+
+        }
+        
+        #testimonials-btn.active {
+            background-color: #616161;
+            color: #d9d9d9;
+
+        }
+        
+        #sns-btn.active {
+            background-color: #202020;
+            color: #d9d9d9;
+        }
         li:nth-child(1) {
             border-top: 1px solid #B1B1B1;
         }
@@ -241,19 +269,23 @@ header img {
 }
 
 #top,
-#about {
+#about,
+#works,
+#testimonials,
+#sns {
     width: 100%;
     /* 100vw ではなく 100% に変更 */
 }
 
 #top {
-    height: 100vh;
     background-color: #fff;
 
     .top-contenir {
         height: 100vh;
         display: flex;
         justify-content: right;
+        width: 100%;
+
 
         .top-wrapper {
             display: flex;
@@ -307,15 +339,16 @@ header img {
         display: flex;
         justify-content: right;
         border-bottom: 1px solid #5d5d5d;
+        width: 100%;
 
         .about-wrapper {
             background-color: #000;
             height: 100vh;
-            width: 70vw;
+            width: 70%;
 
             .about-contenir {
                 display: flex;
-                
+
                 .about-text {
                     display: flex;
                     justify-content: end;
@@ -323,21 +356,49 @@ header img {
                     flex-direction: column;
                     width: 30%;
                     margin: 2vw;
-                    
+
+                    .text-letter {
+                        text-align: left;
+                    }
+
                     h2 {
                         text-align: left;
                         font-size: 3vw;
-                        padding: 2vw 0;
+                        
                         position: relative;
                         color: #d9d9d9;
                     }
                     
                     p {
-                        font-size: 10px;
+                        font-size: 1vw;
                         color: #d9d9d9;
                     }
+                    @media screen and (max-width: 770px) {
+                        h2 {
+                            font-size: 5vw;
+                        }
+                        p {
+                            font-size: 2vw;
+                        }
+                    }
+                    @media screen and (max-width: 500px) {
+
+                        .about-text {
+                            display: flex;
+                            justify-content: center;
+                            align-items: flex-start;
+                            flex-direction: row;
+                        }
+
+                        h2 {
+                            padding: 2vw 0;
+                            font-size: 10vw;
+                        }
+
+                    }
+
                 }
-                
+
                 img {
                     width: 70%;
                 }
@@ -350,64 +411,461 @@ header img {
         }
 
         .about-paragraph p {
-            padding: 1.5rem calc(90 / 1366 * 100%);
+            padding: 1.5rem var(--paragraph-padding);
             line-height: 1.5;
-            max-width: 50vw;
+            max-width: 50%;
 
+        }
+
+        @media screen and (max-width: 770px) {
+
+            .about-paragraph p {
+                max-width: 70%;
+            }
+
+            .about-paragraph {
+                padding: 10vw 0;
+
+            }
+
+        }
+
+        @media screen and (max-width: 500px) {
+
+            .about-contenir {
+                flex-wrap: wrap-reverse;
+            }
+
+            .about-paragraph p {
+                padding: 1vw;
+                max-width: 100%;
+            }
+
+            .about-paragraph {
+                padding: 10vw 0;
+
+            }
+
+
+            img {
+                width: 100%;
+                flex: 1 1;
+            }
+
+            .about-text {
+                text-align: left;
+            }
         }
 
         .skli {
-            p {
-                padding: 0 calc(90 / 1366 * 100%);
-                padding-top: calc(90 / 1366 * 100%);
-                color: #fff;
-                line-height: 1.5;
-            }
 
-            ul {
-                width: 30vw;
-
-            }
-
-            li {
-                color: #d9d9d9;
-                list-style: none;
-                margin: 1rem 0;
-                padding: 2rem 0;
-                border-bottom: 3px solid #d9d9d9;
-            }
-
-            li:nth-child(1) {
-                width: 90%;
-            }
-
-            li:nth-child(2) {
-                width: 85%;
-
-            }
-
-            li:nth-child(3) {
-                width: 70%;
-
-            }
-
-            li:nth-child(4) {
-                width: 40%;
-
-            }
-
-            li:nth-child(5) {
-                width: 20%;
-
-            }
-
+            /* PCサイズ（770px以上） */
             .skli-sheet {
                 display: flex;
-                flex-direction: column;
+                flex-wrap: wrap;
                 justify-content: center;
-                align-items: center;
+
+            }
+
+            div {
+                flex-basis: calc(20% - 50px);
+                /* 60%の幅で、真ん中に配置 */
+            }
+
+            .sklli-level {
+                margin: 1vw 2vw;
+                flex: 1 1;
+            }
+
+
+            /* 770px以下のサイズ */
+            @media screen and (max-width: 770px) {
+
+
+                .skli {
+                    padding: 5vw 0;
+
+                }
+
+                p {
+                    padding: 2vw;
+                    margin-top: 10vw;
+                }
+
+                .skli-sheet {
+                    flex-direction: column;
+                    width: 100%;
+                    /* 縦並びに変更（必要に応じて） */
+                }
+
+                .sklli-level {
+                    flex: 1 1 100%;
+                    /* 100%で広がるように設定 */
+                    /* 余白を広げて全体に広がる */
+                    /* 縮まらないように設定 */
+                }
+            }
+
+
+
+        }
+
+        p {
+            padding: 0 var(--paragraph-padding);
+            padding-top: var(--paragraph-padding);
+            color: #fff;
+            line-height: 1.5;
+        }
+
+
+
+        li {
+            color: #d9d9d9;
+            list-style: none;
+            margin: 2rem 0;
+            padding: 1rem 0;
+            border-bottom: 3px solid #d9d9d9;
+        }
+
+        li:nth-child(1) {
+            width: 90%;
+        }
+
+        li:nth-child(2) {
+            width: 85%;
+
+        }
+
+        li:nth-child(3) {
+            width: 70%;
+
+        }
+
+        li:nth-child(4) {
+            width: 40%;
+
+        }
+
+        li:nth-child(5) {
+            width: 20%;
+
+        }
+
+    }
+
+    #works {
+        display: flex;
+        justify-content: right;
+        background-color: #3C3C3C;
+        width: 100%;
+        height: auto;
+        max-height: 100vh;
+
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-start;
+            width: 70%;
+            padding-bottom: 20vw; 
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .container {
+            -ms-overflow-style: none;
+            /* Internet Explorer, Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .box {
+            margin-top: 0.5vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* 上部と下部の間にスペースを最大化 */
+            padding: 1vw;
+            border: 1px solid #505050;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            height: 50vw;
+            max-height: 500px;
+        }
+
+        .content-group {
+            align-self: start;
+            /* 左寄せ */
+            width: 100%;
+            /* 幅をbox全体に */
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .box h2,
+        .box p,
+        .box a {
+            align-self: start;
+            /* 要素を左揃えに */
+            width: 100%;
+            /* 全幅を使う設定 */
+        }
+
+        .box h2 {
+            margin-bottom: 5px;
+            color: #d9d9d9;
+            margin-top: 2vw;
+        }
+
+        .box p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            /* pの下のマージンも設定 */
+            color: #d9d9d9;
+        }
+
+
+        .box a {
+            align-self: center;
+            /* 中央寄せ */
+            margin-top: auto;
+            /* 自動的に上部の空間を最大化して下に配置 */
+            display: block;
+            /* ブロック要素として扱う */
+            width: 50%;
+            /* 幅を50%に設定 */
+            text-align: center;
+            /*
+             テキスト中央寄せ */
+            border-radius: 25px;
+            /* 角を丸く */
+            text-decoration: none;
+            background: #d9d9d9;
+            color: #000;
+            transition: background-color 0.3s;
+            padding: 1vw 2vw;
+        }
+
+        .box a:hover {
+            background-color: #0056b3;
+            /* ホバー時の背景色を濃い青に変更 */
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                overflow-x: auto;
+                /* 横スクロールを有効にする */
+                display: flex;
+                flex-wrap: nowrap;
+                /* ボックスを折り返さずに一列に並べる */
+                width: 100%;
+            }
+
+            .box {
+                height: 60vh;
+                width: 40%;
+                /* 各ボックスの幅を画面幅の80%に設定 */
+                min-width: 300px;
+                /* ボックスの最小幅を300pxに設定 */
+                margin: 10px 5px;
+                /* マージンを調整 */
+                flex-shrink: 0;
+                /* フレックスアイテムの縮小を禁止 */
+                border-radius: 2vw;
+            }
+
+            .box a {
+                display: none;
             }
         }
 
+        @media screen and (max-width:770px) {
+            .container {
+                width: 100%;
+            }
+        }
+    }
+
+    #testimonials {
+        display: flex;
+        justify-content: right;
+        width: 100%;
+
+
+        .testimonials-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 70%;
+            background: #616161;
+        }
+
+        .testimonials-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #ddd;
+            width: 90%;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #7B7B7B;
+        }
+
+        .testimonial-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid black;
+            font-size: 0.8rem;
+            height: 20vh;
+        }
+
+        .icon-text-box {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-basis: 20%;
+            padding-left: 5vw;
+            color: #d9d9d9;
+        }
+
+        .icon img {
+            height: 5vw;
+            width: 5vw;
+            min-width: 50px;
+            min-height: 50px;
+        }
+
+        .label {
+            font-weight: bold;
+            width: 80px;
+        }
+
+        .content-box {
+            flex: 1 1 70%;
+            padding: 0 30px;
+            color: #d9d9d9;
+        }
+
+        .content,
+        ul.content {
+            flex-grow: 1;
+            text-align: left;
+            max-width: 100%;
+        }
+
+        ul.content {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 2px 0;
+        }
+
+        .testimonial-item:last-child {
+            border-bottom: none;
+        }
+
+        @media screen and (max-width: 770px) {
+            .testimonials-container {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .testimonial-item {
+                flex-wrap: wrap;
+                padding: 4vw 0;
+                height: 20vh;
+            }
+
+            ul.content {
+                padding: 0;
+            }
+
+            .content-box {
+                flex: 1 1 70%;
+                padding: 0;
+                color: #d9d9d9;
+            }
+        }
+    }
+}
+
+#sns {
+    height: 100vh;
+    background-color: #202020;
+    display: flex;
+    justify-content: right;
+
+    .sns-container {
+        width: 70%;
+
+        .sns-content {
+            color: #d9d9d9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: baseline;
+            max-width: 100%;
+            margin: var(--paragraph-padding);
+            height: calc(100% - var(--paragraph-padding) - var(--paragraph-padding))
+        }
+
+        .sns-message {
+            width: 40vw;
+        }
+
+
+
+        .sns-links {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+
+        }
+
+        .social-icons {
+            margin-top: auto;
+            display: flex;
+            margin-right: 1vw;
+
+            img {
+                width: clamp(50px, 5vw, 100px);
+                transform: translate(0, 1vw);
+            }
+
+        }
+    }
+
+
+    @media screen and (max-width: 770px) {
+        .sns-container {
+            width: 100%;
+        }
+
+        .sns-container {
+
+            .sns-message {
+                width: 100%;
+            }
+        }
+
+        .social-icons {
+            flex-wrap: wrap;
+        }
     }
 }

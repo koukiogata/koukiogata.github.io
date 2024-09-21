@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.scroll-section');
     const navLinks = document.querySelectorAll('.header-wrapper ul li a');
 
-    // outerContainer.style.display = 'none',
+    outerContainer.style.display = 'none',
+    // document.body.style.overflow = 'hidden';
     svg.style.display = 'none';
     loading.style.display = 'none',
-        document.body.style.overflow = 'hidden';
 
     setTimeout(() => {
         // Kのアニメーション定義と実行
@@ -91,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    document.body.style.overflow = 'auto'; // アニメーションが完了したら表示を非表示にする
+    // document.body.style.overflow = 'auto'; 
+    // アニメーションが完了したら表示を非表示にする
 
 
 
@@ -103,8 +104,26 @@ document.addEventListener('DOMContentLoaded', function () {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop - sectionHeight / 5) {
-                currentSection = section.getAttribute('id');
+            const sectionID = section.getAttribute('id');
+            let scrollOffset; // スクロールオフセットの初期化
+
+            // セクションIDに基づいてオフセットを調整
+            switch (sectionID) {
+                case 'works':
+                    scrollOffset = sectionHeight / 2; // Worksのための特別なオフセット
+                    break;
+                case 'testimonials':
+                    scrollOffset = sectionHeight / 1.8; // TestimonialsとSNSのためのオフセット
+                    break;
+                    case 'sns':
+                        scrollOffset = sectionHeight / 1.7; // TestimonialsとSNSのためのオフセット
+                        break;
+                        default:
+                    scrollOffset = sectionHeight / 5; // 他のセクションのデフォルトのオフセット
+            }
+    
+            if (window.pageYOffset >= sectionTop - scrollOffset) {
+                currentSection = sectionID;
             }
         });
 
