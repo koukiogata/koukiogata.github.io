@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const outerContainer = document.getElementById('outer-container');
     const sections = document.querySelectorAll('.scroll-section');
     const navLinks = document.querySelectorAll('.header-wrapper ul li a');
-
+    
     outerContainer.style.display = 'none',
     // document.body.style.overflow = 'hidden';
     svg.style.display = 'none';
@@ -136,10 +136,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    document.querySelector('.hamburger').addEventListener('click', function() {
-        this.classList.toggle('active'); // ボタン自体にactiveクラスをトグル
-        const navMenu = document.querySelector('.nav-menu');
-        navMenu.classList.toggle('active'); // ナビメニューにもactiveクラスをトグル
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // ハンバーガーメニューボタンのクリックイベント
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // ナビゲーションメニューの各リンクのクリックイベント
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            // メニューがアクティブな状態であれば非アクティブにする
+            if (navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
     });
 
 
