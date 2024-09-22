@@ -234,15 +234,16 @@ svg rect:active {
     }
 
 
-    .nav-menu.active {
+    #header.nav-menu.active {
         display: block;
         position: fixed;
         z-index: 900;
         height: 300px;
         border-radius: 10px;
+        width: 100%;
         
         .header-wrapper {
-            padding-top: 10vw;
+            padding-top: 50px;
             height: auto;
             max-height:120vw;
             display: flex;
