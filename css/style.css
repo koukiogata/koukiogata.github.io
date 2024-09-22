@@ -25,7 +25,7 @@ p {
     height: 100%;
     background-color: black;
     /* 任意の背景色 */
-    transition: opacity 0.5s ease;
+    transition: opacity 0.3s ease;
     /* オパシティのトランジション */
 }
 
@@ -172,9 +172,85 @@ svg rect:active {
     /* ホバー時にrect要素の塗りつぶし色を赤に変更 */
 }
 
-header img {
-    width: 100%;
+.hamburger-menu {
+    display: none;
 }
+
+
+@media screen and (max-width: 770px) {
+    .hamburger-menu {
+        position: fixed;
+        /* ボタンを固定位置に設定 */
+        /* 画面の上から20ピクセルの位置 */
+        /* 画面の右から20ピクセルの位置 */
+        z-index: 998;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 50px;
+            /* ボタンの高さ */
+            width: 50px;
+            /* ボタンの幅 */
+            background-color: #d9d9d9;
+        }
+
+        span {
+            transition: 0.5s;
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: black;
+            border-radius: 10px;
+        }
+
+
+    }
+
+    .hamburger-menu button.active span:nth-child(1) {
+        transform: rotate(405deg) scale(0.5) translate(10px, 35px);
+        /* 上のバーを右上に回転 */
+        background: #000;
+    }
+
+    .hamburger-menu button.active span:nth-child(2) {
+        opacity: 0;
+        /* 中央のバーを非表示に */
+    }
+
+    .hamburger-menu button.active span:nth-child(3) {
+        transform: rotate(-45deg) scale(0.5) translate(10px, -35px);
+        /* 下のバーを右下に回転 */
+        background: #000;
+        /* 色を変更する場合 */
+    }
+
+
+    .nav-menu.active {
+        display: block;
+        position: fixed;
+        z-index: 900;
+        /* アクティブ時にメニューを表示 */
+    }
+
+    .nav-menu {
+        background-color: #fff;
+
+        /* 初期状態ではメニューを隠す */
+        
+    }
+}
+
+
+
+
 
 #header {
     background-color: #D9D9D9;
@@ -251,17 +327,18 @@ header img {
             color: #d9d9d9;
 
         }
-        
+
         #testimonials-btn.active {
             background-color: #616161;
             color: #d9d9d9;
 
         }
-        
+
         #sns-btn.active {
             background-color: #202020;
             color: #d9d9d9;
         }
+
         li:nth-child(1) {
             border-top: 1px solid #B1B1B1;
         }
@@ -335,16 +412,22 @@ header img {
     }
 
     #about-flex {
-        height: 100vh;
+        /* height: 100vh; */
         display: flex;
         justify-content: right;
         border-bottom: 1px solid #5d5d5d;
         width: 100%;
+        min-height: 500px;
 
         .about-wrapper {
             background-color: #000;
-            height: 100vh;
             width: 70%;
+            min-height: 500px;
+            height: 100%;
+            padding-bottom: 10vw;
+            /* display: flex;
+            justify-content: flex-start;
+            flex-direction: column; */
 
             .about-contenir {
                 display: flex;
@@ -364,23 +447,26 @@ header img {
                     h2 {
                         text-align: left;
                         font-size: 3vw;
-                        
+
                         position: relative;
                         color: #d9d9d9;
                     }
-                    
+
                     p {
                         font-size: 1vw;
                         color: #d9d9d9;
                     }
+
                     @media screen and (max-width: 770px) {
                         h2 {
                             font-size: 5vw;
                         }
+
                         p {
                             font-size: 2vw;
                         }
                     }
+
                     @media screen and (max-width: 500px) {
 
                         .about-text {
@@ -408,30 +494,42 @@ header img {
         .about-paragraph {
             color: #d9d9d9;
             width: 100%;
+            margin-bottom: 3vw 0;
         }
 
         .about-paragraph p {
             padding: 1.5rem var(--paragraph-padding);
             line-height: 1.5;
-            max-width: 50%;
-
         }
 
         @media screen and (max-width: 770px) {
+
+            #about-flex {
+                height: 100vw;
+            }
+
 
             .about-paragraph p {
                 max-width: 70%;
             }
 
-            .about-paragraph {
-                padding: 10vw 0;
+            /* .about-paragraph {
+                /* display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex: 1; */
+            /* padding: 10vw 0; */
 
-            }
+            /* } */
 
         }
 
         @media screen and (max-width: 500px) {
 
+            /* .about-wrapper {
+               
+                /* min-height: 700px; */
+            /* } */
             .about-contenir {
                 flex-wrap: wrap-reverse;
             }
@@ -559,7 +657,7 @@ header img {
         background-color: #3C3C3C;
         width: 100%;
         height: auto;
-        max-height: 100vh;
+        /* max-height: 100vh; */
 
 
         .container {
@@ -568,7 +666,7 @@ header img {
             justify-content: space-around;
             align-items: flex-start;
             width: 70%;
-            padding-bottom: 20vw; 
+            padding-bottom: 20vw;
         }
 
         .container::-webkit-scrollbar {
@@ -670,7 +768,7 @@ header img {
             }
 
             .box {
-                height: 60vh;
+                height: 100vw;
                 width: 40%;
                 /* 各ボックスの幅を画面幅の80%に設定 */
                 min-width: 300px;
@@ -806,7 +904,7 @@ header img {
 }
 
 #sns {
-    height: 100vh;
+    min-height: 500px;
     background-color: #202020;
     display: flex;
     justify-content: right;

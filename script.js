@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.scroll-section');
     const navLinks = document.querySelectorAll('.header-wrapper ul li a');
 
-    // outerContainer.style.display = 'none',
-    document.body.style.overflow = 'hidden';
+    outerContainer.style.display = 'none',
+    // document.body.style.overflow = 'hidden';
     svg.style.display = 'none';
     loading.style.display = 'none',
 
@@ -135,4 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        this.classList.toggle('active'); // ボタン自体にactiveクラスをトグル
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('active'); // ナビメニューにもactiveクラスをトグル
+    });
+
+
+
+
 });
