@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="js/script.js" defer></script>
+    <title>水の惑星 - トップページ | 人生の乾いた旅に潤いを</title>
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="js/slider.js" defer></script>
+    <link rel="icon" href="image/icons-favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="header-app">
+            <header-component></header-component>
+        </div>
+    </div>
+    <main id="main-app">
+        <div class="index_wrapper">
+            <h1>人生の乾いた旅に潤いを</h1>
+            <div class="index_img fade-box" ref="fadeBox"><img src="image/tr.png" alt="メインビジュアルの画像"></div>
+        </div>
+        <section id="index_about">
+            <div class="index_wrapper">
+                <div class="index_position" ><!--ここがpostion:absolute-->
+                    <div class="index_rogo"><img src="image/global-rogo.png" alt="ロゴ"></div>
+                    <h2>ABOUT</h2>
+                    <div class="index_text fade-box" ref="fadeBox">
+                        <p>水の惑星の使命はホテルの可能性を広げ、人生の可能性を広げることです。<br>
+                            新しいコンセプトを持つ数々のホテルは、この想いに、
+                            クリエイティブとテクノロジーを組み合わせることで生み出してきました。<br>
+                            水の惑星の領域は、ホテルの枠を超え、住まいや売り場などのプロデュース領域へと拡張しています。</p>
+                    </div>
+                </div>
+                <div class="index_tb"><!--ここがposition:relative-->
+                    <!-- <img src="/image/index-image-t.png" alt=""> -->
+                </div>
+                <div class="index_tv"><!--ここがposition:relative-->
+                    <!-- <img src="/image/index-image-tv.png" alt=""> -->
+                </div>
+                <div class="index_"><!--ここがposition:relative-->
+                    <!-- <img src="/image/index-image-v.png" alt=""> -->
+                </div>
+                <!-- <div class="index_tv"><img src="image/index-image-v.png" alt=""></div> -->
+                <div class="index_kuro">
+                    <p>ライフスタイルと観光における<br>
+                        多様な選択肢をつくる</p>
+                    <ul class="slider fade-box" ref="fadeBox">
+                        <li><img src="image/tse1.png" alt="音楽に関する画像">
+                            <p>音楽</p>
+                        </li>
+                        <li><img src="image/tse2.png" alt="地域に関する画像">
+                            <p>地域</p>
+                        </li>
+                        <li><img src="image/tse3.png" alt="社会課題に関する画像">
+                            <p>社会課題</p>
+                        </li>
+                        <li><img src="image/tse4.png" alt="ライフスタイルに関する画像">
+                            <p>ライフスタイル</p>
+                        </li>
+                        <li><img src="image/tse5.png" alt="演劇に関する画像">
+                            <p>演劇</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="index_about_btn">
+                    <!-- <img src="image/prev.png" alt="">
+                        <img src="image/next.png" alt=""> -->
+                </div>
+                <div class="button"><a href="#">水の惑星について</a></div>
+            </div>
+        </section>
+        <section id="index_service">
+            <div class="index_wrapper">
+                <div class="index_rogo"><img src="image/global-rogo.png" alt="グローバルロゴ"></div>
+                <h2>SERVICE</h2>
+                <section class="index_side">
+                    <div class="index_sg fade-box" ref="fadeBox">
+                        <h3>共に、この世界の新世界を。</h3>
+                        <p>水の惑星はクライアント様のパート
+                            ナーとして、魅力的なホテルや空間
+                            のプロデュース、エリアの活性化や
+                            ブランドのプロデュース等に取り組
+                            んでいます。「宿泊事業を始めたい
+                            」「土地探しから相談したい」「事
+                            業開発や商品開発を検討したい」な
+                            ど、さまざまなステップからご相談
+                            いただけます。</p>
+                        <div class="button"><a href="#">サービス紹介</a></div>
+                    </div>
+                    <img src="image/sf1.png" alt="サービスに関する画像">
+                </section>
+                <div class="index_contents">
+                    <section class="index_business">
+                        <img src="image/ts1.png" alt="ビジネス領域のイメージ画像">
+                        <div>
+                            <h4>BUSINESS <br>
+                                FIELD</h4>
+                            <p>事業領域</p>
+                        </div>
+                    </section>
+                    <section class="index_business">
+                        <img src="image/ts2.png" alt="プロジェクト事例のイメージ画像">
+                        <div>
+                            <h4>PROJECT <br>
+                                CASES</h4>
+                            <p>ホテル開発事例</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <section id="index_news">
+            <div class="index_wrapper">
+                <div class="index_rogo"><img src="image/global-rogo.png" alt="グローバルロゴ"></div>
+                <h2>NEWS</h2>
+                <div class="index_news_erea">
+                    <ul>
+                        <li class="fade-box" ref="fadeBox">
+                            <figure><img src="image/tn1.png" alt="ニュース画像1"></figure>
+                            <div class="index_news_date">
+                                <span>RELEASE</span><time datetime="2024-03-12">2024.3.12</time>
+                                <h3>「街と家から暮らしを考える」SMART CITY導入事例を公開しました。</h3>
+                                <p>生活とは基本的に、命をつなぎ活動することであり、また生きながらえるために行う様々な活動である。
+                                    人は生き続けるためには、少なくとも、何らかの栄養を取らなければならず、（一般に）身体に何かをまとうことで体温を保つ必要があり、・・・</p>
+                            </div>
+                        </li>
+                        <li class="fade-box" ref="fadeBox">
+                            <figure><img src="image/tn2.png" alt="ニュース画像2"></figure>
+                            <div class="index_news_date">
+                                <span>RELEASE</span><time datetime="2024-03-12">2024.3.12</time>
+                                <h3>「街と家から暮らしを考える」SMART CITY導入事例を公開しました。</h3>
+                                <p>生活とは基本的に、命をつなぎ活動することであり、また生きながらえるために行う様々な活動である。
+                                    人は生き続けるためには、少なくとも、何らかの栄養を取らなければならず、（一般に）身体に何かをまとうことで体温を保つ必要があり、・・・</p>
+                            </div>
+                        </li>
+                        <li class="fade-box" ref="fadeBox">
+                            <figure><img src="image/tn3.png" alt="ニュース画像3"></figure>
+                            <div class="index_news_date">
+                                <span>RELEASE</span><time datetime="2024-03-12">2024.3.12</time>
+                                <h3>「街と家から暮らしを考える」SMART CITY導入事例を公開しました。</h3>
+                                <p>生活とは基本的に、命をつなぎ活動することであり、また生きながらえるために行う様々な活動である。
+                                    人は生き続けるためには、少なくとも、何らかの栄養を取らなければならず、（一般に）身体に何かをまとうことで体温を保つ必要があり、・・・</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="button"><a href="#">ニュース</a></div>
+            </div>
+        </section>
+    </main>
+    <footer id="global-footer">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">
+                        <h3>contact</h3>
+                        <p>お問い合わせ</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>download</h3>
+                        <p>ダウンロード</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>consultations</h3>
+                        <p>無料説明会</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="global-footer-sitemap">
+            <dl>
+                <dt>サイトマップ</dt>
+                <div class="global-footer-sitemap-text">
+                    <ul>
+                        <li>TOP</li>
+                        <li>ABOUT</li>
+                        <li>SERVICE</li>
+                        <li>NEWS</li>
+                    </ul>
+                    <ul>
+                        <li>JOURNAL</li>
+                        <li>PEOPLE</li>
+                        <li>BUSINESS FIELD</li>
+                        <li>PROJECT CASES</li>
+                        <li>RECRUIT</li>
+                    </ul>
+                </div>
+            </dl>
+        </div>
+        <div class="global-footer-copyright"><small>Copyright © mercury. All rights reserved.</small></div>
+    </footer>
+</body>
+
+</html>
