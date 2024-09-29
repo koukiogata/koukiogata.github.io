@@ -1,0 +1,229 @@
+#chart {
+    width: clamp(450px, 50vw, 700px);
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        
+        
+        .chart-config {
+            margin-right: auto;
+            margin-left: auto;
+        }
+        /* グラフ全体のコンテナ */
+        .chart-box {
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            background-color: #1e4bab;
+            
+        }
+        .chart-bottombox {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #1e4bab;
+
+            div {
+                width: 100px;
+            }
+            
+        }
+        
+        
+        /* 左側のガイド線のスタイル */
+        .y-axis {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 400px;
+            padding-right: 10px;
+            width: 100px;
+            color: #fff;
+        }
+        
+        .y-label {
+            text-align: right;
+        }
+        
+        /* 下側の年数を表示するガイド */
+        .x-axis {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+            padding-top: 10px;
+            height: 30px;
+            color: #fff;
+        }
+        
+        .x-label {
+            margin-right:2vw;
+        }
+         
+        .chart-chlid {
+            background-color: #1e4bab;
+            width: 100px;
+        }
+        /* SVGのスタイル */
+        svg {
+            height: 400px;
+            background-color: #f9f9f9;
+            border-left: 2px solid #000; /* y軸 */
+            border-bottom: 2px solid #000; /* x軸 */
+            width: clamp(350px, 40vw, 600px);
+            position: relative; /* SVGに対してツールチップを正しく表示するために relative を追加 */
+        }
+        
+        @media (max-width: 550px) {
+            .chart-box {
+                display: flex;
+                justify-content: space-between;
+                margin-right: -8px;
+                margin-left: -8px;
+                
+            }
+            .chart-bottombox {
+                margin-right: -8px;
+                margin-left: -8px;
+
+                .x-label {
+                    font-size: 10px;
+                }
+
+                div {
+                    width: 20%;
+                }
+
+            }
+            .y-axis {
+                flex: 1 1 20%;
+                height: 70vw;
+                padding-right: 0px;
+
+                .y-label {
+                    font-size: 10px;
+                }
+            }
+            svg {
+                height: 70vw;
+                flex: 1 1 100%;
+                width: 100%;
+                background-color: #f9f9f9;
+                border-left: 2px solid #000; /* y軸 */
+                border-bottom: 2px solid #000; /* x軸 */
+                position: relative; /* SVGに対してツールチップを正しく表示するために relative を追加 */
+            }
+            
+        }
+        
+        path {
+            fill: none;
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        
+        #line1 {
+            stroke: #275cbd;
+        }
+        
+        /* 売上のライン（青） */
+        #line2 {
+            stroke: #ff5733;
+        }
+        
+        /* 降水量のライン（オレンジ） */
+        #line3 {
+            stroke: #33c455;
+        }
+        
+        /* パーセンテージのライン（緑） */
+        
+        .dot {
+            stroke-width: 3;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #dots1 {
+            stroke: #275cbd;
+            fill: #275cbd;
+        }
+        
+        /* 売上の屈折点（青） */
+        #dots2 {
+            stroke: #ff5733;
+            fill: #ff5733;
+        }
+        
+        /* 降水量の屈折点（オレンジ） */
+        #dots3 {
+            stroke: #33c455;
+            fill: #33c455;
+        }
+        
+        /* パーセンテージの屈折点（緑） */
+        /* 凡例のスタイル */
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            display: inline-block;
+            border-radius: 50%;
+        }
+        button {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #8e8e8e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            flex: 1 1 30%;
+            max-height: 68px;
+            font-size: 12px;
+
+        }
+        @media (max-width: 550px) {
+            .legend {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            button:nth-child(3){
+                flex-grow: 0;
+                flex-basis: 50%;
+            }
+            
+        }
+        g {
+            transition: opacity 0.3s ease;
+        }
+        /* ツールチップのスタイル */
+        .tooltip {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: none; /* 初期状態では非表示 */
+            pointer-events: none; /* ツールチップはマウス操作に反応しない */
+            z-index: 1000;
+        }
+        
+        
+    }
+    @media (max-width: 550px) {
+        #chart{
+            width: 100%;
+           
+        }
+    }

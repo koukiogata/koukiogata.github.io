@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <script src="content.js" defer></script>
+    <title>k-criert/portfolio</title>
+</head>
+
+<body>
+
+        <!-- ローディング画面用の要素、初めは非表示 -->
+        <div id="outer-container">
+            <div id="background" style="opacity: 0;"></div> <!-- 背景専用のタグ -->
+            <div id="loading-container">
+                <div id="text-container">
+                    <div id="loading">K</div>
+                    <div id="visual-wrapper">
+                        <div id="visual">CREATE</div>
+                    </div>
+                </div>
+                <svg width="70vw" height="20vw" viewBox="0 0 500 100" preserveAspectRatio="xMidYMid meet"
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <rect id="frame" x="0" y="0" width="500" height="100"  fill="white" stroke="black" stroke-width="3" />
+                </svg>
+
+            </div>
+        </div>
+        <!-- ハンバーガーメニューボタン -->
+        <div class="hamburger-menu">
+            <button class="hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <header id="header" class="nav-menu">
+            <div class="header-wrapper">
+                <ul>
+                    <li><a href="#top" id="top-btn">TOP</a></li>
+                    <li><a href="#about" id="about-btn">ABOUT</a></li>
+                    <li><a href="#works" id="works-btn">WORKS</a></li>
+                    <li><a href="#testimonials" id="testimonials-btn">TESTIMONIALS</a></li>
+                    <li><a href="#sns" id="sns-btn">SNS</a></li>
+                </ul>
+            </div>
+        </header>
+        <main id="top" class="scroll-section">
+            <div class="top-contenir">
+                <div class="top-wrapper">
+                    <h1>K-CREATE</h1>
+                    <p class="top-text-line">Designing the Future</p>
+                </div>
+            </div>
+            <section id="about" class="scroll-section">
+                <div id="about-flex">
+                    <div class="about-wrapper">
+                        <div class="about-contenir">
+                            <div class="about-text">
+                                <div class="text-letter">
+                                    <h2>KOUKI</h2>
+                                    <p>2002/03/05</p>
+                                </div>
+                            </div>
+                            <img src="image/tobias-rademacher-uTjbuFbhTug-unsplash 1.jpg" alt="デザイナーKOUKIのポートレート画像">
+                        </div>
+                        <div class="about-paragraph">
+                            <p>こんにちは、koukと申します。WEBデザインに興味を持ち始めて2年が経ちました。この期間の中で、多様なクライアントの要望に応える機会をいただき、数々の発見とともに失敗から学ぶ貴重な経験をしてきました。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="about-flex">
+                    <div class="about-wrapper skli">
+                        <p> HTML、CSS、JavaScript、最新のフレームワークやライブラリ（React、Vue.jsなど）にも精通しており、レスポンシブデザインとクロスブラウザ対応を常に心掛けています。
+                        </p>
+                        <div class="skli-sheet">
+                            <div></div>
+                            <div class="sklli-level">
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>Javascript</li>
+                                    <li>Vue.js</li>
+                                    <li>React</li>
+                                </ul>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+            </section>
+            <section id="works" class="scroll-section">
+                <div class="container">
+                    <div class="box">
+                        <img src="image/works-image1.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>職業訓練の自主製作、架空サイト</h2>
+                            <p>こだわりポイント<br/> 最新のVue.jsで構築・コンポーネント化も実装PCタブレットスマホの大きさにも対応</p>
+                        </div>
+                        <a href="../hoteru-mizunowakusei/hoteru.html">mora</a>
+                    </div>  
+                    <div class="box">
+                        <img src="image/works-image2.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>実習先制作物　求人情報</h2>
+                            <p>こだわりポイント<br/>JavaScriptを使用して、SVG内に動的な折れ線グラフを実装、データの範囲に応じたスケール変換を実装</p>
+                        </div>
+                        <a href="../recruitdigital/recruit.html">mora</a>
+                    </div>
+                    <div class="box">
+                        <img src="image/works-image1.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>職業訓練の自主製作、架空サイト</h2>
+                            <p>こだわりポイント<br/> 最新のVue.jsで構築・コンポーネント化も実装PCタブレットスマホの大きさにも対応</p>
+                        </div>
+                        <a href="../hoteru-mizunowakusei/hoteru.html">mora</a>
+                    </div>
+                </div>
+            </section>
+            <section id="testimonials" class="scroll-section">
+                <div class="testimonials-container">
+                    <div class="testimonials-box">
+                        <div class="testimonial-item">
+                            <div class="icon-text-box">
+                                <span class="icon"><img src="image/男性の人物アイコン素材 2.png" alt="クライアントのフィードバックを示すアイコン"></span>
+                                <span class="label">クライアント</span>
+                            </div>
+                            <div class="content-box">
+                                <ul class="content">
+                                    <li>自分の思ってた物を形にしてくれる。</li>
+                                    <li>予定より少し早く仕上げて欲しい。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="icon-text-box">
+                                <span class="icon"><img src="image/男性の人物アイコン素材 2.png" alt="職業訓練のフィードバックアイコン"></span>
+                                <span class="label">職業訓練</span>
+                            </div>
+                            <div class="content-box">
+                                <p class="content">少しデザインやコーディングができたからと言って、全部完璧と思ってしまうところがある。新しいことにはすぐ興味を持ち行動するところがある。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="icon-text-box">
+                                <span class="icon"><img src="image/男性の人物アイコン素材 2.png" alt="友人・家族のフィードバックアイコン"></span>
+                                <span class="label">友人・家族</span>
+                            </div>
+                            <div class="content-box">
+                                <ul class="content">
+                                    <li>色の使い方と文字の大きさの調整が素晴らしい。</li>
+                                    <li>全体のバランスも整ってて見やすいデザイン。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer id="sns" class="scroll-section">
+            <div class="sns-container">
+                <div class="sns-content">
+                    <div class="sns-message">
+                        <p>これからも学び続けることを心掛け、さらに多くのプロジェクトにチャレンジしていく所存です。あなたのビジョンを形にするための一助となれれば幸いです。</p>
+                    </div>
+                    <div class="sns-links">
+                        <div class="social-icons">
+                            <img src="image/kjinoicevc 1.png" alt="KOUKIのSNSリンクアイコン1">
+                            <img src="image/kjinoicevcXXX 1.png" alt="KOUKIのSNSリンクアイコン2">
+                        </div>
+                        <div class="brand-logo">
+                            <img src="image/knkjn 1.png" alt="KOUKIのブランドロゴ">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>
