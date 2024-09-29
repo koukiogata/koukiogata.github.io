@@ -1,0 +1,1049 @@
+:root {
+    --mian-color: hsl(211, 90%, 74%);
+    --mian-color: #275cbd;
+    --base-color: #0a265b;
+    --accent-color: #275cbd;
+}
+
+a {
+    text-decoration: none;
+    color: var(--mian-color);
+}
+
+
+#header {
+    height: 20vh;
+    background-color: #0a265b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+#header h1 {
+    font-size: clamp(18px, 5vw, 30px);
+    margin: 0 0 0.3em;
+}
+@media (max-width: 550px) {
+    #header h1 {
+        font-size: 10px;;
+    }
+
+    #header p {
+        font-size: 8px;
+    }
+    
+}
+
+.header-wrapper {
+    margin: 0 auto;
+
+}
+
+.fade-in-section {
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 1s ease-out;
+}
+
+.fade-in-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.number-display {
+    font-size: clamp(10px, 10vw, 100px);
+    font-weight: bold;
+    text-align: center;
+    color: #275cbd;
+}
+
+#number7.number-display{
+    font-size: clamp(10px, 2vw, 15px);
+}
+
+.rimove {
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+    color: #275cbd;
+}
+
+#number7 {
+    font-weight: bold;
+
+}
+
+#faq {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.faq-section {
+    margin-top: 20px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    background-color: hsl(211, 90%, 74%);
+    border-radius: 2vw;
+}
+
+.accordion-button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    padding: 1vw 2vw;
+    border-radius: 2vw;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.accordion-content {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.5s ease, visibility 1s ease;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+
+/* アクティブ時のアコーディオンコンテンツ */
+.accordion-item.active .accordion-content {
+    visibility: visible;
+    opacity: 1;
+    max-height: 500px;
+}
+
+.accordion-content p {
+    padding: 10px;
+    margin: 0;
+    height: 50px;
+    font-size: clamp(15px, 1.5vw, 20px);
+}
+
+
+/* .gender-distribution {
+    /* display: flex; */
+/* align-items: end; */
+.gender-legend {
+    flex: 1 1 calc(30% - 10px);
+}
+
+.pi-graph {
+    transform-origin: center;
+    transform: rotate(-90deg);
+    width: 20vw;
+    height: 20vw;
+}
+
+.pi-graph-ring {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.statistics {
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-around;
+    margin: 100px 0;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+    .statistics {
+        width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* 
+    .pi-graph {
+        max-width: 200px;
+        max-height: 200px;
+    } */
+
+    .statistics .stat h2 {
+        font-size: 30px;
+    }
+
+    #faq {
+        width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .fade-in-section.fade-in svg{
+        width: 200px;
+    }
+
+}
+
+.statistics .stat {
+    flex: 1 1 calc(31% - 10px);
+}
+
+.stat .male,
+.female {
+    display: flex;
+    justify-content: right;
+    gap: 1vw;
+
+    span {
+        margin: auto 0;
+        height: 1vw;
+        padding: 2px;
+        width: 2vw;
+    }
+}
+
+.stat {
+    width: 30%;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 0 10px #ccc;
+    height: 30vw;
+}
+
+.stat h2 {
+    font-weight: bold;
+    color: #333;
+    font-size: 3vw;
+    text-align: center;
+    color: var(--accent-color)
+}
+
+.stat .studio {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.stat .stat-box .style-box {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.stat .stat-box {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 100%;
+
+}
+
+
+.stat .stat-box .unit {
+    font-size: 1.5vw;
+}
+
+
+.stat .stat-box p {
+    font-size: 2vw;
+    margin-top: 5px;
+}
+
+.stat svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.gender-icon {
+    display: flex;
+    position: absolute;
+    right: 1vw;
+    bottom: 1vw;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 
+.gender-item {
+} */
+
+.gender-distribution {
+    margin-bottom: 20px;
+    
+    .large-arc{
+        stroke-dasharray: 502; /* 全円の長さは 502 */
+        stroke-dashoffset: 502; /* 初期状態は描画されていない */
+        transition: stroke-dashoffset 2s ease-in-out;
+        transform: rotate(-90deg); /* 円を上から始まるように回転 */
+        transform-origin: 50% 50%;
+    }
+
+    .small-arc{
+        stroke-dasharray: 320;
+        stroke-dashoffset: 320;
+        transition: stroke-dashoffset 3s ease-in-out;
+        transform: rotate(120deg);
+        transform-origin: 50% 50%;
+    }
+    
+    .small-arc {
+        stroke: 2px solid #000;
+    }
+    
+}
+.fade-in-section.fade-in .large-arc {
+    stroke-dashoffset: 320; /* 60% 描画 (502 * 0.6 = 301, 残り部分125) */
+}
+
+.fade-in-section.fade-in .small-arc {
+    stroke-dashoffset: 190; /* 40% 描画 (502 * 0.4 = 201, 残り部分251) */
+}
+
+.male span {
+    background-color: #79b7e6;
+}
+
+.female span {
+    background-color: #194ac8;
+}
+
+.gender {
+    fill:none;
+stroke-width:32;
+stroke-dasharray:100;
+/* 最初は非表示状態 */
+stroke-dashoffset:100;
+
+}
+
+.gender-yellow {
+    fill: none;
+    stroke: #275cbd;
+    stroke-width: 32;
+    stroke-dasharray: 0;
+    transition: stroke-dashoffset 2s ease-out;
+}
+
+.fade-in-section.fade-in .gender-yellow {
+    stroke-dasharray: 46 54;
+    stroke-dashoffset: 0;
+}
+
+.gender-blue {
+    fill: none;
+    stroke: #79b7e6;
+    stroke-width: 32;
+    stroke-dasharray: 0 100;
+    transition: stroke-dashoffset 2s ease-out;
+}
+
+.fade-in-section.fade-in .gender-blue {
+    stroke-dasharray: 54 46;
+    stroke-dashoffset: -46;
+}
+
+/* 職種分布用 */
+.job-yellow {
+    fill: none;
+    stroke: #194ac8;
+    stroke-width: 7;
+    stroke-dasharray: 30 70;
+    transition: stroke-dashoffset 2s ease-out;
+}
+
+.fade-in-section.fade-in .job-yellow {
+    stroke-dashoffset: -30;
+}
+
+.job-blue {
+    fill: none;
+    stroke: #678abb;
+    stroke-width: 7;
+    stroke-dasharray: "70 30";
+    transition: stroke-dashoffset 2s ease-out;
+}
+
+.fade-in-section.fade-in .job-blue {
+    stroke-dashoffset: -33;
+}
+
+.job-yellow {
+    fill: none;
+    stroke: #194ac8;
+    stroke-width: 2.6;
+    z-index: 1;
+    stroke-dasharray: 40 70;
+    transition: stroke-dashoffset 2s ease-out;
+}
+
+.fade-in-section.fade-in .job-yellow {
+    stroke-dashoffset: 0;
+}
+
+.job-blue {
+    fill: none;
+    stroke: #e0e7ee;
+    stroke-width: 3;
+    stroke-dasharray: 100 40;
+}
+
+.fade-in-section.fade-in .job-blue {
+    stroke-dashoffset: -40;
+}
+
+.setout {
+    margin-top: 4vw;
+}
+
+/* .setin {
+    position: absolute;
+}  */
+
+/* 棒グラフのアニメーション */
+.rect-bar {
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform 1s ease-in-out;
+}
+
+/* フェードイン時に棒グラフを表示 */
+.fade-in-section.fade-in .rect-bar {
+    transform: scaleY(1);
+}
+
+@media screen and (min-width: 1000px) {
+    .detail-pages {
+        width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.detail-pages {
+    h2 {
+        color: #364e96;/*文字色*/
+        padding: 0.5em 0;/*上下の余白*/
+        border-top: solid 3px #364e96;/*上線*/
+        border-bottom: solid 3px #364e96;/*下線*/
+    }
+
+
+    section {
+        padding: 20px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 550px) {
+        section {
+            padding: 10px;
+        }
+    }
+
+    /* 社員情報のスタイル */
+
+    .color {
+        background-color: #ffffff;
+    }
+}
+
+.entry-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    margin-top: 30px;
+    margin-right: -8px;
+    margin-left: -8px;
+
+    .entry-section h2 {
+        font-size: clamp(20px, 3vw, 40px);
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .entry-section p {
+        font-size: clamp(15px, 2vw, 18px);
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .entry-button-wrapper {
+        margin: 20px 0;
+    }
+
+    .entry-button {
+        font-size: 20px;
+        background-color: #275cbd;
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 30px;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .entry-button:hover {
+        background-color: #1e4690;
+        transform: scale(1.05);
+    }
+
+    .arrow {
+        margin-left: 10px;
+    }
+
+    .entry-note {
+        font-size: 8px;
+        color: #999;
+    }
+
+    .entry-deadline {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .days-left {
+        font-size: 20px;
+        color: #d9534f;
+    }
+}
+
+
+
+
+
+.work-style-section {
+    margin-top: 20px;
+}
+
+.work-style-info h3 {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.work-style-info p {
+    font-size: 16px;
+    color: #333;
+}
+
+.holiday-info,
+.overtime-info {
+    margin-top: 15px;
+}
+
+
+.employee-section .employee-info svg {
+    max-width: 600px;
+    margin-bottom: 10px;
+}
+
+
+.employee-section .employee-info h3 {
+    font-size: 18px;
+    margin-top: 15px;
+}
+age-distribution {
+    margin-top: 90px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    
+    .chart-svg {
+        border-bottom: 2px solid #000;
+        border-left: 2px solid #000;
+    }
+}
+@media (max-width: 550px) {
+    .chart-container {
+        display: flex;
+        justify-content: space-around;
+    overflow-x: hidden ;
+}
+
+.chart-svg {
+    width: 70vw;
+    
+}
+
+
+
+}
+/* age-distribution に上下の余白を追加 */
+.age-distribution {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    
+    .y-axis-labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 40px;
+        padding-top: 20px;
+        padding-right: 10px;
+        /* margin-right: 5px; */
+    }
+    
+    .x-axis-labels {
+        /* border-top: 2px solid #000; */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .x-axis-labels div {
+        width: 80px;
+    }
+    
+    .x-axis-labels .x-axis-chlids{
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+    }
+    @media (max-width: 550px) {
+        .x-axis-labels {
+            /* border-top: 2px solid #000; */
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .x-axis-labels div {
+            width: 100px;
+            margin-right: 10px;
+        }
+        
+        x-axis-labels .x-axis-chlids{
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    }
+    
+    .chart-text{ 
+        margin-top: 30px;
+    }
+}
+
+/* age-gender-info に上下の余白を追加 */
+.age-gender-info {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    
+    .gender-chart {
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        width: 450px;
+        
+        .gender-child {
+            background-color: #ccc;
+            width: 450px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            
+            p {
+                margin-bottom: 0;
+                margin-left: 10px;
+            }
+            
+            svg{
+                height: 50px;
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media  (max-width: 550px) {
+        .gender-chart {
+            width: 100%;
+            
+            .gender-child {
+                width: 100%;
+            }
+        }
+    }
+    
+    p{
+        margin-bottom: 10px;
+    }
+    
+    
+    
+}
+
+/* turnover-rate-section に上下の余白を追加 */
+/* .turnover-rate-section {
+    margin-top: 50px;
+    margin-bottom: 70px;
+    
+    .turnover-rate-item {
+        width: 450px;
+        margin-right: auto;
+        margin-left: auto;
+        }
+        } */
+        .chart-svg svg rect {
+            height: 50px;
+        }
+        
+        .customer-erea {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 500px;
+            margin-right: auto;
+            margin-left: auto;
+            
+            
+            .customer-child {
+                margin-top: 30px;
+                margin-bottom: 10px;
+                padding: 20px;
+                
+                h3 {
+                    text-align: center;
+                    margin-top: 0;
+                    
+                }
+            }
+            
+            .customer-style{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 10px;
+                margin-bottom: 30px;
+                background-color: #ccc;
+                
+                svg {
+                    border-left: 2px solid #000;
+                }
+            }
+        }
+        @media (max-width: 550px) {
+            .customer-erea {
+                width: 100%;
+                
+                .customer-child {
+                    margin-top: 30px;
+                    margin-bottom: 10px;
+                    padding: 0px;
+                    
+                    h3 {
+                        text-align: center;
+                        margin-top: 0;
+                        
+                    }
+                }
+                svg {
+                    width: 50vw;
+                }
+            }
+            
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #275cbd;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            display: none; /* 初期状態では非表示 */
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            background-color: #1e4690;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px; /* ラインの左側に余白を追加 */
+            border-left: 3px solid #275cbd; /* 縦のラインを作成 */
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .timeline ul li {
+            position: relative;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        
+        
+        
+        .year {
+            font-weight: bold;
+            font-size: 18px;
+            color: #275cbd;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .detail {
+            font-size: 16px;
+    color: #333;
+}
+
+.timeline ul li:nth-child(even) .year {
+    color: #194ac8; /* 偶数年の色を少し変える */
+}
+
+.timeline ul li:nth-child(even):before {
+    background-color: #194ac8;
+}
+.company-info {
+    margin: 40px 0; /* 上下の余白を追加 */
+    padding: 0 20px; /* 左右の余白を追加 */
+}
+
+.company-info h2, .company-info h3 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px; /* 見出しと次のコンテンツの間隔を広げる */
+}
+
+.company-info p {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px; /* 各段落の下に余白を追加 */
+    line-height: 1.8; /* 行間を広げて読みやすくする */
+    color: #333;
+    
+}
+.customer-erea .customer-child  .customer-style p {
+    margin-bottom: 0;
+    line-height: normal; /* 行間を広げて読みやすくする */
+}
+
+.pictogram-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px; /* ピクトグラム間の余白を追加 */
+    margin-top: 30px;
+    width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (max-width: 550px) {
+    .company-section {
+        width: 100%;
+    }
+  
+
+    .pictogram-section {
+        width: 90%;
+    }
+    .pictogram {
+        width: 100%;
+    }
+    .pictogram  svg {
+        width: 100%;
+    }
+   
+}
+
+.pictogram .description {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+.pictogram svg {
+    fill: #275cbd; /* SVGにカラーを統一 */
+}
+
+.pictogram p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+@media (max-width: 550px) {
+    .pictogram-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .pictogram {
+        flex-basis: calc(33.33% - 15px); /* タブレットでは3列 */
+    }
+}
+
+@media (max-width: 768px) {
+    .pictogram {
+        flex-basis: calc(50% - 10px); /* タブレットでは2列 */
+    }
+}
+
+@media (max-width: 480px) {
+    .pictogram {
+        flex-basis: 100%; /* スマホでは1列にする */
+    }
+}
+
+.product-implementation-section {
+    margin-top: 20px;
+}
+
+.product-implementation-info h3 {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.product-implementation-info p {
+    font-size: 16px;
+    color: #333;
+}
+
+.implementation-details {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    gap: 20px;
+}
+.implementation-item {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.implementation-item {
+    background-color: #f5f5f5; /* Light background for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1 1 calc(40% - 20px); /* Makes 2 items per row on wider screens */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.implementation-item h3 {
+    font-size: 1.5rem;
+    color: #333; /* Darker text for contrast */
+    margin-bottom: 10px;
+}
+
+.implementation-item p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555; /* Softer color for paragraph text */
+}
+
+.implementation-item strong {
+    color: #007bff; /* Highlight important numbers with a blue tone */
+}
+
+@media (max-width: 768px) {
+    .implementation-item {
+        flex-basis: 100%; /* Full width on smaller screens */
+    }
+}
+/* 初期状態ではグラフが表示されないように */
+.detail-pages rect {
+    transition: width 2s cubic-bezier(0, 1.33, 0.54, 0.83);
+}
+@media (max-width: 550px) {
+    .detail-pages rect {
+        transition: width 5s cubic-bezier(0, 1.33, 0.54, 0.83);
+    }
+
+    .detail-pages .customer-erea rect {
+        transition: width 20s cubic-bezier(0, 1.33, 0.54, 0.83);
+    }
+    
+}
+@media (max-width: 550px) {
+    .detail-pages {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+}
+/* .turnover-rate-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.turnover-rate-item p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.turnover-x-axis-labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.turnover-y-axis-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    margin-right: 10px;
+}
+.turnover-rate-item-intersection {
+    display: flex;
+    justify-content: flex-end;
+} */
+.history-text {
+    text-align: center; /* セクション全体を中央揃えに */
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8; /* 行間を広げて読みやすくする */
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.history-text p {
+    font-size: 1.2rem; /* 段落の標準のテキストサイズ */
+}
+
+.history-text span {
+    font-size: 2rem; /* 数字を大きくして目立たせる */
+    font-weight: bold; /* 数字を太字にして強調 */
+    color: #275cbd; /* 数字にテーマカラーを適用 */
+}
+
+#establishment-date {
+    font-size: 1.5rem; /* 設立日のフォントサイズを調整 */
+    color: #275cbd; /* テーマカラーに合わせる */
+    font-weight: bold; /* 太字にして強調 */
+}
+
+
+
+

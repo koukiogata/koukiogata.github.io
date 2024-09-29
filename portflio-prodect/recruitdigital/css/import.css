@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* Default CSS STYLE **********************************************
+
+* Copyright TAKAYA COMMUNICATIONS.inc
+**************************************************************/
+
+
+/* NetScape4.x以下にcssを適用させない */
+
+@import "reset.css";
+@import "common.css";
+@import "style.css";
+@import "chart.css";
