@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/import.css">
+    <script src="./js/script.js" defer></script>
+    <script src="./js/number.js" defer></script>
+    <script src="./js/chart.js" defer></script>
+    <title>求人サイトの統計情報</title>
+</head>
+<title>求人サイトの統計情報</title>
+
+<body>
+    <header id="header">
+        <div class="header-wrapper">
+            <h1>株式会社タカヤコミュニケーションズ</h1>
+            <p>※表示される情報はダミー情報です。</p>
+        </div>
+    </header>
+
+    <div class="fade-in-container">
+        <!-- <div class="catchphrase">
+            <p class="title-with-border">20代若者から圧倒的に支持される</p>
+            <small>No.1の求人サイトです</small>
+        </div> -->
+
+        <!-- 新しいテキストを追加 -->
+        <!-- <p class="additional-info">数ある成果型媒体で利用ユーザー数No.1を獲得した業界最大級の求人サイトです。</p> -->
+    </div>
+
+
+    <div class="statistics">
+        <!-- 年齢分布の円グラフ -->
+        <div class="stat fade-in-section nav-item" data-target="section1">
+            <a href="#section1">
+                <div class="studio">
+                    <h2>社員数</h2>
+                    <div class="stat-box">
+                        <div class="style-box">
+                            <div id="number1" class="number-display">0</div>
+                            <div class="unit">
+                                <p>名</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- <p>20代: 44%,  40代: 14%, 50代以上: 11%</p> -->
+        </div>
+        <!-- 性別分布の円グラフ -->
+        <div class="stat fade-in-section nav-item" data-target="section2">
+            <a href="#section2">
+                <h2>男性と女性の割合</h2>
+                <div class="setout">
+                    <div class="gender-distribution">
+                        <div class="gender-legend"></div>
+                        <!-- <div class="gender-parcent" style="display: flex;">
+                            <p>40%</p>
+                            <p>60%</p>
+                        </div> -->
+                        <svg width="18vw" height="18vw" viewBox="0 0 200 200">
+                            <!-- 40% の部分（小さい部分） -->
+                            <circle cx="100" cy="100" r="50" stroke="#79b7e6" stroke-width="100" fill="none"
+                                class="small-arc"></circle>
+                            <!-- 60% の部分（大きい部分） -->
+                            <circle x="10" cx="100" cy="100" r="50" stroke="#194ac8" stroke-width="100" fill="none"
+                                stroke-dasharray="377" stroke-dashoffset="377" class="large-arc"></circle>
+                        </svg>
+                        <div class="gender-icon">
+                            <div class="gender-item male"><span></span>
+                                <p>男性</p>
+                            </div>
+                            <div class="gender-item female"><span></span>
+                                <p>女性</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- 職種分布の円グラフ -->
+        <div class="stat fade-in-section nav-item" data-target="section3">
+            <a href="#section3">
+                <div class="studio">
+                    <h2>創業年数</h2>
+                    <div class="stat-box">
+                        <div class="style-box">
+                            <div id="number2" class="number-display">0</div>
+                            <div class="unit">
+                                <p>年</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+        </div>
+        <div class="stat fade-in-section nav-item" data-target="section4">
+            <a href="#section4">
+                <div class="studio">
+                    <h2>離職率</h2>
+                    <div class="studio">
+                        <div class="stat-box">
+                            <div class="style-box">
+                                <div id="number3" class="number-display">0</div>
+                                <div class="unit">
+                                    <p>%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+        </div>
+        <div class="stat fade-in-section nav-item" data-target="section5">
+            <a href="#section5">
+                <div class="studio">
+                    <h2>製品の導入実績</h2>
+                    <div class="studio">
+                        <div class="stat-box">
+                            <div class="style-box">
+                                <div id="number4" class="number-display size">0</div>
+                                <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+                                <div class="unit">
+                                    <p>社</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="stat fade-in-section nav-item" data-target="section6">
+            <a href="#section6">
+                <h2>有給休暇取得率</h2>
+                <div class="setout">
+                    <svg class="pi-graph-ring " viewBox="0 0 40 20" width="20vw" height="20vw">
+                        <circle class="job-yellow" cx="50%" cy="50%" r="15.9154" />
+                        <circle class="job-blue" cx="50%" cy="50%" r="15.9154" />
+                        <text id="number7" class="number-display" x="25%" y="100%" text-anchor="middle"
+                            dominant-baseline="middle" font-size="10
+                                    " fill="#275cbd" transform="rotate(90 20 20)">0</text>
+                        <text x="25%" y="140%" text-anchor="middle" dominant-baseline="middle" font-size="5
+                                    " fill="black" transform="rotate(90 20 20)">%</text>
+                    </svg>
+                    </svg>
+                </div>
+            </a>
+            <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+        </div>
+        <div class="stat fade-in-section nav-item" data-target="section6">
+            <a href="#section7">
+                <div class="studio">
+                    <h2>年間休日</h2>
+                    <div class="stat-box">
+                        <div class="style-box">
+                            <div id="number5" class="number-display size">0</div>
+                            <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+                            <div class="unit">
+                                <p>回</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+        </div>
+        <div class="stat fade-in-section nav-item" data-target="section8">
+            <a href="#section8">
+                <div class="studio">
+                    <h2>売上高</h2>
+                    <svg width="20vw" height="20vw" viewBox="0 0 300 200" preserveAspectRatio="xMinYMin meet">
+                        <!-- X軸 -->
+                        <line x1="50" y1="180" x2="350" y2="180" stroke="black" />
+                        <!-- Y軸 -->
+                        <line x1="50" y1="180" x2="50" y2="20" stroke="black" />
+                        <!-- 棒 (残業時間データ) -->
+                        <rect class="rect-bar" x="70" y="100" width="40" height="80" fill="#275cbd" />
+                        <rect class="rect-bar" x="130" y="60" width="40" height="120" fill="#79b7e6" />
+                        <rect class="rect-bar" x="190" y="120" width="40" height="60" fill="#275cbd" />
+                        <rect class="rect-bar" x="250" y="80" width="40" height="100" fill="#79b7e6" />
+                        <rect class="rect-bar" x="310" y="90" width="40" height="90" fill="#275cbd" />
+                        <!-- X軸のラベル (月) -->
+                    </svg>
+                </div>
+            </a>
+
+            <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+        </div>
+        <div class="stat fade-in-section nav-item" data-target="section5">
+            <a href="#section9">
+                <div class="studio">
+                    <h2>累計取引者数</h2>
+                    <div class="stat-box">
+                        <div class="style-box">
+                            <div id="number6" class="number-display size">0</div>
+                            <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+                            <div class="unit">
+                                <p>万人</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <p>フリーター: 33%, 会社員: 22%, 学生: 21%,</p> -->
+        </div>
+        </a>
+    </div>
+    <div id="date">
+
+    </div>
+
+    <div class="entry-section">
+        <h2>あなたの次のキャリアはここから！</h2>
+        <p>簡単3分でエントリー完了！今すぐ未来の可能性を広げましょう。</p>
+
+        <!-- エントリーボタン -->
+        <div class="entry-button-wrapper">
+            <a href="#entry" class="entry-button">
+                エントリーする
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <!-- 安心感やサポートを示す文 -->
+        <p class="entry-deadline">募集締め切りまであと <span class="days-left">7日</span>！お急ぎください！</p>
+    </div>
+    <a href="#header" id="back-to-top" class="back-to-top">トップに戻る</a>
+    <div id="faq">
+        <div class="faq-section">
+            <h2>よくある質問</h2>
+            <div class="accordion-item">
+                <button class="accordion-button">Q.未経験なのですが、応募できますか？</button>
+                <div class="accordion-content">
+                    <p>A.未経験の方も大歓迎です。</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">Q.福利厚生はありますか？</button>
+                <div class="accordion-content">
+                    <p>A.一般的な福利厚生の他に、通勤手当／産前産後休暇・育児休業などもあり、年1回の社員旅行や誕生日には特別なプレゼントもございます。</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-button">Q.応募に必要な資格等はありますか？</button>
+                <div class="accordion-content">
+                    <p>A.特に必要ありません。資格があれば優遇しますが、資格がなくても活躍している先輩はたくさんいます。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail-pages">
+        <div class="company-section">
+            <section class="company-info">
+                <h2>企業情報</h2>
+
+                <!-- 会社概要 -->
+                <h3>会社概要</h3>
+                <p>会社名: 株式会社タカヤコミュニケーションズ<br>
+                    設立: 1985年4月1日<br>
+                    本社所在地: 東京都渋谷区<br>
+                    代表取締役: 山田 太郎</p>
+
+                <!-- 会社の成長を表すグラフ -->
+                <!-- ビジョン・ミッション -->
+                <h3>ビジョン・ミッション</h3>
+                <p>ビジョン: 「未来の社会を創造する企業へ」<br>
+                    ミッション: 「お客様と共に成長し、より良い社会を創造するために革新的なソリューションを提供します。」</p>
+
+                <!-- 事業内容をピクトグラムで示す -->
+                <h3>事業内容</h3>
+                <p>当社の主な事業領域は次の通りです。</p>
+
+                <div class="pictogram-section">
+                    <div class="pictogram">
+
+                        <p>ITコンサルティング</p>
+                        <p class="description">ビジネスに最適なITソリューションを提供し、効率化を支援します。</p>
+                        <svg width="400" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 男性の棒 -->
+                            <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="clamp(170px, 80vw, 240px)"></rect>
+                        </svg>
+                    </div>
+                    <div class="pictogram">
+                        <p>ウェブ開発</p>
+                        <p class="description">最新技術を活用し、モダンなウェブサイトを構築します。</p>
+                        <svg width="400" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 男性の棒 -->
+                            <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="clamp(170px, 80vw, 200px)"></rect>
+                        </svg>
+                    </div>
+                    <div class="pictogram">
+                        <p>アプリ開発</p>
+                        <p class="description">高機能かつ使いやすいモバイルアプリケーションを開発します。</p>
+                        <svg width="400" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 男性の棒 -->
+                            <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="clamp(170px, 80vw, 320px)"></rect>
+                        </svg>
+                    </div>
+                    <div class="pictogram">
+                        <p>デジタルマーケティング</p>
+                        <p class="description">デジタルプラットフォームを活用し、効果的なマーケティング戦略を立案します。</p>
+                        <svg width="400" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 男性の棒 -->
+                            <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="clamp(170px, 90vw, 400px)"></rect>
+                        </svg>
+                    </div>
+                </div>
+
+
+                <!-- 会社の強み -->
+                <h3>会社の強み</h3>
+                <p>当社は、日本国内外に広がるネットワークと、高度なIT技術を活用したソリューション提供で業界をリードしています。</p>
+
+                <!-- 顧客層を図で示す -->
+                <h3>顧客層・パートナーシップ</h3>
+                <p>当社の顧客層およびパートナーシップの詳細を、以下の横線グラフで示しています。</p>
+
+                <!-- 顧客層の横線グラフ -->
+                <div class="customer-erea">
+                    <div class="customer-child">
+                        <h3>顧客層の割合</h3>
+                        <div class="customer-style">
+                            <svg width="370" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 男性の棒 -->
+                                <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="350"></rect>
+                            </svg>
+                            <p>70% 大手企業</p>
+                        </div>
+                        <p>当社の顧客のうち、<strong>70%</strong>が大手企業です。</p>
+                    </div>
+                    <div class="customer-child">
+                        <h3>パートナー企業の割合</h3>
+                        <div class="customer-style">
+                            <svg width="320" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="300"></rect>
+                                <!-- 男性の棒 -->
+                            </svg>
+                            <p>50% グローバルパートナー</p>
+                        </div>
+                        <p>当社のパートナー企業のうち、<strong>50%</strong>がグローバルパートナーです。</p>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+        <!-- 歴史セクション -->
+
+        <div class="history-section">
+            <section class="history-info" id="section3">
+                <h2>歴史</h2>
+                <p>当社は1985年に設立され、30年以上にわたり業界のリーダーとして成長してきました。これまでに数々の革新をもたらし、業界を牽引しています。</p>
+                <!-- 設立日を表示 -->
+                <div class="history-text">
+                    <p>設立日: <span id="establishment-date">1985年4月1日</span></p>
+
+                    <!-- 経過年数を表示 -->
+                    <p>現在までの経過年数: <span id="years-since-establishment"></span>年</p>
+                </div>
+                <div class="timeline">
+                    <ul>
+                        <li>
+                            <span class="year">1985年</span>
+                            <span class="detail">会社を設立</span>
+                        </li>
+                        <li>
+                            <span class="year">1990年</span>
+                            <span class="detail">従業員数が100人を突破</span>
+                        </li>
+                        <li>
+                            <span class="year">2000年</span>
+                            <span class="detail">年間売上高10億円を達成</span>
+                        </li>
+                        <li>
+                            <span class="year">2010年</span>
+                            <span class="detail">海外支社を5カ国に展開</span>
+                        </li>
+                        <li>
+                            <span class="year">2020年</span>
+                            <span class="detail">従業員数が1000人を突破し、事業拡大を続ける</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="employee-section">
+            <section class="employee-info color">
+                <h2>社員情報</h2>
+                <p>当社には200名以上の社員が在籍しており、平均年齢は35歳です。男女比は約50:50で、若手からベテランまで幅広い層が活躍しています。</p>
+
+                <!-- 年齢層を示す横線グラフ (縦に並べる) -->
+                <div id="section1" class="age-distribution">
+                    <h3>年齢層</h3>
+                    <div class="chart-container">
+                        <!-- Y軸のラベル -->
+                        <div class="y-axis-labels">
+                            <p>20代</p>
+                            <p>30代</p>
+                            <p>40代</p>
+                            <p>50代</p>
+                            <p>60代以上</p>
+                        </div>
+
+                        <!-- SVGの棒グラフ -->
+                        <div class="chart-svg">
+                            <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 20代の棒 -->
+                                <rect x="0" y="10" width="0" height="50" fill="#275cbd"
+                                    data-width="clamp(170px, 40vw, 230px)"></rect>
+                                <!-- 30代の棒 -->
+                                <rect x="0" y="70" width="0" height="50" fill="#275cbd"
+                                    data-width="clamp(200px, 60vw, 280px)"></rect>
+                                <!-- 40代の棒 -->
+                                <rect x="0" y="130" width="0" height="50" fill="#275cbd"
+                                    data-width="clamp(170px, 40vw, 200px)"></rect>
+                                <!-- 50代の棒 -->
+                                <rect x="0" y="190" width="0" height="50" fill="#275cbd"
+                                    data-width="clamp(70px, 40vw, 140px)"></rect>
+                                <!-- 60代以上の棒 -->
+                                <rect x="0" y="250" width="0" height="50" fill="#275cbd"
+                                    data-width="clamp(40px, 40vw, 70px)"></rect>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="x-axis-labels">
+                        <div></div>
+                        <div class="x-axis-chlids">
+                            <span>0</span>
+                            <span>20</span>
+                            <span>40</span>
+                            <span>60</span>
+                            <span>80</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+
+                    <!-- 年齢層の説明 -->
+                    <p class="chart-text">
+                        上記のグラフは、当社の社員の年齢層を示しています。20代の社員が25%、30代が35%、40代が20%、50代以上が10%となっています。若手とベテランがバランスよく在籍しているのが特徴です。
+                    </p>
+                    <div class="age-gender-info" id="section2">
+                        <h3>男女比</h3>
+                        <p>当社の男女比は50:50で、男女ともに活躍できる職場環境を整えています。</p>
+                        <div class="gender-chart">
+                            <div class="gender-chart-graph">
+                                <p>男性</p>
+                                <div class="gender-child">
+                                    <svg width="240" heigender-childght="50" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- 男性の棒 -->
+                                        <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="240"></rect>
+                                    </svg>
+                                    <p>60%</p>
+                                </div>
+                                <p>女性</p>
+                                <div class="gender-child">
+                                    <svg width="160" height="50" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="160"></rect>
+                                        <!-- 男性の棒 -->
+                                    </svg>
+                                    <p>40%</p>
+                                </div>
+                            </div>
+                            <!-- 女性の棒 -->
+                        </div>
+
+                    </div>
+
+                    <div class="turnover-rate-section" id="section4">
+                        <h3>入社率と離職率の推移</h3>
+                        <p>当社の入社率と離職率の推移を以下のグラフで示しています。</p>
+                        <!-- 入社率と離職率の折れ線グラフ -->
+                        <div class="turnover-rate-item">
+                            <!-- 入社率と離職率の折れ線グラフ (textタグを削除) -->
+                            <div class="turnover-rate-item-intersection">
+                                <!-- ガイド線とグラフ全体のコンテナ -->
+                                <div id="chart">
+                                    <div class="chart-config">
+                                        <div class="chart-box">
+                                            <!-- ガイド線（左側に値） -->
+                                            <div class="y-axis">
+                                                <div class="y-label" id="y-label-1">0</div>
+                                                <div class="y-label" id="y-label-2">100</div>
+                                                <div class="y-label" id="y-label-3">200</div>
+                                                <div class="y-label" id="y-label-4">300</div>
+                                                <div class="y-label" id="y-label-5">400</div>
+                                            </div>
+                                            <!-- グラフの表示領域（SVGを表示） -->
+                                            <div id="line-chart">
+                                                <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"
+                                                    id="sales-chart">
+                                                    <path id="line1"></path>
+                                                    <path id="line2"></path>
+                                                    <path id="line3"></path>
+                                                    <g id="dots1"></g>
+                                                    <g id="dots2"></g>
+                                                    <g id="dots3"></g>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <!-- ガイド線（下に年数を表示） -->
+                                        <div class="chart-bottombox">
+                                            <div class="chart-chlid"></div>
+                                            <div class="x-axis">
+                                                <div class="x-label" id="x-label-1">2015</div>
+                                                <div class="x-label" id="x-label-2">2016</div>
+                                                <div class="x-label" id="x-label-3">2017</div>
+                                                <div class="x-label" id="x-label-4">2018</div>
+                                                <div class="x-label" id="x-label-5">2019</div>
+                                                <div class="x-label" id="x-label-6">2020</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="tooltip" class="tooltip"></div>
+
+                                    <!-- グラフの凡例（色とデータ名）を追加 -->
+                                    <div class="legend">
+
+                                        <button id="showSales"><span id="showSales" class="legend-color"
+                                                style="background-color: #275cbd;"></span>売上データを表示</button>
+                                        <button id="showRainfall"><span id="showRainfall" class="legend-color"
+                                                style="background-color: #ff5733;"></span>降水量データを表示</button>
+                                        <button id="showPercentage"><span id="showPercentage" class="legend-color"
+                                                style="background-color: #33c455;"></span>パーセンテージデータを表示</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>2020年から2023年にかけて、当社の入社率は緩やかに推移しており、定着率は常に70%以上を維持しています。離職率は安定して5%程度で推移しています。</p>
+                        </div>
+
+            </section>
+        </div>
+        <div class="work-style-section">
+            <section class="work-style-info" id="section6">
+                <h2>働き方</h2>
+                <p>当社の働き方に関する情報を、年間休日数と平均残業時間の横線グラフで示しています。</p>
+
+                <div class="customer-erea">
+                    <div class="customer-child">
+                        <h3>年間休日</h3>
+                        <div class="customer-style">
+                            <svg width="370" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 男性の棒 -->
+                                <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="350"></rect>
+                            </svg>
+                            <p>125日</p>
+                        </div>
+                        <p>当社の年間休日数は<strong>120日</strong>です。</p>
+                    </div>
+                    <div class="customer-child">
+                        <h3>平均残業時間</h3>
+                        <div class="customer-style">
+                            <svg width="320" height="50" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0" y="0" width="0" height="50" fill="#275cbd" data-width="300"></rect>
+                                <!-- 男性の棒 -->
+                            </svg>
+                            <p>10時間</p>
+                        </div>
+                        <p>当社の平均残業時間は月<strong>10時間</strong>です。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+        <!-- 製品開発セクション -->
+        <div class="product-implementation-section">
+            <section class="product-implementation-info" id="section5">
+                <h2>製品の導入実績</h2>
+                <p>当社が開発した製品は、多くの企業や組織に導入されており、幅広い業界で活用されています。以下は、当社の製品導入実績に関する詳細情報です。</p>
+
+                <!-- 製品導入実績の詳細 -->
+                <div class="implementation-details">
+                    <div class="implementation-item">
+                        <h3>導入企業数</h3>
+                        <p><strong>100社以上</strong>の企業が当社の製品を導入しています。</p>
+                    </div>
+                    <div class="implementation-item">
+                        <h3>販売実績</h3>
+                        <p>累計<strong>50万台</strong>以上の製品が販売されています。</p>
+                    </div>
+                    <div class="implementation-item">
+                        <h3>業界導入実績</h3>
+                        <p>IT、製造、教育、医療など<strong>10業界</strong>以上で利用されています。</p>
+                    </div>
+                    <div class="implementation-item">
+                        <h3>グローバル展開</h3>
+                        <p>当社の製品は<strong>30カ国</strong>以上で導入され、世界中で活用されています。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- 売上高セクション -->
+        <div class="sales-section">
+            <section class="sales-info color" id="section8">
+                <h2>売上高</h2>
+                <p>2023年の売上高は100億円を突破し、前年比20%の成長を遂げました。今後も持続可能な成長を目指しています。</p>
+                <!-- SVGによる売上グラフ（シンプルな例） -->
+                <svg width="100%" height="100" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="30" width="10" height="20" fill="#79b7e6"></rect>
+                    <rect x="30" y="20" width="10" height="30" fill="#275cbd"></rect>
+                    <rect x="50" y="10" width="10" height="40" fill="#194ac8"></rect>
+                    <rect x="70" y="5" width="10" height="45" fill="#678abb"></rect>
+                </svg>
+            </section>
+        </div>
+    </div>
+
+</body>
+
+</html>
