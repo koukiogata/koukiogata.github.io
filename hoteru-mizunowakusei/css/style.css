@@ -5,7 +5,7 @@
     --pc-padding: calc(100 / 1240 * 100%);
     --font-size: calc(1.5rem + 5vw);
     --font-noto: "Noto Sans JP", "sans-serif";
-    --font-out: "Outfit", "sans-serif";
+    --font-out: "Outfit", "system-ui";
     --button-width: calc(20 / 100 * 100%);
 }
 
