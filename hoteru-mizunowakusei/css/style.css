@@ -81,12 +81,16 @@ a {
 
 .fade-box {
     opacity: 0;
-    transform: translateY(20px); /* 最初に少し下にズレている状態 */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* フェードインとスライド */
+    transform: translateY(20px);
+    /* 最初に少し下にズレている状態 */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* フェードインとスライド */
 }
+
 .fade-box.is-visible {
     opacity: 1;
-    transform: translateY(0); /* 正常位置に戻る */
+    transform: translateY(0);
+    /* 正常位置に戻る */
 }
 
 /* ~~~~~~~~~~~~~~~~~header~~~~~~~~~~~~~~~~~ */
@@ -256,13 +260,15 @@ main>.index_wrapper .index_img {
     text-align: center;
     z-index: 2;
 }
+
 main>.index_wrapper .fade-box {
     opacity: 0;
 }
 
 main>.index_wrapper .fade-box.is-visible {
     opacity: 1;
-    transform: translateY(0); /* 正常位置に戻る */
+    transform: translateY(0);
+    /* 正常位置に戻る */
 }
 
 main>.index_wrapper {
@@ -294,7 +300,7 @@ main>.index_wrapper {
     width: 100%;
     z-index: 1;
     height: auto;
-   
+
 }
 
 .index_wrapper .background-layer.hidden {
@@ -308,8 +314,8 @@ main>.index_wrapper {
 
 @media screen and (max-width: 970px) {
     main>.index_wrapper .index_img {
-       opacity: 0;
-       display: none;
+        opacity: 0;
+        display: none;
     }
 
     main>.index_wrapper h1::before {
@@ -338,7 +344,7 @@ main>.index_wrapper {
         display: none;
     }
 
-    
+
 
 }
 
@@ -696,7 +702,8 @@ main>.index_wrapper {
         display: flex;
         /* flex-wrap: wrap; */
         width: calc(1000 / 1240 * 100%);
-        margin: 0 auto;
+        margin-right: auto;
+        margin-left: auto;
         margin-bottom: calc(50 / 1366 * 100%);
     }
 
@@ -714,20 +721,6 @@ main>.index_wrapper {
         /* width: 80vw; */
     }
 
-    @media screen and (max-width: 500px) {
-        ul li {
-            flex-wrap: wrap;
-        }
-
-        ul li div {
-            flex: 1 1 calc(80% - 10px);
-        }
-
-        figure {
-            flex: 1 1 calc(80% - 10px);
-
-        }
-    }
 
     .index_rogo {
         margin: 0 auto;
@@ -745,8 +738,8 @@ main>.index_wrapper {
     ul li span {
         background-color: #0022ff;
         color: #fff;
-        padding: 0.2rem;
-        border-radius: 5px;
+        padding: 0 0.2rem;
+        border-radius: 0.5vw;
         margin-right: 1em;
     }
 
@@ -761,6 +754,41 @@ main>.index_wrapper {
 
     .button a {
         color: #fff;
+    }
+
+    @media screen and (max-width: 500px) {
+
+        ul li {
+            margin-bottom: 30vw;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        ul li div {
+            flex: 1 1 calc(80% - 10px);
+        }
+
+        figure {
+            flex: 1 1 calc(80% - 10px);
+
+        }
+
+        .index_news_date {
+            margin-top: 5vw;
+
+            div {
+                margin-bottom: 1.5rem ;
+
+            }
+
+            span {
+                margin-right: 1.5em;
+
+            }
+            h3 {
+              margin: 0.5rem 0;  
+            }
+        }
     }
 }
 
