@@ -569,6 +569,7 @@ main>.index_wrapper {
     }
 
     .index_side .index_sg {
+        font-family: var(--font-noto);
         max-width: 400px;
         /* width: calc(500 / 1240 * 100%); */
         min-width: 370px;
@@ -741,9 +742,15 @@ main>.index_wrapper {
         padding: 0 0.2rem;
         border-radius: 0.5vw;
         margin-right: 1em;
+        font-family: var(--font-out);
+    }
+    ul li time {
+        font-family: var(--font-out);
     }
 
+    
     .index_news_date {
+        font-family: var(--font-noto);
         margin: var(--pc-magin);
         text-align: left;
     }
@@ -869,11 +876,13 @@ main>.index_wrapper {
         padding: calc(50 / 1366 * 100%);
         font-size: clamp(18px, 2vw, 24px);
         border-bottom: 1px solid #fff;
+        font-family: var(--font-noto);
     }
 
     dl {
         padding: var(--pc-magin);
         color: #fff;
+        font-family: var(--font-out);
     }
 
     .global-footer-sitemap-text ul:nth-child(1) {
