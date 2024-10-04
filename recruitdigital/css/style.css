@@ -176,6 +176,9 @@ a {
         margin-right: auto;
         margin-left: auto;
     }
+    .stat {
+        max-height: 400px;
+    }
 
     /* 
     .pi-graph {
@@ -230,7 +233,8 @@ a {
     color: #333;
     font-size: 3vw;
     text-align: center;
-    color: var(--accent-color)
+    color: var(--accent-color);
+    margin-bottom: auto;
 }
 
 .stat .studio {
@@ -240,6 +244,42 @@ a {
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+.stat:nth-child(8) .studio {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    svg {
+        margin-bottom: auto;
+    }
+}
+.stat:nth-child(6) .studio {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    svg {
+        margin-bottom: auto;
+    }
+}
+.stat:nth-child(2) .studio {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    svg {
+        margin-bottom: auto;
+    }
 }
 
 .stat .stat-box .style-box {
@@ -414,9 +454,7 @@ stroke-dashoffset:100;
     stroke-dashoffset: -40;
 }
 
-.setout {
-    margin-top: 4vw;
-}
+
 
 /* .setin {
     position: absolute;

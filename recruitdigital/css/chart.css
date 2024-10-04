@@ -79,13 +79,9 @@
             .chart-box {
                 display: flex;
                 justify-content: space-between;
-                margin-right: -8px;
-                margin-left: -8px;
                 
             }
             .chart-bottombox {
-                margin-right: -8px;
-                margin-left: -8px;
 
                 .x-label {
                     font-size: 10px;
