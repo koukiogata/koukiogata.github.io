@@ -719,6 +719,7 @@ svg rect:active {
             /* 左寄せ */
             width: 100%;
             /* 幅をbox全体に */
+            order: 2;
         }
 
         .box img {
@@ -772,6 +773,13 @@ svg rect:active {
             padding: 1vw 2vw;
         }
 
+        @media (min-width: 500px) {
+            .box a {
+                order: 3;
+            }
+            
+        }
+        
         .box a:hover {
             background-color: #0056b3;
             /* ホバー時の背景色を濃い青に変更 */
@@ -789,8 +797,10 @@ svg rect:active {
                 background: none;
                 color: inherit;
                 padding: 0;
+                text-decoration: underline;
+                color: #d9d9d9;
             }
-        
+            
             .box a:hover {
                 background-color: transparent; /* ホバー時の背景色も元に戻す */
             }
