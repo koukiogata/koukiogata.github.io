@@ -794,6 +794,7 @@ svg rect:active {
             .box a:hover {
                 background-color: transparent; /* ホバー時の背景色も元に戻す */
             }
+
         }
 
         @media screen and (max-width: 500px) {
@@ -804,6 +805,7 @@ svg rect:active {
                 flex-wrap: nowrap;
                 /* ボックスを折り返さずに一列に並べる */
                 width: 100%;
+                padding-bottom: 0;
             }
 
             .box {
@@ -811,7 +813,7 @@ svg rect:active {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                min-height: 300px;
+                min-height: 350px;
                 width: 40%;
                 /* 各ボックスの幅を画面幅の80%に設定 */
                 min-width: 300px;

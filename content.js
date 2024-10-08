@@ -32,4 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ページ読み込み時とウィンドウサイズ変更時に実行
     window.addEventListener('resize', handleResize);
     handleResize(); // 初回実行
+
+    document.getElementById('design-link').addEventListener('click', function() {
+        window.open('https://xd.adobe.com/view/9bb2b6ed-0140-47a7-839b-e06d1daa0b50-cee1/grid', '_blank', 'noopener,noreferrer');
+      });
 });
