@@ -419,7 +419,7 @@ p.fade-in.visible {
 }
 #main-footer .wrapper ul li a {
   text-decoration: none;
-  padding: 12px;    
+  padding: 12px;
   color: #666;
   display: block;
   position: relative;
@@ -483,10 +483,6 @@ p.fade-in.visible {
     transform: scaleX(0);
     transform-origin: left;
   }
-  30% {
-    transform: scaleX(0.1);
-    transform-origin: left;
-  }
   60% {
     transform: scaleX(1);
     transform-origin: left;
@@ -510,15 +506,19 @@ p.fade-in.visible {
 @keyframes fadeInText {
   0% {
     opacity: 0;
+    color: rgba(0, 0, 0, 0); /* 透明な文字色 */
   }
   50% {
-    opacity: 0;
+    opacity: 1;
+    color: rgba(0, 0, 0, 0); /* 透明な文字色 */
   }
   60% {
     opacity: 1;
+    color: rgba(0, 0, 0, 0); /* 透明な文字色 */
   }
   100% {
     opacity: 1;
+    color: rgba(0, 0, 0, 1); /* 透明な文字色 */
   }
 }
 .reveal-bg {
@@ -543,7 +543,9 @@ p.fade-in.visible {
 .reveal-text {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  animation: revealText 6s forwards;
 }
+
 
 .reveal {
   visibility: hidden;
@@ -553,6 +555,6 @@ p.fade-in.visible {
 
 .reveal.active {
   visibility: visible;
-  opacity: 1;
+  transition: 2s;
   animation: fadeInText 1s forwards;
 }/*# sourceMappingURL=style.css.map */

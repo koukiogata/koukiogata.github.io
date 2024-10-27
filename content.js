@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (link.contains(h2)) {
                     contentGroup.insertBefore(h2, contentGroup.firstChild); // h2をcontentGroupの最初に戻す
                 }
-                link.textContent = 'mora'; // aタグにテキストを設定
+                link.textContent = 'サイト'; // aタグにテキストを設定
             }
         }
     }
@@ -40,4 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', handleResize);
     handleResize(); // 初回実行
+
+    document.getElementById("design-link").addEventListener("click", function() {
+        window.location.href = "https://xd.adobe.com/view/9bb2b6ed-0140-47a7-839b-e06d1daa0b50-cee1/grid"; // 遷移させたいURLを指定
+      });
 });
