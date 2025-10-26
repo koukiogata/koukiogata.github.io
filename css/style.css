@@ -305,7 +305,7 @@ svg rect:active {
   background-color: #3C3C3C;
   color: #d9d9d9;
 }
-.header-wrapper ul #testimonials-btn.active {
+.header-wrapper ul #design-btn.active {
   background-color: #616161;
   color: #d9d9d9;
 }
@@ -320,7 +320,7 @@ svg rect:active {
 #top,
 #about,
 #works,
-#testimonials,
+#design,
 #sns {
   width: 100%;
   /* 100vw ではなく 100% に変更 */
@@ -559,7 +559,6 @@ svg rect:active {
   justify-content: right;
   background-color: #3C3C3C;
   width: 100%;
-  height: auto;
   /* max-height: 100vh; */
 }
 #top #works .container {
@@ -568,7 +567,8 @@ svg rect:active {
   justify-content: space-around;
   align-items: flex-start;
   width: 70%;
-  padding-bottom: 20vw;
+  padding: 1.5vw 0 3vw 0;
+  height: auto;
 }
 #top #works .container::-webkit-scrollbar {
   display: none;
@@ -581,7 +581,6 @@ svg rect:active {
   /* Firefox */
 }
 #top #works .box {
-  margin-top: 0.5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -589,10 +588,34 @@ svg rect:active {
   padding: 1vw;
   border: 1px solid #505050;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  width: 30%;
-  height: 50vw;
-  max-height: 500px;
+  width: 25%;
+  height: 98%;
+  /* max-height: 500px; */
+  position: relative;
 }
+#top #works .box .triangle {
+    position: absolute;
+    left: 0;               /* 左端から */
+    top: 0;                /* 上端から */
+    width: 10vw;          /* 正方形キャンバス */
+    height: 10vw;
+    background: #4c4c4c;   /* 見える色 */
+    color: #fff;
+    display: flex;         /* 中央に文字配置 */
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    z-index: 2;            /* 画像より前面に */
+    /* 左上(0 0)=直角, 右上(100% 0), 左下(0 100%)=頂点 */
+    -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+#top #works .box .triangle span {
+                z-index: 1;
+                color: rgb(255, 255, 255);
+}
+
+
 #top #works .content-group {
   align-self: start;
   /* 左寄せ */
@@ -630,7 +653,7 @@ svg rect:active {
 #top #works .box a {
   align-self: center;
   /* 中央寄せ */
-  margin-top: auto;
+  margin-top: 1.5vw;
   /* 自動的に上部の空間を最大化して下に配置 */
   display: block;
   /* ブロック要素として扱う */
@@ -678,11 +701,13 @@ svg rect:active {
 @media screen and (max-width: 500px) {
   #top #works .container {
     overflow-x: auto;
+    overflow-y: hidden;
     /* 横スクロールを有効にする */
     display: flex;
     flex-wrap: nowrap;
     /* ボックスを折り返さずに一列に並べる */
     width: 100%;
+    padding-top: 20px;
     padding-bottom: 0;
   }
   #top #works .box {
@@ -701,103 +726,153 @@ svg rect:active {
     /* フレックスアイテムの縮小を禁止 */
     border-radius: 2vw;
   }
+
+  #top #works .box .triangle {
+    width: 30%;
+    height: 20%;
+    display: none;
+  }
+
 }
 @media screen and (max-width: 770px) {
   #top #works .container {
     width: 100%;
   }
 }
-#top #testimonials {
+#top #design {
   display: flex;
   justify-content: right;
   width: 100%;
 }
-#top #testimonials .testimonials-container {
+#top #design .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: start;
+  flex-direction: column;
+  height: auto;
   width: 70%;
   background: #616161;
 }
-#top #testimonials .testimonials-box {
+#top #design .container .designbox{
+  padding: 3vw 2vw 0 2vw;
+  
+  
+}
+
+#top #design .container .designbox h2{
+  text-align: center;
+  font-size: clamp(20px, 2vw, 30px);
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  color: #B1B1B1;
+}
+
+#top #design .container .designbox .elbox {
+  display: flex;
+  justify-content: space-around;
+  padding: 2vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#top #design .container .designbox .elbox .triangle{
+  position: absolute;
+    left: 0;               /* 左端から */
+    top: 0;                /* 上端から */
+    width: 5vw;          /* 正方形キャンバス */
+    height: 5vw;
+    background: #4c4c4c;   /* 見える色 */
+    color: #fff;
+    display: flex;         /* 中央に文字配置 */
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    z-index: 2;            /* 画像より前面に */
+    /* 左上(0 0)=直角, 右上(100% 0), 左下(0 100%)=頂点 */
+    -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+#top #design .container .designbox .element{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background: #ddd;
-  width: 90%;
-  box-sizing: border-box;
+  justify-content: space-between;
+  height: auto;
+  background: #D9D9D9;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #7B7B7B;
+  width: 30%;
+  padding: 2vw 0 2vw 0;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-#top #testimonials .testimonial-item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+
+#top #design .container .designbox .element img{
+  background-size: cover;
   width: 100%;
-  border-bottom: 1px solid black;
-  font-size: 0.8rem;
-  height: 20vh;
 }
-#top #testimonials .icon-text-box {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-basis: 20%;
-  padding-left: 5vw;
+#top #design .container .designbox .element .text{
+  flex:1;
+  padding: 1vw;
+}
+
+#top #design .container .designbox .element .text h3 {
+  text-align: center;
+  font-size: clamp(10px, 1vw, 20px);
+  padding: 0.5vw 0 0.5vw 0;
+  border-bottom: 2px #000 solid;
+}
+#top #design .container .designbox .element a{
+  display: block;
+  text-align: center;
+  border-radius: 50px;
+  text-decoration: none;
+  background-color: #505050;
   color: #d9d9d9;
+  padding: 0.5vw 1vw 0.5vw 1vw;
+  margin: 1vw 2vw 0 2vw;
+  font-size: clamp(10px, 1vw, 2vw);
 }
-#top #testimonials .icon img {
-  height: 5vw;
-  width: 5vw;
-  min-width: 50px;
-  min-height: 50px;
+
+#top #design .container .designbox .element .text p{
+  font-size: clamp(10px, 1vw, 20px);
 }
-#top #testimonials .label {
-  font-weight: bold;
-  width: 80px;
-}
-#top #testimonials .content-box {
-  flex: 1 1 70%;
-  padding: 0 30px;
-  color: #d9d9d9;
-}
-#top #testimonials .content,
-#top #testimonials ul.content {
-  flex-grow: 1;
-  text-align: left;
-  max-width: 100%;
-}
-#top #testimonials ul.content {
-  list-style-type: none;
-  padding: 0;
-}
-#top #testimonials li {
-  padding: 2px 0;
-}
-#top #testimonials .testimonial-item:last-child {
-  border-bottom: none;
-}
+
+
 @media screen and (max-width: 770px) {
-  #top #testimonials .testimonials-container {
+  #top #design .container {
     width: 100%;
   }
 }
 @media screen and (max-width: 500px) {
-  #top #testimonials .testimonial-item {
-    flex-wrap: wrap;
-    padding: 4vw 0;
-    height: 20vh;
+  #top #design .container .designbox .elbox {
+     overflow-x: auto;
+    overflow-y: hidden;
+    /* 横スクロールを有効にする */
+    display: flex;
+    flex-wrap: nowrap;
+    /* ボックスを折り返さずに一列に並べる */
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 0;
+    flex-wrap: nowrap;
   }
-  #top #testimonials ul.content {
-    padding: 0;
+  #top #design .container .designbox .element {
+    margin-top: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 350px;
+    width: 40%;
+    /* 各ボックスの幅を画面幅の80%に設定 */
+    min-width: 300px;
+    /* ボックスの最小幅を300pxに設定 */
+    margin: 10px 5px;
+    /* マージンを調整 */
+    flex-shrink: 0;
+    /* フレックスアイテムの縮小を禁止 */
   }
-  #top #testimonials .content-box {
-    flex: 1 1 70%;
-    padding: 0;
-    color: #d9d9d9;
+  #top #design .container .designbox .elbox .element a {
+    padding: 1vw 2vw;
+    font-size: 20px;
   }
 }
 
@@ -833,6 +908,7 @@ svg rect:active {
   margin-top: auto;
   display: flex;
   margin-right: 1vw;
+  gap: 0.5vw;
 }
 #sns .sns-container .social-icons img {
   width: clamp(50px, 5vw, 100px);

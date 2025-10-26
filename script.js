@@ -72,7 +72,7 @@ const LoadingComponent = {
                                         { strokeDashoffset: 1200 },
                                         { strokeDashoffset: 0 }
                                     ], {
-                                        duration: 2000,
+                                        duration: 1000,
                                         fill: 'forwards'
                                     }).finished.then(() => {
                                         frame.setAttribute('fill', 'black');
@@ -133,7 +133,7 @@ const HeaderComponent = {
                 <li><a href="#top" id="top-btn">TOP</a></li>
                 <li><a href="#about" id="about-btn">ABOUT</a></li>
                 <li><a href="#works" id="works-btn">WORKS</a></li>
-                <li><a href="#testimonials" id="testimonials-btn">TESTIMONIALS</a></li>
+                <li><a href="#design" id="design-btn">DESIGN</a></li>
                 <li><a href="#sns" id="sns-btn">SNS</a></li>
             </ul>
         </div>
@@ -193,7 +193,7 @@ const MainComponent = {
                         <img src="image/tobias-rademacher-uTjbuFbhTug-unsplash 1.jpg" alt="デザイナーKOUKIのポートレート画像">
                     </div>
                     <div class="about-paragraph">
-                        <p>こんにちは、koukと申します。WEBデザインに興味を持ち始めて2年が経ちました。この期間の中で、多様なクライアントの要望に応える機会をいただき、数々の発見とともに失敗から学ぶ貴重な経験をしてきました。
+                        <p>こんにちは、koukiと申します。WEBデザインのお仕事にしてから2年が経ちました。この期間の中で、多様なクライアントの要望に応える機会をいただき、数々の発見とともに失敗から学ぶ貴重な経験をしてきました。
                         </p>
                     </div>
                 </div>
@@ -201,7 +201,9 @@ const MainComponent = {
             </div>
             <div id="about-flex">
                 <div class="about-wrapper skli">
-                    <p> HTML、CSS、JavaScript、最新のフレームワークやライブラリ（React、Vue.jsなど）にも精通しており、レスポンシブデザインとクロスブラウザ対応を常に心掛けています。
+                    <p>HTML、CSS、JavaScriptをはじめ、最新のフレームワークやライブラリ（React、Vue.jsなど）にも精通しています。
+また、Adobe Photoshop、Illustrator、XDを使用したデザイン制作の経験があり、バナー制作やECサイトのデザインカンプ作成も行ってきました。
+常にレスポンシブデザインとクロスブラウザ対応を意識し、ユーザーにとって快適な閲覧体験を追求しています。
                     </p>
                     <div class="skli-sheet">
                         <div></div>
@@ -210,8 +212,9 @@ const MainComponent = {
                                 <li>HTML</li>
                                 <li>CSS</li>
                                 <li>Javascript</li>
-                                <li>Vue.js</li>
-                                <li>React</li>
+                                <li>Adobe Photshop</li>
+                                <li>Adobe Illustrator</li>
+                                <li>Adobe XD</li>
                             </ul>
                         </div>
                         <div></div>
@@ -221,69 +224,148 @@ const MainComponent = {
         <section id="works" class="scroll-section">
             <div class="container">
                 <div class="box">
+                    <div class="triangle">
+                    </div>
                     <img src="image/works-image1.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
                     <div class="content-group">
-                        <h2>Vue.js　職業訓練の自主製作</h2>
-                        <p>こだわりポイント<br />最新のVue.jsを使用して再利用可能なコンポーネントを設計し、それにより各デバイスに対応しました。デザインカンプは<span id="design-link" style="text-decoration: underline; color: blue; cursor: pointer;">こちら</span>で確認できます。</p>
+                        <h2>Vue.js企業プロジェクトの自主製作</h2>
+                        <p>●ポイント<br />最新のVue.jsを使用して再利用可能なコンポーネントを設計し、それにより各デバイスに対応しました。</p>
+                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
                     </div>
-                    <a href="https://koukiogata.github.io/hotel">サイト</a>
+                    <a href="https://koukiogata.github.io/hotel" target="_blank">見る</a>
                 </div>
                 <div class="box">
+                    <div class="triangle">
+                    </div>
                     <img src="image/works-image2.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
                     <div class="content-group">
-                        <h2>実習先制作物　求人情報</h2>
-                        <p>こだわりポイント<br />JavaScriptを使用して、SVG内に動的な折れ線グラフを実装、データの範囲に応じたスケール変換を実装</p>
+                        <h2>株式会社タカヤコミュニケーションズ</h2>
+                        <p>●ポイント<br />JavaScriptを使用して、SVG内に動的な折れ線グラフを実装、データの範囲に応じたスケール変換を実装</p>
+                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
                     </div>
-                    <a href="https://koukiogata.github.io/digital">サイト</a>
+                    <a href="https://koukiogata.github.io/digital" target="_blank">見る</a>
                 </div>
                 <div class="box">
+                    <div class="triangle">
+                    </div>
                     <img src="image/works-image3.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
                     <div class="content-group">
                         <h2>HTML CSS JQuery基礎フレームワーク</h2>
-                        <p>こだわりポイント<br /> デバイスの画面サイズに応じたレイアウト調整。CSSの @keyframes を使った滑らかなアニメーション</p>
+                        <p>●ポイント<br /> デバイスの画面サイズに応じたレイアウト調整。CSSの @keyframes を使った滑らかなアニメーション</p>
+                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
                     </div>
-                    <a href="./web/index.html">サイト</a>
+                    <a href="./web/index.html" target="_blank">見る</a>
                 </div>
             </div>
         </section>
-        <section id="testimonials" class="scroll-section">
-            <div class="testimonials-container">
-                <div class="testimonials-box">
-                    <div class="testimonial-item">
-                        <div class="icon-text-box">
-                            <span class="icon"><img src="image/男性の人物アイコン素材 2.png" alt="クライアントのフィードバックを示すアイコン"></span>
-                            <span class="label">クライアント</span>
+        <section id="design" class="scroll-section">
+            <div class="container">
+                <div class="designbox">
+                    <h2>FLYER</h2>
+                    <div class="elbox">
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image1.png" alt="">
+                            <div class="text">
+                                <h3>外構工事サービス</h3>
+                                <p>地域の住宅リフォーム会社「創栄ホーム」が提供する外構工事サービスを、チラシで効果的に訴求するために制作しました。</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
                         </div>
-                        <div class="content-box">
-                            <ul class="content">
-                                <li>自分の思ってた物を形にしてくれる。</li>
-                                <li>予定より少し早く仕上げて欲しい。</li>
-                            </ul>
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image2.png" alt="">
+                            <div class="text">
+                                <h3>にぎり墨体験</h3>
+                                <p>奈良県橿原市で行われる「新書写書道展」イベント内の体験企画「にぎり墨体験」を、子ども・保護者に向けてわかりやすく告知するために制作。</p>
+                            </div>
+                            <a href="ooj">詳しく</a>
                         </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="icon-text-box">
-                            <span class="icon"><img src="image/男性の人物アイコン素材 2.png" alt="職業訓練のフィードバックアイコン"></span>
-                            <span class="label">職業訓練</span>
-                        </div>
-                        <div class="content-box">
-                            <p class="content">少しデザインやコーディングができたからと言って、全部完璧と思ってしまうところがある。新しいことにはすぐ興味を持ち行動するところがある。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="icon-text-box">
-                            <span class="icon"><img src="image/男性の人物アイコン素材 2.png" alt="友人・家族のフィードバックアイコン"></span>
-                            <span class="label">友人・家族</span>
-                        </div>
-                        <div class="content-box">
-                            <ul class="content">
-                                <li>色の使い方と文字の大きさの調整が素晴らしい。</li>
-                                <li>全体のバランスも整ってて見やすいデザイン。</li>
-                            </ul>
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image3.png" alt="">
+                            <div class="text">
+                                <h3>外壁・屋根塗装</h3>
+                                <p>奈良県を中心に住宅リフォームを行う「創栄ホーム」の外壁・屋根塗装サービスを地域住民に向けて告知するチラシ</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
                         </div>
                     </div>
                 </div>
+                <div class="designbox">
+                    <h2>BANNER</h2>
+                    <div class="elbox">
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image4.png" alt="">
+                            <div class="text">
+                                <h3>OWL OSASKA</h3>
+                                <p>大阪のナイトクラブ「OWL OSAKA」のDJイベント告知用バナーを制作</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
+                        </div>
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image5.png" alt="">
+                            <div class="text">
+                                <h3>terrace coffee</h3>
+                                <p>都心で開催される期間限定テラスカフェイベントの告知バナーを制作。</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
+                        </div>
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image6.png" alt="">
+                            <div class="text">
+                                <h3>やきいも大会</h3>
+                                <p>地域イベント「やきいも大会」のSNS告知用バナーを制作。</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="designbox">
+                    <h2>WEBSITE</h2>
+                    <div class="elbox">
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image7.png" alt="">
+                            <div class="text">
+                                <h3>尾方習字教室</h3>
+                                <p>子どもから大人まで通える「尾う習字教室」のWebサイトデザインカンプを制作。</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
+                        </div>
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image8.png" alt="">
+                            <div class="text">
+                                <h3>大滝屋旅館</h3>
+                                <p>老舗温泉旅館「大滝屋旅館」のWebサイトデザインカンプを制作。</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
+                        </div>
+                        <div class="element">
+                            <div class="triangle">
+                            </div>
+                            <img src="image/design_image9.png" alt="">
+                            <div class="text">
+                                <h3>MIZUNOWAKUSEI</h3>
+                                <p>ホテルの企画・開発・プロデュースを行うMIZUNOWAKUSEIのコーポレートサイトをデザイン。</p>
+                                </div>
+                                <a href="ooj">詳しく</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </section>
     </main>
@@ -302,8 +384,8 @@ const FooterComponent = {
                 </div>
                 <div class="sns-links">
                     <div class="social-icons">
-                        <img src="image/kjinoicevc 1.png" alt="KOUKIのSNSリンクアイコン1">
-                        <img src="image/kjinoicevcXXX 1.png" alt="KOUKIのSNSリンクアイコン2">
+                        <a href="https://x.com/kouki10BassSlut" target="_blank"><img src="image/kjinoicevcXXX 1.png" alt="KOUKIのSNSリンクアイコン2"></a>
+                        <a href="https://www.instagram.com/_kxxzy/" target="_blank"><img src="image/kjinoicevc 1.png" alt="githubのSNSリンクアイコン"></a>
                     </div>
                     <div class="brand-logo">
                         <img src="image/knkjn 1.png" alt="KOUKIのブランドロゴ">

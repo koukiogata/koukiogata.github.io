@@ -45,3 +45,34 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "https://xd.adobe.com/view/9bb2b6ed-0140-47a7-839b-e06d1daa0b50-cee1/grid"; // 遷移させたいURLを指定
       });
 });
+
+// すべての「詳細を見る」リンクを取得
+const openButtons = document.querySelectorAll(".openModal");
+const modals = document.querySelectorAll(".modal");
+
+// 各ボタンにクリックイベントを追加
+openButtons.forEach(button => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = button.getAttribute("data-target");
+    const targetModal = document.getElementById(targetId);
+    targetModal.style.display = "block";
+  });
+});
+
+// 閉じるボタンと背景クリックで閉じる処理
+modals.forEach(modal => {
+  const closeBtn = modal.querySelector(".close");
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // 背景クリックでも閉じる
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+

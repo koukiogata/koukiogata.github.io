@@ -710,8 +710,34 @@ svg rect:active {
             border: 1px solid #505050;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             width: 30%;
-            height: 50vw;
+            height: auto;
             max-height: 500px;
+            gap: 10vw;
+        }
+        
+        .triangle {
+            position: absolute;
+            left: 0;               /* 左端から */
+            top: 0;                /* 上端から */
+            width: 160px;          /* 正方形キャンバス */
+            height: 160px;
+            background: #3498db;   /* 見える色 */
+            color: #fff;
+            display: flex;         /* 中央に文字配置 */
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            z-index: 2;            /* 画像より前面に */
+            /* 左上(0 0)=直角, 右上(100% 0), 左下(0 100%)=頂点 */
+            -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
+                    clip-path: polygon(0 0, 100% 0, 0 100%);
+          
+
+            span {
+                position: relative;
+                z-index: 1;
+                color: black;
+              }
         }
 
         .content-group {
@@ -996,6 +1022,7 @@ svg rect:active {
             margin-top: auto;
             display: flex;
             margin-right: 1vw;
+            gap: 0.5vw;
 
             img {
                 width: clamp(50px, 5vw, 100px);
