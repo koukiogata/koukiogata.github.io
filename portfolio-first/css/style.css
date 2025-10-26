@@ -875,6 +875,72 @@ svg rect:active {
     font-size: 20px;
   }
 }
+#top #design .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8); /* 背景暗く */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+#top #design .modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+}
+#top #design .modal-content-height {
+    position: relative;
+  width: 90%;
+  height: 100%;
+  max-width: 1000px;
+  overflow-y: auto;
+}
+
+
+/* #top #design .modalsection .modal-content:nth-child(3) {
+  height: 100%;
+} */
+
+#top #design .modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+#top #design .modal-content-height img {
+    width: 100%;
+  height: auto;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+#top #design .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+#top #design .modal-content-height .close{
+  position: fixed;
+}
+
+#top #design .work-box img {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#top #design .work-box img:hover {
+  transform: scale(1.05);
+}
 
 #sns {
   min-height: 500px;

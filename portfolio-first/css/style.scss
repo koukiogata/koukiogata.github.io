@@ -714,30 +714,36 @@ svg rect:active {
             max-height: 500px;
             gap: 10vw;
         }
-        
+
         .triangle {
             position: absolute;
-            left: 0;               /* 左端から */
-            top: 0;                /* 上端から */
-            width: 160px;          /* 正方形キャンバス */
+            left: 0;
+            /* 左端から */
+            top: 0;
+            /* 上端から */
+            width: 160px;
+            /* 正方形キャンバス */
             height: 160px;
-            background: #3498db;   /* 見える色 */
+            background: #3498db;
+            /* 見える色 */
             color: #fff;
-            display: flex;         /* 中央に文字配置 */
+            display: flex;
+            /* 中央に文字配置 */
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            z-index: 2;            /* 画像より前面に */
+            z-index: 2;
+            /* 画像より前面に */
             /* 左上(0 0)=直角, 右上(100% 0), 左下(0 100%)=頂点 */
             -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
-                    clip-path: polygon(0 0, 100% 0, 0 100%);
-          
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+
 
             span {
                 position: relative;
                 z-index: 1;
                 color: black;
-              }
+            }
         }
 
         .content-group {
@@ -803,22 +809,24 @@ svg rect:active {
             .box a {
                 order: 3;
             }
-            
+
         }
-        
+
         .box a:hover {
             background-color: #0056b3;
             /* ホバー時の背景色を濃い青に変更 */
         }
-        
+
         @media (max-width: 500px) {
             .box a {
                 /* 無効にしたいプロパティをリセット */
                 align-self: auto;
                 margin-top: 0;
-                display: inline; /* ブロックではなくインラインに戻す */
+                display: inline;
+                /* ブロックではなくインラインに戻す */
                 width: auto;
-                text-align: left; /* 中央寄せを解除 */
+                text-align: left;
+                /* 中央寄せを解除 */
                 border-radius: 0;
                 background: none;
                 color: inherit;
@@ -826,9 +834,10 @@ svg rect:active {
                 text-decoration: underline;
                 color: #d9d9d9;
             }
-            
+
             .box a:hover {
-                background-color: transparent; /* ホバー時の背景色も元に戻す */
+                background-color: transparent;
+                /* ホバー時の背景色も元に戻す */
             }
 
         }
