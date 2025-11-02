@@ -271,7 +271,7 @@ const MainComponent = {
                                 <h3>外構工事サービス</h3>
                                 <p>地域の住宅リフォーム会社「創栄ホーム」が提供する外構工事サービスを、チラシで効果的に訴求するために制作しました。</p>
                                 </div>
-                                <a href="ooj">詳しく</a>
+                                <a href="#" class="openModal" data-target="modal1">みる</a>
                         </div>
                         <div class="element">
                             <div class="triangle">
@@ -281,7 +281,7 @@ const MainComponent = {
                                 <h3>にぎり墨体験</h3>
                                 <p>奈良県橿原市で行われる「新書写書道展」イベント内の体験企画「にぎり墨体験」を、子ども・保護者に向けてわかりやすく告知するために制作。</p>
                             </div>
-                            <a href="ooj">詳しく</a>
+                            <a href="#" class="openModal" data-target="modal2">みる</a>
                         </div>
                         <div class="element">
                             <div class="triangle">
@@ -290,8 +290,8 @@ const MainComponent = {
                             <div class="text">
                                 <h3>外壁・屋根塗装</h3>
                                 <p>奈良県を中心に住宅リフォームを行う「創栄ホーム」の外壁・屋根塗装サービスを地域住民に向けて告知するチラシ</p>
-                                </div>
-                                <a href="ooj">詳しく</a>
+                            </div>
+                            <a href="#" class="openModal" data-target="modal3">みる</a>
                         </div>
                     </div>
                 </div>
@@ -305,8 +305,8 @@ const MainComponent = {
                             <div class="text">
                                 <h3>OWL OSASKA</h3>
                                 <p>大阪のナイトクラブ「OWL OSAKA」のDJイベント告知用バナーを制作</p>
-                                </div>
-                                <a href="ooj">詳しく</a>
+                            </div>
+                            <a href="#" class="openModal" data-target="modal4">みる</a>
                         </div>
                         <div class="element">
                             <div class="triangle">
@@ -315,8 +315,8 @@ const MainComponent = {
                             <div class="text">
                                 <h3>terrace coffee</h3>
                                 <p>都心で開催される期間限定テラスカフェイベントの告知バナーを制作。</p>
-                                </div>
-                                <a href="ooj">詳しく</a>
+                            </div>
+                            <a href="#" class="openModal" data-target="modal5">みる</a>
                         </div>
                         <div class="element">
                             <div class="triangle">
@@ -325,8 +325,8 @@ const MainComponent = {
                             <div class="text">
                                 <h3>やきいも大会</h3>
                                 <p>地域イベント「やきいも大会」のSNS告知用バナーを制作。</p>
-                                </div>
-                                <a href="ooj">詳しく</a>
+                            </div>
+                            <a href="#" class="openModal" data-target="modal6">みる</a>
                         </div>
                     </div>
                 </div>
@@ -340,8 +340,8 @@ const MainComponent = {
                             <div class="text">
                                 <h3>尾方習字教室</h3>
                                 <p>子どもから大人まで通える「尾う習字教室」のWebサイトデザインカンプを制作。</p>
-                                </div>
-                                <a href="ooj">詳しく</a>
+                            </div>
+                            <a href="#" class="openModal" data-target="modal7">みる</a>
                         </div>
                         <div class="element">
                             <div class="triangle">
@@ -350,8 +350,8 @@ const MainComponent = {
                             <div class="text">
                                 <h3>大滝屋旅館</h3>
                                 <p>老舗温泉旅館「大滝屋旅館」のWebサイトデザインカンプを制作。</p>
-                                </div>
-                                <a href="ooj">詳しく</a>
+                            </div>
+                            <a href="#" class="openModal" data-target="modal8">みる</a>
                         </div>
                         <div class="element">
                             <div class="triangle">
@@ -360,12 +360,67 @@ const MainComponent = {
                             <div class="text">
                                 <h3>MIZUNOWAKUSEI</h3>
                                 <p>ホテルの企画・開発・プロデュースを行うMIZUNOWAKUSEIのコーポレートサイトをデザイン。</p>
-                                </div>
-                                <a href="ooj">詳しく</a>
+                            </div>
+                            <a href="#" class="openModal" data-target="modal9">みる</a>
                         </div>
                     </div>
                 </div>
-                
+            </div>
+            <div class="modalsection">
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 1.png" alt="作品1拡大画像">
+                    </div>
+                </div>
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 2.png" alt="作品2拡大画像">
+                  </div>
+                </div>
+                <div id="modal3" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 3.png" alt="作品3拡大画像">
+                    </div>
+                </div>
+                <div id="modal4" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 4.png" alt="作品1拡大画像">
+                    </div>
+                </div>
+                <div id="modal5" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 5.png" alt="作品2拡大画像">
+                  </div>
+                </div>
+                <div id="modal6" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 6.png" alt="作品3拡大画像">
+                    </div>
+                </div>
+                <div id="modal7" class="modal">
+                    <div class="modal-content-height">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 7.png" alt="作品1拡大画像">
+                    </div>
+                </div>
+                <div id="modal8" class="modal">
+                    <div class="modal-content-height">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 8.png" alt="作品2拡大画像">
+                  </div>
+                </div>
+                <div id="modal9" class="modal">
+                    <div class="modal-content-height">
+                        <span class="close">&times;</span>
+                        <img src="image/Group 9.png" alt="作品3拡大画像">
+                    </div>
+                </div>
             </div>
         </section>
     </main>
