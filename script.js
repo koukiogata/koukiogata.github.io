@@ -90,7 +90,7 @@ const LoadingComponent = {
                                         });
 
                                         svg.addEventListener('click', function () {
-                                            console.log('SVG clicked!');
+                                            console.log('🖱️ SVG clicked!');
                                             outerContainer.animate([
                                                 { transform: 'scaleY(1)', opacity: 1 },
                                                 { transform: 'scaleY(1)', opacity: 0 }
@@ -98,10 +98,16 @@ const LoadingComponent = {
                                                 duration: 500,
                                                 easing: 'ease-in-out',
                                                 fill: 'forwards'
-                                            }).finished.then(function () { // ここで function() に変更して、bind(this) が適用可能にする
+                                            }).finished.then(function () {
                                                 outerContainer.style.display = 'none';
                                                 document.body.style.overflow = 'auto';
-                                            });  // bind(this)で、外側の「this」をここでも使えるようにする
+                                                console.log('✅ ローディングアニメーション完了');
+
+                                                // ← 重要：Vueに「ローディング完了」を通知
+                                                // 親コンポーネントのイベントを発火させる
+                                                // this スコープを失うため、outerContainer の data 属性を使用して通知
+                                                window.dispatchEvent(new CustomEvent('loading-complete'));
+                                            });
                                         });
 
                                     });
@@ -176,6 +182,27 @@ const MainComponent = {
       <main id="top" class="scroll-section">
         <div class="top-contenir">
             <div class="top-wrapper">
+                <!-- 浮遊アニメーション背景 -->
+                <div class="background-animation" aria-hidden="true">
+                    <ul>
+                        <!-- 円 (circle) -->
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <li class="circle"></li>
+                        <!-- 四角 (square) -->
+                        <li class="square"></li>
+                        <li class="square"></li>
+                        <li class="square"></li>
+                        <li class="square"></li>
+                        <!-- 三角 (triangle) -->
+                        <li class="triangle"></li>
+                        <li class="triangle"></li>
+                        <li class="triangle"></li>
+                        <li class="triangle"></li>
+                    </ul>
+                </div>
+                <!-- コンテンツ（前面） -->
                 <h1>K-CREATE</h1>
                 <p class="top-text-line">Designing the Future</p>
             </div>
@@ -224,8 +251,15 @@ const MainComponent = {
         <section id="works" class="scroll-section">
             <div class="container">
                 <div class="box">
-                    <div class="triangle">
+                    <img src="image/works-image4.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                    <div class="content-group">
+                        <h2>習字教室のホームページHTML/CSS</h2>
+                        <p>●ポイント<br /> デバイスの画面サイズに応じたレイアウト調整。CSSの @keyframes を使った滑らかなアニメーション</p>
+                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
                     </div>
+                <a href="https://ogata-shuuji.deca.jp/" target="_blank">見る</a>
+                </div>
+                <div class="box">
                     <img src="image/works-image1.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
                     <div class="content-group">
                         <h2>Vue.js企業プロジェクトの自主製作</h2>
@@ -235,8 +269,6 @@ const MainComponent = {
                     <a href="https://koukiogata.github.io/hotel" target="_blank">見る</a>
                 </div>
                 <div class="box">
-                    <div class="triangle">
-                    </div>
                     <img src="image/works-image2.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
                     <div class="content-group">
                         <h2>株式会社タカヤコミュニケーションズ</h2>
@@ -246,8 +278,6 @@ const MainComponent = {
                     <a href="https://koukiogata.github.io/digital" target="_blank">見る</a>
                 </div>
                 <div class="box">
-                    <div class="triangle">
-                    </div>
                     <img src="image/works-image3.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
                     <div class="content-group">
                         <h2>HTML CSS JQuery基礎フレームワーク</h2>
@@ -263,169 +293,107 @@ const MainComponent = {
                 <div class="designbox">
                     <h2>FLYER</h2>
                     <div class="elbox">
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image1.png" alt="">
+                        <div class="element" v-for="item in flyerItems" :key="item.id">
+                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title" style="height: 200px; object-fit: cover; width: 100%;">
                             <div class="text">
-                                <h3>外構工事サービス</h3>
-                                <p>地域の住宅リフォーム会社「創栄ホーム」が提供する外構工事サービスを、チラシで効果的に訴求するために制作しました。</p>
-                                </div>
-                                <a href="#" class="openModal" data-target="modal1">みる</a>
-                        </div>
-                        <div class="element">
-                            <div class="triangle">
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.description }}</p>
                             </div>
-                            <img src="image/design_image2.png" alt="">
-                            <div class="text">
-                                <h3>にぎり墨体験</h3>
-                                <p>奈良県橿原市で行われる「新書写書道展」イベント内の体験企画「にぎり墨体験」を、子ども・保護者に向けてわかりやすく告知するために制作。</p>
-                            </div>
-                            <a href="#" class="openModal" data-target="modal2">みる</a>
-                        </div>
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image3.png" alt="">
-                            <div class="text">
-                                <h3>外壁・屋根塗装</h3>
-                                <p>奈良県を中心に住宅リフォームを行う「創栄ホーム」の外壁・屋根塗装サービスを地域住民に向けて告知するチラシ</p>
-                            </div>
-                            <a href="#" class="openModal" data-target="modal3">みる</a>
+                            <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
                         </div>
                     </div>
                 </div>
                 <div class="designbox">
                     <h2>BANNER</h2>
                     <div class="elbox">
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image4.png" alt="">
+                        <div class="element" v-for="item in bannerItems" :key="item.id">
+                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title" style="height: 300px; object-fit: cover; width: 100%;">
                             <div class="text">
-                                <h3>OWL OSASKA</h3>
-                                <p>大阪のナイトクラブ「OWL OSAKA」のDJイベント告知用バナーを制作</p>
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.description }}</p>
                             </div>
-                            <a href="#" class="openModal" data-target="modal4">みる</a>
-                        </div>
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image5.png" alt="">
-                            <div class="text">
-                                <h3>terrace coffee</h3>
-                                <p>都心で開催される期間限定テラスカフェイベントの告知バナーを制作。</p>
-                            </div>
-                            <a href="#" class="openModal" data-target="modal5">みる</a>
-                        </div>
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image6.png" alt="">
-                            <div class="text">
-                                <h3>やきいも大会</h3>
-                                <p>地域イベント「やきいも大会」のSNS告知用バナーを制作。</p>
-                            </div>
-                            <a href="#" class="openModal" data-target="modal6">みる</a>
+                            <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
                         </div>
                     </div>
                 </div>
                 <div class="designbox">
-                    <h2>WEBSITE</h2>
+                    <h2>UI/UX</h2>
                     <div class="elbox">
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image7.png" alt="">
+                        <div class="element" v-for="item in websiteItems" :key="item.id">
+                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title" style="height: 300px; object-fit: cover; width: 100%;">
                             <div class="text">
-                                <h3>尾方習字教室</h3>
-                                <p>子どもから大人まで通える「尾う習字教室」のWebサイトデザインカンプを制作。</p>
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.text }}</p>
                             </div>
-                            <a href="#" class="openModal" data-target="modal7">みる</a>
-                        </div>
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image8.png" alt="">
-                            <div class="text">
-                                <h3>大滝屋旅館</h3>
-                                <p>老舗温泉旅館「大滝屋旅館」のWebサイトデザインカンプを制作。</p>
-                            </div>
-                            <a href="#" class="openModal" data-target="modal8">みる</a>
-                        </div>
-                        <div class="element">
-                            <div class="triangle">
-                            </div>
-                            <img src="image/design_image9.png" alt="">
-                            <div class="text">
-                                <h3>MIZUNOWAKUSEI</h3>
-                                <p>ホテルの企画・開発・プロデュースを行うMIZUNOWAKUSEIのコーポレートサイトをデザイン。</p>
-                            </div>
-                            <a href="#" class="openModal" data-target="modal9">みる</a>
+                            <a :href="'./works/?id=' + item.id">みる</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modalsection">
-                <div id="modal1" class="modal">
+                <div class="modal" v-if="isModalOpen" style="display: flex;" @click.self="closeModal">
                     <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 1.png" alt="作品1拡大画像">
-                    </div>
-                </div>
-                <div id="modal2" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 2.png" alt="作品2拡大画像">
-                  </div>
-                </div>
-                <div id="modal3" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 3.png" alt="作品3拡大画像">
-                    </div>
-                </div>
-                <div id="modal4" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 4.png" alt="作品1拡大画像">
-                    </div>
-                </div>
-                <div id="modal5" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 5.png" alt="作品2拡大画像">
-                  </div>
-                </div>
-                <div id="modal6" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 6.png" alt="作品3拡大画像">
-                    </div>
-                </div>
-                <div id="modal7" class="modal">
-                    <div class="modal-content-height">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 7.png" alt="作品1拡大画像">
-                    </div>
-                </div>
-                <div id="modal8" class="modal">
-                    <div class="modal-content-height">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 8.png" alt="作品2拡大画像">
-                  </div>
-                </div>
-                <div id="modal9" class="modal">
-                    <div class="modal-content-height">
-                        <span class="close">&times;</span>
-                        <img src="image/Group 9.png" alt="作品3拡大画像">
+                        <span class="close" @click="closeModal">&times;</span>
+                        <img :src="selectedModalImage" alt="拡大画像">
                     </div>
                 </div>
             </div>
         </section>
     </main>
     `,
-    // ここにメインコンポーネントに関連するデータやメソッドを追加することができます
+    data() {
+        return {
+            flyerItems: [],
+            bannerItems: [],
+            websiteItems: [],
+            isModalOpen: false,
+            selectedModalImage: ''
+        };
+    },
+    created() {
+        const API_KEY = 'ZxBt8c9lECXDuzv4C6H07sWO87wCMZT2C7Ua';
+
+        // FLYER & BANNER (design API)
+        fetch('https://kouki.microcms.io/api/v1/design', {
+            headers: { 'X-MICROCMS-API-KEY': API_KEY }
+        })
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.json();
+            })
+            .then(data => {
+                if (data.contents) {
+                    this.flyerItems = data.contents.filter(item => item.category && item.category.includes('fryer'));
+                    this.bannerItems = data.contents.filter(item => item.category && item.category.includes('banner'));
+                }
+            })
+            .catch(err => console.error('Fetch error:', err));
+
+        // WEBSITE (designmockup API)
+        fetch('https://kouki.microcms.io/api/v1/designmockup', {
+            headers: { 'X-MICROCMS-API-KEY': API_KEY }
+        })
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.json();
+            })
+            .then(data => {
+                if (data.contents) {
+                    this.websiteItems = data.contents;
+                }
+            })
+            .catch(err => console.error('Fetch error:', err));
+    },
+    methods: {
+        openModal(imageUrl) {
+            this.selectedModalImage = imageUrl;
+            this.isModalOpen = true;
+        },
+        closeModal() {
+            this.isModalOpen = false;
+            this.selectedModalImage = '';
+        }
+    },
 };
 
 // フッターコンポーネントの定義
@@ -471,25 +439,130 @@ const app = Vue.createApp({
         };
     },
     mounted() {
-        const headerHeight = document.querySelector('.header-wrapper ul').offsetHeight;
-        // DOM要素の取得
-        this.sections = Array.from(document.querySelectorAll('.scroll-section'));
-        this.navLinks = Array.from(document.querySelectorAll('.header-wrapper ul li a'));
+        console.log('📍 Vueアプリケーション mounted() 実行開始');
 
+        // sessionStorage でローディングスキップフラグを確認
+        const skipLoading = sessionStorage.getItem('skipLoading');
+        if (skipLoading === 'true') {
+            console.log('⏭️ skipLoading フラグが検出されました');
+            // ローディングをスキップして、すぐに表示
+            this.isLoading = false;
+            sessionStorage.removeItem('skipLoading'); // フラグをクリア
 
-        // スクロールイベントのリスナー設定
-        window.addEventListener('scroll', this.handleScroll.bind(this, headerHeight));
+            // ローディング画面の HTML 要素を確実に隠す
+            this.$nextTick(() => {
+                const outerContainer = document.getElementById('outer-container');
+                if (outerContainer) {
+                    outerContainer.style.display = 'none';
+                }
+                document.body.style.overflow = 'auto';
+            });
 
-        const svg = document.querySelector('svg');
-        if (svg) {
-            svg.addEventListener('click', function () {
-                this.$emit('loading-complete');
-            }.bind(this));
+            console.log('✅ ローディングをスキップしました');
+        } else {
+            console.log('⏳ 通常のローディング画面を表示します');
         }
+
+        console.log('📊 Vueの状態:');
+        console.log('   - isLoading:', this.isLoading);
+
+        // ローディング完了イベントをリッスン
+        window.addEventListener('loading-complete', () => {
+            console.log('📡 loading-complete イベント受信');
+            this.onLoadingComplete();
+        });
+
+        // DOM 要素が確実にレンダリングされるまで待つ
+        this.$nextTick(() => {
+            console.log('🎨 $nextTick() 内: DOM レンダリング完了');
+
+            const headerWrapperUl = document.querySelector('.header-wrapper ul');
+            const headerHeight = headerWrapperUl ? headerWrapperUl.offsetHeight : 0;
+
+            console.log('🔍 DOM要素確認:');
+            console.log('   - .header-wrapper ul:', headerWrapperUl);
+            console.log('   - headerHeight:', headerHeight);
+
+            // DOM要素が存在する場合のみ処理を続行
+            if (!headerWrapperUl) {
+                console.log('⚠️ .header-wrapper ul が見つかりません。ローディング中の可能性があります。');
+                return;
+            }
+
+            // DOM要素の取得
+            this.sections = Array.from(document.querySelectorAll('.scroll-section'));
+            this.navLinks = Array.from(document.querySelectorAll('.header-wrapper ul li a'));
+
+            console.log('📋 取得した要素:');
+            console.log('   - sections:', this.sections.length + '個');
+            console.log('   - navLinks:', this.navLinks.length + '個');
+
+            // スクロールイベントのリスナー設定
+            window.addEventListener('scroll', this.handleScroll.bind(this, headerHeight));
+
+            const svg = document.querySelector('svg');
+            if (svg) {
+                console.log('✅ SVG要素が見つかりました');
+                svg.addEventListener('click', function () {
+                    console.log('🖱️ SVGがクリックされました');
+                    this.$emit('loading-complete');
+                }.bind(this));
+            } else {
+                console.log('⚠️ SVG要素が見つかりません');
+            }
+
+            console.log('✅ mounted() 完了: isLoading=' + this.isLoading);
+        });
     },
     methods: {
         onLoadingComplete() {
+            console.log('🔄 onLoadingComplete() が呼び出されました');
             this.isLoading = false;
+
+            // コンテンツ表示確認
+            this.$nextTick(() => {
+                console.log('✅ コンテンツレンダリング完了：');
+                console.log('   - isLoading:', this.isLoading);
+                console.log('   - header:', document.querySelector('header'));
+                console.log('   - main:', document.querySelector('main'));
+                console.log('   - footer:', document.querySelector('footer'));
+
+                // DOM要素が存在するか確認
+                const appContainer = document.querySelector('#app > div:nth-child(2)');
+                if (appContainer) {
+                    console.log('   - コンテンツ div:', appContainer);
+                    console.log('   - コンテンツ div display:', window.getComputedStyle(appContainer).display);
+                    console.log('   - コンテンツ div visibility:', window.getComputedStyle(appContainer).visibility);
+                }
+
+                // ← ローディング完了後に再度 DOM 要素を取得
+                this.$nextTick(() => {
+                    console.log('🔄 ローディング完了後の DOM 再取得開始');
+
+                    const headerWrapperUl = document.querySelector('.header-wrapper ul');
+                    const headerHeight = headerWrapperUl ? headerWrapperUl.offsetHeight : 0;
+
+                    console.log('🔍 再取得した DOM要素確認:');
+                    console.log('   - .header-wrapper ul:', headerWrapperUl);
+                    console.log('   - headerHeight:', headerHeight);
+
+                    // DOM要素の取得
+                    this.sections = Array.from(document.querySelectorAll('.scroll-section'));
+                    this.navLinks = Array.from(document.querySelectorAll('.header-wrapper ul li a'));
+
+                    console.log('📋 再取得した要素:');
+                    console.log('   - sections:', this.sections.length + '個');
+                    console.log('   - navLinks:', this.navLinks.length + '個');
+
+                    // スクロールイベントのリスナー設定（もしまだされていなければ）
+                    if (this.sections.length > 0 && this.navLinks.length > 0) {
+                        window.addEventListener('scroll', this.handleScroll.bind(this, headerHeight));
+                        console.log('✅ スクロールイベントリスナー設定完了');
+                    } else {
+                        console.log('⚠️ DOM要素が不足しているため、スクロールイベントは設定できません');
+                    }
+                });
+            });
         },
         handleScroll() {
             let currentSection = '';

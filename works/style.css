@@ -1,0 +1,387 @@
+/* プロジェクト詳細ページのスタイル */
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* ヘッダー */
+.project-header {
+    background-color: transparent;
+    padding: 22px 0 0;
+    position: relative;
+    z-index: 10;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    background-color: #fff;
+    color: #121212;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-header h1 {
+    font-size: 28px;
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* メインコンテンツ */
+.project-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    background-color: transparent;
+}
+
+/* 概要セクション */
+.project-overview {
+    padding: 72px 0 48px;
+    background-color: #000;
+}
+
+.overview-hero {
+    max-width: 1200px;
+    margin: 0 auto 36px;
+    padding: 40px 34px;
+    background-color: #000;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.26);
+}
+
+.overview-hero h2 {
+    color: #fff;
+    font-size: clamp(24px, 2.5vw, 36px);
+    line-height: 1.5;
+    margin: 0;
+    letter-spacing: 0.02em;
+    font-weight: 800;
+}
+
+.overview-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 34px;
+    background-color: #000;
+    border: 1px solid #fff;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+}
+
+.overview-container {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 36px;
+    align-items: start;
+}
+
+.overview-image img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.14);
+    display: block;
+}
+
+.overview-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.project-metadata {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+}
+
+.metadata-item {
+    background-color: #000;
+    padding: 26px;
+    border: 1px solid #fff;
+}
+
+.metadata-item label {
+    display: block;
+    font-size: 11px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+}
+
+.metadata-item p {
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    line-height: 1.75;
+    word-break: break-word;
+}
+
+/* プロセスセクション */
+.project-process {
+    padding: 80px 0;
+}
+
+.process-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.process-card {
+    background: #000;
+    padding: 32px;
+    border: 1px solid #fff;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.06);
+    min-height: 200px;
+}
+
+.process-header h2 {
+    font-size: 18px;
+    color: #fff;
+    margin: 0 0 18px 0;
+    font-weight: 700;
+}
+
+.process-content {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.95;
+}
+
+.process-content p {
+    margin: 0;
+}
+
+/* Figmaセクション */
+.figma-section {
+    padding: 80px 0;
+    background-color: #000;
+}
+
+.figma-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.figma-container h2 {
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.figma-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 60%;
+    background-color: #000;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.28);
+}
+
+.figma-wrapper iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 関連プロジェクトセクション */
+.related-projects {
+    padding: 80px 0;
+    background-color: #000;
+}
+
+.related-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.related-container h2 {
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 32px;
+    font-weight: 700;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.related-card {
+    background: #000;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    border: 1px solid #fff;
+}
+
+.related-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #eaeaea;
+}
+
+.related-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.related-card-content h3 {
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+}
+
+.related-card-content p {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* フッター */
+.project-footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 992px) {
+
+    .overview-container,
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .overview-card,
+    .process-card,
+    .related-card {
+        padding: 24px;
+    }
+
+    .project-main {
+        padding: 0 20px 60px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* グローバルCSSで header { display:none } が当たるため、worksページでは強制表示 */
+    header.project-header {
+        display: block !important;
+    }
+
+    .project-header {
+        padding: 16px 0;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .project-header h1 {
+        font-size: 22px;
+    }
+
+    .overview-hero {
+        padding: 26px 20px;
+    }
+
+    .metadata-item {
+        padding: 20px;
+    }
+
+    .figma-wrapper {
+        padding-bottom: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    header.project-header {
+        display: block !important;
+    }
+
+    .process-container {
+        grid-template-columns: 1fr;
+    }
+
+    .back-button {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .overview-hero h2 {
+        font-size: 22px;
+    }
+
+    .metadata-item {
+        padding: 18px;
+    }
+
+    .figma-wrapper {
+        padding-bottom: 120%;
+    }
+
+    .project-footer {
+        padding: 30px 20px;
+    }
+}

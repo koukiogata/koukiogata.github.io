@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロジェクト詳細</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="./project-detail.js" defer></script>
+</head>
+<body>
+    <!-- ナビゲーション戻るボタン -->
+    <header class="project-header">
+        <div class="header-container">
+            <a href="../#design" class="back-button">← ポートフォリオに戻る</a>
+            <h1 id="projectTitle" class="sr-only">プロジェクト詳細</h1>
+        </div>
+    </header>
+
+    <main class="project-main">
+        <!-- プロジェクト概要セクション -->
+        <section class="project-overview">
+            <div class="overview-hero">
+                <h2 id="projectDescription"></h2>
+            </div>
+            <div class="overview-card">
+                <div class="overview-container">
+                    <div class="overview-image">
+                        <img id="projectImage" src="" alt="プロジェクト画像">
+                    </div>
+                    <div class="overview-info">
+                        <div class="project-metadata">
+                            <div class="metadata-item">
+                                <label>クライアント</label>
+                                <p id="overviewClient"></p>
+                            </div>
+                            <div class="metadata-item">
+                                <label>担当</label>
+                                <p id="overviewRole"></p>
+                            </div>
+                            <div class="metadata-item">
+                                <label>使用ツール</label>
+                                <p id="overviewTools"></p>
+                            </div>
+                            <div class="metadata-item">
+                                <label>制作年</label>
+                                <p id="overviewYear"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- プロセスセクション -->
+        <section class="project-process">
+            <div class="process-container">
+                <!-- 課題セクション -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <h2>01 課題分析</h2>
+                    </div>
+                    <div class="process-content">
+                        <p id="challengeText"></p>
+                    </div>
+                </div>
+
+                <!-- 設計セクション -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <h2>02 設計・コンセプト</h2>
+                    </div>
+                    <div class="process-content">
+                        <p id="designText"></p>
+                    </div>
+                </div>
+
+                <!-- ワイヤーフレームセクション -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <h2>03 ワイヤーフレーム</h2>
+                    </div>
+                    <div class="process-content">
+                        <p id="wireframeText"></p>
+                    </div>
+                </div>
+
+                <!-- UIセクション -->
+                <div class="process-card">
+                    <div class="process-header">
+                        <h2>04 UI/デザイン</h2>
+                    </div>
+                    <div class="process-content">
+                        <p id="uiText"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Figmaプロトタイプセクション -->
+        <section class="figma-section">
+            <div class="figma-container">
+                <h2>Figmaプロトタイプ</h2>
+                <div class="figma-wrapper" id="figmaWrapper">
+                    <!-- JavaScript で動的に iframe を生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 関連プロジェクトセクション -->
+        <section class="related-projects">
+            <div class="related-container">
+                <h2>他のプロジェクト</h2>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- JavaScript で動的に生成 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="project-footer">
+        <p>&copy; 2024 k-criert. All rights reserved.</p>
+    </footer>
+</body>
+</html>

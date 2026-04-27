@@ -16,13 +16,12 @@
     <script src="content.js" defer></script>
     <title>k-criert/portfolio</title>
 </head>
-
 <body>
     <div id="app">
         <!-- Loadingコンポーネント -->
         <loading-component v-if="isLoading" @loading-complete="onLoadingComplete"></loading-component>
         <!-- ローディング完了後に表示するコンテンツ -->
-        <div v-if="isLoading">
+        <div v-if="!isLoading">
             <header-component></header-component>
             <main-component></main-component>
             <footer-component></footer-component>

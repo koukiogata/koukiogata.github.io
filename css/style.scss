@@ -59,6 +59,7 @@ p {
     display: flex;
     align-items: center;
     position: relative;
+    width: -moz-fit-content;
     width: fit-content;
     /* コンテンツに合わせて幅を調整 */
     z-index: 10;
@@ -250,13 +251,6 @@ svg rect:active {
             flex-direction: row;
             align-items: first baseline;
         }
-
-        /* #header {
-            background-color: #D9D9D9;
-            width: 70%;
-            position: fixed;
-            /* opacity: 0; */
-        /* アクティブ時にメニューを表示 */
     }
 
     .nav-menu {
@@ -347,7 +341,7 @@ svg rect:active {
 
         }
 
-        #testimonials-btn.active {
+        #design-btn.active {
             background-color: #616161;
             color: #d9d9d9;
 
@@ -367,7 +361,7 @@ svg rect:active {
 #top,
 #about,
 #works,
-#testimonials,
+#design,
 #sns {
     width: 100%;
     /* 100vw ではなく 100% に変更 */
@@ -667,53 +661,56 @@ svg rect:active {
             width: 20%;
 
         }
+    }
+}
 
+#works {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #3C3C3C;
+    width: 100%;
+    /* max-height: 100vh; */
+
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        width: 70%;
+        padding: 1.5vw 0 3vw 0;
+        height: auto;
+
+        -ms-overflow-style: none;
+        /* Internet Explorer, Edge */
+        scrollbar-width: none;
+        /* Firefox */
+        align-items: stretch;
+
+        @media screen and (max-width:770px) {
+            width: 100%;
+        }
     }
 
-    #works {
+    .container::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+
+    .box {
         display: flex;
-        justify-content: right;
-        background-color: #3C3C3C;
-        width: 100%;
-        height: auto;
-        /* max-height: 100vh; */
+        flex-direction: column;
+        justify-content: space-between;
+        /* 上部と下部の間にスペースを最大化 */
+        padding: 1vw;
+        border: 1px solid #505050;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        width: 25%;
+        max-height: 500px;
+        position: relative;
+        margin: 1vw;
 
-
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: flex-start;
-            width: 70%;
-            padding-bottom: 20vw;
-        }
-
-        .container::-webkit-scrollbar {
-            display: none;
-            /* Chrome, Safari, Opera */
-        }
-
-        .container {
-            -ms-overflow-style: none;
-            /* Internet Explorer, Edge */
-            scrollbar-width: none;
-            /* Firefox */
-        }
-
-        .box {
-            margin-top: 0.5vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            /* 上部と下部の間にスペースを最大化 */
-            padding: 1vw;
-            border: 1px solid #505050;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            width: 30%;
-            height: auto;
-            max-height: 500px;
-            gap: 10vw;
-        }
 
         .triangle {
             position: absolute;
@@ -721,10 +718,10 @@ svg rect:active {
             /* 左端から */
             top: 0;
             /* 上端から */
-            width: 160px;
+            width: 10vw;
             /* 正方形キャンバス */
-            height: 160px;
-            background: #3498db;
+            height: 10vw;
+            background: #4c4c4c;
             /* 見える色 */
             color: #fff;
             display: flex;
@@ -737,257 +734,336 @@ svg rect:active {
             /* 左上(0 0)=直角, 右上(100% 0), 左下(0 100%)=頂点 */
             -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
             clip-path: polygon(0 0, 100% 0, 0 100%);
-
+            // これ確認済み
 
             span {
-                position: relative;
                 z-index: 1;
-                color: black;
-            }
-        }
-
-        .content-group {
-            align-self: start;
-            /* 左寄せ */
-            width: 100%;
-            /* 幅をbox全体に */
-            order: 2;
-        }
-
-        .box img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .box h2,
-        .box p,
-        .box a {
-            align-self: start;
-            /* 要素を左揃えに */
-            width: 100%;
-            /* 全幅を使う設定 */
-        }
-
-        .box h2 {
-            margin-bottom: 5px;
-            color: #d9d9d9;
-            margin-top: 2vw;
-            font-size: clamp(10px, 2vw, 20px);
-        }
-
-        .box p {
-            margin-top: 5px;
-            margin-bottom: 5px;
-            /* pの下のマージンも設定 */
-            color: #d9d9d9;
-            font-size: clamp(10px, 1vw, 20px);
-        }
-
-        .box a {
-            align-self: center;
-            /* 中央寄せ */
-            margin-top: auto;
-            /* 自動的に上部の空間を最大化して下に配置 */
-            display: block;
-            /* ブロック要素として扱う */
-            width: 50%;
-            /* 幅を50%に設定 */
-            text-align: center;
-            /*
-                 テキスト中央寄せ */
-            border-radius: 25px;
-            /* 角を丸く */
-            text-decoration: none;
-            background: #d9d9d9;
-            color: #000;
-            transition: background-color 0.3s;
-            padding: 1vw 2vw;
-        }
-
-        @media (min-width: 500px) {
-            .box a {
-                order: 3;
-            }
-
-        }
-
-        .box a:hover {
-            background-color: #0056b3;
-            /* ホバー時の背景色を濃い青に変更 */
-        }
-
-        @media (max-width: 500px) {
-            .box a {
-                /* 無効にしたいプロパティをリセット */
-                align-self: auto;
-                margin-top: 0;
-                display: inline;
-                /* ブロックではなくインラインに戻す */
-                width: auto;
-                text-align: left;
-                /* 中央寄せを解除 */
-                border-radius: 0;
-                background: none;
-                color: inherit;
-                padding: 0;
-                text-decoration: underline;
-                color: #d9d9d9;
-            }
-
-            .box a:hover {
-                background-color: transparent;
-                /* ホバー時の背景色も元に戻す */
-            }
-
-        }
-
-        @media screen and (max-width: 500px) {
-            .container {
-                overflow-x: auto;
-                /* 横スクロールを有効にする */
-                display: flex;
-                flex-wrap: nowrap;
-                /* ボックスを折り返さずに一列に並べる */
-                width: 100%;
-                padding-bottom: 0;
-            }
-
-            .box {
-                margin-top: 0.5vw;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                min-height: 350px;
-                width: 40%;
-                /* 各ボックスの幅を画面幅の80%に設定 */
-                min-width: 300px;
-                /* ボックスの最小幅を300pxに設定 */
-                margin: 10px 5px;
-                /* マージンを調整 */
-                flex-shrink: 0;
-                /* フレックスアイテムの縮小を禁止 */
-                border-radius: 2vw;
-
-            }
-
-        }
-
-        @media screen and (max-width:770px) {
-            .container {
-                width: 100%;
+                color: rgb(255, 255, 255);
             }
         }
     }
 
-    #testimonials {
-        display: flex;
-        justify-content: right;
+    .content-group {
+        align-self: start;
+        /* 左寄せ */
         width: 100%;
+        /* 幅をbox全体に */
+        order: 2;
+    }
 
+    .box img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        -o-object-fit: cover;
+    }
 
-        .testimonials-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 70%;
-            background: #616161;
+    .box h2,
+    .box p,
+    .box a {
+        align-self: start;
+        /* 要素を左揃えに */
+        width: 100%;
+        /* 全幅を使う設定 */
+    }
+
+    .box h2 {
+        margin-bottom: 5px;
+        color: #d9d9d9;
+        margin-top: 2vw;
+        font-size: clamp(10px, 2vw, 20px);
+    }
+
+    .box p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        /* pの下のマージンも設定 */
+        color: #d9d9d9;
+        font-size: clamp(10px, 1vw, 20px);
+    }
+
+    .box a {
+        align-self: center;
+        /* 中央寄せ */
+        margin-top: 1.5vw;
+        /* 自動的に上部の空間を最大化して下に配置 */
+        display: block;
+        /* ブロック要素として扱う */
+        width: 50%;
+        /* 幅を50%に設定 */
+        text-align: center;
+        /*
+                 テキスト中央寄せ */
+        border-radius: 25px;
+        /* 角を丸く */
+        text-decoration: none;
+        background: #d9d9d9;
+        color: #000;
+        transition: background-color 0.3s;
+        padding: 1vw 2vw;
+
+        @media (min-width: 500px) {
+            order: 3;
         }
 
-        .testimonials-box {
+    }
+
+    @media (max-width: 500px) {
+        .box a {
+            /* 無効にしたいプロパティをリセット */
+            align-self: auto;
+            margin-top: 0;
+            display: inline;
+            /* ブロックではなくインラインに戻す */
+            width: auto;
+            text-align: left;
+            /* 中央寄せを解除 */
+            border-radius: 0;
+            background: none;
+            color: inherit;
+            padding: 0;
+            text-decoration: underline;
+            color: #d9d9d9;
+        }
+
+        .box a:hover {
+            background-color: transparent;
+            /* ホバー時の背景色も元に戻す */
+        }
+
+    }
+
+
+    .box a:hover {
+        background-color: #0056b3;
+        /* ホバー時の背景色を濃い青に変更 */
+    }
+
+
+    @media screen and (max-width: 500px) {
+        .container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            /* 横スクロールを有効にする */
+            display: flex;
+            flex-wrap: nowrap;
+            /* ボックスを折り返さずに一列に並べる */
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 0;
+        }
+
+        .box {
+            margin-top: 0.5vw;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background: #ddd;
-            width: 90%;
-            box-sizing: border-box;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #7B7B7B;
-        }
-
-        .testimonial-item {
-            display: flex;
             justify-content: flex-start;
-            align-items: center;
-            width: 100%;
-            border-bottom: 1px solid black;
-            font-size: 0.8rem;
-            height: 20vh;
+            min-height: 350px;
+            width: 40%;
+            /* 各ボックスの幅を画面幅の80%に設定 */
+            min-width: 300px;
+            /* ボックスの最小幅を300pxに設定 */
+            margin: 10px 5px;
+            /* マージンを調整 */
+            flex-shrink: 0;
+            /* フレックスアイテムの縮小を禁止 */
+            border-radius: 2vw;
+
+
+            .triangle {
+                width: 30%;
+                height: 20%;
+                display: none;
+            }
         }
 
-        .icon-text-box {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-basis: 20%;
-            padding-left: 5vw;
-            color: #d9d9d9;
-        }
+    }
+}
 
-        .icon img {
-            height: 5vw;
-            width: 5vw;
-            min-width: 50px;
-            min-height: 50px;
-        }
+#design {
+    display: flex;
+    justify-content: right;
+    width: 100%;
 
-        .label {
-            font-weight: bold;
-            width: 80px;
-        }
 
-        .content-box {
-            flex: 1 1 70%;
-            padding: 0 30px;
-            color: #d9d9d9;
-        }
+    .container {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        height: auto;
+        width: 70%;
+        background: #616161;
 
-        .content,
-        ul.content {
-            flex-grow: 1;
-            text-align: left;
-            max-width: 100%;
-        }
 
-        ul.content {
-            list-style-type: none;
-            padding: 0;
-        }
+        .designbox {
+            padding: 2vw 0;
 
-        li {
-            padding: 2px 0;
-        }
+            h2 {
+                text-align: center;
+                font-size: clamp(20px, 2vw, 30px);
+                font-family: Roboto, sans-serif;
+                font-weight: 400;
+                color: #B1B1B1;
+            }
 
-        .testimonial-item:last-child {
-            border-bottom: none;
+            .elbox {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                width: 100%;
+                box-sizing: border-box;
+                align-items: stretch;
+
+                @media screen and (max-width: 500px) {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    /* 横スクロールを有効にする */
+                    display: flex;
+                    flex-wrap: nowrap;
+                    /* ボックスを折り返さずに一列に並べる */
+                    width: 100%;
+                    padding-top: 20px;
+                    padding-bottom: 0;
+                    flex-wrap: nowrap;
+
+                    a {
+                        padding: 1vw 2vw;
+                        font-size: 20px;
+                    }
+                }
+
+                .triangle {
+                    position: absolute;
+                    left: 0;
+                    /* 左端から */
+                    top: 0;
+                    /* 上端から */
+                    width: 5vw;
+                    /* 正方形キャンバス */
+                    height: 5vw;
+                    background: #4c4c4c;
+                    /* 見える色 */
+                    color: #fff;
+                    display: flex;
+                    /* 中央に文字配置 */
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 700;
+                    z-index: 2;
+                    /* 画像より前面に */
+                    /* 左上(0 0)=直角, 右上(100% 0), 左下(0 100%)=頂点 */
+                    -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
+                    clip-path: polygon(0 0, 100% 0, 0 100%);
+                }
+
+
+            }
+
+            .element {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: suto;
+                background: #d9d9d9;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                width: 30%;
+                padding: 2vw 0 2vw 0;
+                position: relative;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                margin: 1vw;
+
+                @media screen and (max-width: 500px) {
+                    margin-top: 0.5vw;
+                    justify-content: flex-start;
+                    min-height: 350px;
+                    width: 40%;
+                    /* 各ボックスの幅を画面幅の80%に設定 */
+                    min-width: 300px;
+                    /* ボックスの最小幅を300pxに設定 */
+                    margin: 10px 5px;
+                    /* マージンを調整 */
+                    flex-shrink: 0;
+                    /* フレックスアイテムの縮小を禁止 */
+                }
+
+                img {
+                    background-size: cover;
+                    width: 100%;
+                }
+
+                .text {
+                    flex: 1;
+                    padding: 1vw;
+                }
+
+                h3 {
+                    text-align: center;
+                    font-size: clamp(10px, 1vw, 20px);
+                    padding: 0.5vw 0 0.5vw 0;
+                    border-bottom: 2px #000 solid;
+                }
+
+                a {
+                    display: block;
+                    text-align: center;
+                    border-radius: 50px;
+                    text-decoration: none;
+                    background-color: #505050;
+                    color: #d9d9d9;
+                    padding: 0.5vw 1vw 0.5vw 1vw;
+                    margin: 1vw 2vw;
+                    font-size: clamp(10px, 1vw, 2vw);
+                }
+
+                p {
+                    font-size: clamp(10px, 1vw, 20px);
+                }
+            }
         }
 
         @media screen and (max-width: 770px) {
-            .testimonials-container {
-                width: 100%;
-            }
+            width: 100%;
         }
+    }
 
-        @media screen and (max-width: 500px) {
-            .testimonial-item {
-                flex-wrap: wrap;
-                padding: 4vw 0;
-                height: 20vh;
-            }
+    .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
 
-            ul.content {
-                padding: 0;
-            }
+        justify-content: center;
+        align-items: center;
 
-            .content-box {
-                flex: 1 1 70%;
-                padding: 0;
-                color: #d9d9d9;
-            }
+        &.active {
+            display: flex; // ←表示時これ
         }
+    }
+
+    .modal-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain; // ←これ重要（はみ出さない）
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        z-index: 10;
     }
 }
 
