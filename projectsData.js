@@ -88,7 +88,7 @@ const projectsData = {
       title: 'UI/デザイン',
       description: 'ミニマルで高級感のあるデザイン。大きな画像とホワイトスペースを活かし、プロフェッショナルなイメージを構築。'
     },
-    figmaEmbed: 'https://embed.figma.com/design/OTlaYVLoYZywQKpyLD605R/%E7%84%A1%E9%A1%8C?node-id=3-2&embed-host=share'
+    figmaEmbed: 'https://embed.figma.com/design/2RWOBdUgy0vsNE7WlnF6gr/mizunowakusei?node-id=0-1&embed-host=share'
   }
 };
 
