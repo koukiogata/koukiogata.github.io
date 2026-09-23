@@ -250,6 +250,23 @@ const MainComponent = {
         </section>
         <section id="works" class="scroll-section">
             <div class="container">
+                <div class="facet-nav">
+                    <ul>
+                        <li><a href="#" class="active">すべて</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">React</a></li>
+                        <li><a href="#">Vue.js</a></li>
+                        <li><a href="#">jQuery</a></li>
+                        <li><a href="#">Firebase</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Illustrator</a></li>
+                        <li><a href="#">Photoshop</a></li>
+                        <li><a href="#">Figma</a></li>
+                    </ul>
+                </div>
+                <div class="elbox">
                 <div class="box">
                     <img src="image/works-image4.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
                     <div class="content-group">
@@ -286,15 +303,23 @@ const MainComponent = {
                     </div>
                     <a href="./web/index.html" target="_blank">見る</a>
                 </div>
-            </div>
-        </section>
-        <section id="design" class="scroll-section">
-            <div class="container">
+                <div class="box">
+                    <img src="image/works-image5.png" alt="Grand Slamサイトのスクリーンショット">
+                    <div class="content-group">
+                        <h2>Grand Slam</h2>
+                        <p>●ポイント<br /> モダンなデザインと滑らかなアニメーションを組み合わせたウェブサイト制作</p>
+                        <p>使用言語：HTML/CSS/Javascript<br>制作ツール：VisualStudioCode/Figma</p>
+                    </div>
+                    <a href="https://grandslam.surge.sh/" target="_blank">見る</a>
+                </div>
+                </div><!-- /.elbox works -->
+                <div class="scroll-track"><div class="scroll-thumb"></div></div>
+                <!-- デザインコンテンツ -->
                 <div class="designbox">
                     <h2>FLYER</h2>
                     <div class="elbox">
                         <div class="element" v-for="item in flyerItems" :key="item.id">
-                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title" style="height: 200px; object-fit: cover; width: 100%;">
+                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
                             <div class="text">
                                 <h3>{{ item.title }}</h3>
                                 <p>{{ item.description }}</p>
@@ -302,12 +327,13 @@ const MainComponent = {
                             <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
                         </div>
                     </div>
+                    <div class="scroll-track"><div class="scroll-thumb"></div></div>
                 </div>
                 <div class="designbox">
                     <h2>BANNER</h2>
                     <div class="elbox">
                         <div class="element" v-for="item in bannerItems" :key="item.id">
-                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title" style="height: 300px; object-fit: cover; width: 100%;">
+                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
                             <div class="text">
                                 <h3>{{ item.title }}</h3>
                                 <p>{{ item.description }}</p>
@@ -315,12 +341,13 @@ const MainComponent = {
                             <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
                         </div>
                     </div>
+                    <div class="scroll-track"><div class="scroll-thumb"></div></div>
                 </div>
                 <div class="designbox">
                     <h2>UI/UX</h2>
                     <div class="elbox">
                         <div class="element" v-for="item in websiteItems" :key="item.id">
-                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title" style="height: 300px; object-fit: cover; width: 100%;">
+                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
                             <div class="text">
                                 <h3>{{ item.title }}</h3>
                                 <p>{{ item.text }}</p>
@@ -328,6 +355,7 @@ const MainComponent = {
                             <a :href="'./works/?id=' + item.id">みる</a>
                         </div>
                     </div>
+                    <div class="scroll-track"><div class="scroll-thumb"></div></div>
                 </div>
             </div>
             <div class="modalsection">
@@ -338,6 +366,8 @@ const MainComponent = {
                     </div>
                 </div>
             </div>
+        </section>
+        <section id="design" class="scroll-section">
         </section>
     </main>
     `,
@@ -392,7 +422,36 @@ const MainComponent = {
         closeModal() {
             this.isModalOpen = false;
             this.selectedModalImage = '';
+        },
+        initScrollTracks() {
+            const elboxes = document.querySelectorAll('.elbox');
+            elboxes.forEach(elbox => {
+                const track = elbox.nextElementSibling;
+                if (!track || !track.classList.contains('scroll-track')) return;
+                const thumb = track.querySelector('.scroll-thumb');
+
+                const update = () => {
+                    const scrollable = elbox.scrollWidth - elbox.clientWidth;
+                    if (scrollable <= 0) {
+                        track.style.display = 'none';
+                        return;
+                    }
+                    track.style.display = 'block';
+                    const ratio = elbox.scrollLeft / scrollable;
+                    const thumbW = Math.max(20, (elbox.clientWidth / elbox.scrollWidth) * 100);
+                    thumb.style.width = thumbW + '%';
+                    thumb.style.left = (ratio * (100 - thumbW)) + '%';
+                };
+
+                elbox.addEventListener('scroll', update, { passive: true });
+                update();
+            });
         }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            setTimeout(() => this.initScrollTracks(), 800);
+        });
     },
 };
 

@@ -341,7 +341,7 @@ svg rect:active {
 
         }
 
-        #design-btn.active {
+        #history-btn.active {
             background-color: #616161;
             color: #d9d9d9;
 
@@ -666,27 +666,18 @@ svg rect:active {
 
 #works {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
     background-color: #3C3C3C;
     width: 100%;
-    /* max-height: 100vh; */
 
 
     .container {
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        align-items: flex-start;
+        flex-direction: column;
         width: 70%;
         padding: 1.5vw 0 3vw 0;
         height: auto;
-
-        -ms-overflow-style: none;
-        /* Internet Explorer, Edge */
-        scrollbar-width: none;
-        /* Firefox */
-        align-items: stretch;
 
         @media screen and (max-width:770px) {
             width: 100%;
@@ -695,7 +686,39 @@ svg rect:active {
 
     .container::-webkit-scrollbar {
         display: none;
-        /* Chrome, Safari, Opera */
+    }
+
+    .facet-nav {
+        width: 100%;
+        margin-bottom: 2vw;
+        padding: 0 1vw;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li a {
+            display: block;
+            padding: 5px 15px;
+            background: #000;
+            color: #d9d9d9;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: clamp(12px, 1vw, 14px);
+            border: 1px solid #505050;
+            transition: all 0.3s;
+
+            &:hover, &.active {
+                background: #4a9eff;
+                color: #fff;
+                border-color: #4a9eff;
+            }
+        }
     }
 
     .box {
@@ -753,9 +776,9 @@ svg rect:active {
 
     .box img {
         width: 100%;
-        height: auto;
-        object-fit: cover;
-        -o-object-fit: cover;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        display: block;
     }
 
     .box h2,
@@ -771,7 +794,7 @@ svg rect:active {
         margin-bottom: 5px;
         color: #d9d9d9;
         margin-top: 2vw;
-        font-size: clamp(10px, 2vw, 20px);
+        font-size: clamp(16px, 2vw, 20px);
     }
 
     .box p {
@@ -779,58 +802,23 @@ svg rect:active {
         margin-bottom: 5px;
         /* pの下のマージンも設定 */
         color: #d9d9d9;
-        font-size: clamp(10px, 1vw, 20px);
+        font-size: clamp(14px, 1vw, 18px);
     }
 
     .box a {
-        align-self: center;
-        /* 中央寄せ */
-        margin-top: 1.5vw;
-        /* 自動的に上部の空間を最大化して下に配置 */
         display: block;
-        /* ブロック要素として扱う */
-        width: 50%;
-        /* 幅を50%に設定 */
+        align-self: center;
         text-align: center;
-        /*
-                 テキスト中央寄せ */
         border-radius: 25px;
-        /* 角を丸く */
         text-decoration: none;
         background: #d9d9d9;
         color: #000;
+        padding: 0.5vw 1.5vw;
+        margin: 1vw auto 0;
+        font-size: clamp(14px, 1vw, 18px);
+        width: 50%;
         transition: background-color 0.3s;
-        padding: 1vw 2vw;
-
-        @media (min-width: 500px) {
-            order: 3;
-        }
-
-    }
-
-    @media (max-width: 500px) {
-        .box a {
-            /* 無効にしたいプロパティをリセット */
-            align-self: auto;
-            margin-top: 0;
-            display: inline;
-            /* ブロックではなくインラインに戻す */
-            width: auto;
-            text-align: left;
-            /* 中央寄せを解除 */
-            border-radius: 0;
-            background: none;
-            color: inherit;
-            padding: 0;
-            text-decoration: underline;
-            color: #d9d9d9;
-        }
-
-        .box a:hover {
-            background-color: transparent;
-            /* ホバー時の背景色も元に戻す */
-        }
-
+        order: 3;
     }
 
 
@@ -841,18 +829,6 @@ svg rect:active {
 
 
     @media screen and (max-width: 500px) {
-        .container {
-            overflow-x: auto;
-            overflow-y: hidden;
-            /* 横スクロールを有効にする */
-            display: flex;
-            flex-wrap: nowrap;
-            /* ボックスを折り返さずに一列に並べる */
-            width: 100%;
-            padding-top: 20px;
-            padding-bottom: 0;
-        }
-
         .box {
             margin-top: 0.5vw;
             display: flex;
@@ -860,15 +836,10 @@ svg rect:active {
             justify-content: flex-start;
             min-height: 350px;
             width: 40%;
-            /* 各ボックスの幅を画面幅の80%に設定 */
             min-width: 300px;
-            /* ボックスの最小幅を300pxに設定 */
             margin: 10px 5px;
-            /* マージンを調整 */
             flex-shrink: 0;
-            /* フレックスアイテムの縮小を禁止 */
             border-radius: 2vw;
-
 
             .triangle {
                 width: 30%;
@@ -876,168 +847,158 @@ svg rect:active {
                 display: none;
             }
         }
-
     }
-}
 
-#design {
-    display: flex;
-    justify-content: right;
-    width: 100%;
+    // カスタムスクロールインジケーター
+    .scroll-track {
+        display: none; // JSで制御（スクロール可能な時のみ表示）
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 6px 0 10px 0;
+        border-radius: 1px;
+        overflow: hidden;
 
+        @media screen and (min-width: 501px) {
+            display: none !important;
+        }
+    }
 
-    .container {
+    .scroll-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #4a9eff;
+        border-radius: 1px;
+        transition: left 0.08s linear;
+        min-width: 20px;
+    }
+
+    // デザインコンテンツ（.containerの直接の子として配置）
+    .designbox {
+        width: 100%;
+        padding: 1.5vw 0 0.5vw 0;
+
+        h2 {
+            font-size: clamp(16px, 1.5vw, 22px);
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            color: #B1B1B1;
+            padding: 0 1vw 0.5vw 1vw;
+            border-bottom: 1px solid #505050;
+            margin-bottom: 1vw;
+        }
+    }
+
+    .elbox {
         display: flex;
-        justify-content: start;
-        flex-direction: column;
-        height: auto;
-        width: 70%;
-        background: #616161;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: stretch;
 
+        @media screen and (max-width: 500px) {
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+            padding-bottom: 4px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
 
-        .designbox {
-            padding: 2vw 0;
-
-            h2 {
-                text-align: center;
-                font-size: clamp(20px, 2vw, 30px);
-                font-family: Roboto, sans-serif;
-                font-weight: 400;
-                color: #B1B1B1;
+            &::-webkit-scrollbar {
+                display: none;
             }
-
-            .elbox {
-                display: flex;
-                justify-content: flex-start;
-                flex-wrap: wrap;
-                width: 100%;
-                box-sizing: border-box;
-                align-items: stretch;
-
-                @media screen and (max-width: 500px) {
-                    overflow-x: auto;
-                    overflow-y: hidden;
-                    /* 横スクロールを有効にする */
-                    display: flex;
-                    flex-wrap: nowrap;
-                    /* ボックスを折り返さずに一列に並べる */
-                    width: 100%;
-                    padding-top: 20px;
-                    padding-bottom: 0;
-                    flex-wrap: nowrap;
-
-                    a {
-                        padding: 1vw 2vw;
-                        font-size: 20px;
-                    }
-                }
-
-                .triangle {
-                    position: absolute;
-                    left: 0;
-                    /* 左端から */
-                    top: 0;
-                    /* 上端から */
-                    width: 5vw;
-                    /* 正方形キャンバス */
-                    height: 5vw;
-                    background: #4c4c4c;
-                    /* 見える色 */
-                    color: #fff;
-                    display: flex;
-                    /* 中央に文字配置 */
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: 700;
-                    z-index: 2;
-                    /* 画像より前面に */
-                    /* 左上(0 0)=直角, 右上(100% 0), 左下(0 100%)=頂点 */
-                    -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
-                    clip-path: polygon(0 0, 100% 0, 0 100%);
-                }
-
-
-            }
-
-            .element {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: suto;
-                background: #d9d9d9;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                width: 30%;
-                padding: 2vw 0 2vw 0;
-                position: relative;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                margin: 1vw;
-
-                @media screen and (max-width: 500px) {
-                    margin-top: 0.5vw;
-                    justify-content: flex-start;
-                    min-height: 350px;
-                    width: 40%;
-                    /* 各ボックスの幅を画面幅の80%に設定 */
-                    min-width: 300px;
-                    /* ボックスの最小幅を300pxに設定 */
-                    margin: 10px 5px;
-                    /* マージンを調整 */
-                    flex-shrink: 0;
-                    /* フレックスアイテムの縮小を禁止 */
-                }
-
-                img {
-                    background-size: cover;
-                    width: 100%;
-                }
-
-                .text {
-                    flex: 1;
-                    padding: 1vw;
-                }
-
-                h3 {
-                    text-align: center;
-                    font-size: clamp(10px, 1vw, 20px);
-                    padding: 0.5vw 0 0.5vw 0;
-                    border-bottom: 2px #000 solid;
-                }
-
-                a {
-                    display: block;
-                    text-align: center;
-                    border-radius: 50px;
-                    text-decoration: none;
-                    background-color: #505050;
-                    color: #d9d9d9;
-                    padding: 0.5vw 1vw 0.5vw 1vw;
-                    margin: 1vw 2vw;
-                    font-size: clamp(10px, 1vw, 2vw);
-                }
-
-                p {
-                    font-size: clamp(10px, 1vw, 20px);
-                }
-            }
-        }
-
-        @media screen and (max-width: 770px) {
-            width: 100%;
         }
     }
 
+    .element {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid #505050;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        width: 25%;
+        padding: 1vw;
+        position: relative;
+        margin: 1vw;
+
+        img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            display: block;
+        }
+
+        .text {
+            flex: 1;
+            padding: 0.5vw 0;
+        }
+
+        h3 {
+            font-size: clamp(16px, 1.5vw, 20px);
+            padding: 0.5vw 0;
+            color: #d9d9d9;
+            border-bottom: 1px solid #505050;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: clamp(14px, 1vw, 18px);
+            color: #d9d9d9;
+            margin: 4px 0;
+        }
+
+        a {
+            display: block;
+            align-self: center;
+            text-align: center;
+            border-radius: 25px;
+            text-decoration: none;
+            background: #d9d9d9;
+            color: #000;
+            padding: 0.5vw 1.5vw;
+            margin: 1vw auto 0;
+            font-size: clamp(14px, 1vw, 18px);
+            width: 50%;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #0056b3;
+                color: #fff;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            justify-content: flex-start;
+            min-height: 350px;
+            width: 40%;
+            min-width: 300px;
+            margin: 10px 5px;
+            flex-shrink: 0;
+
+            img {
+                height: auto !important;
+                width: 100%;
+                object-fit: contain !important;
+            }
+        }
+    }
+
+    // モーダル
     .modal {
         display: none;
         position: fixed;
         inset: 0;
         background: rgba(0, 0, 0, 0.8);
         z-index: 1000;
-
         justify-content: center;
         align-items: center;
 
         &.active {
-            display: flex; // ←表示時これ
+            display: flex;
         }
     }
 
@@ -1052,7 +1013,7 @@ svg rect:active {
         img {
             width: 90%;
             height: 90%;
-            object-fit: contain; // ←これ重要（はみ出さない）
+            object-fit: contain;
         }
     }
 
@@ -1064,6 +1025,155 @@ svg rect:active {
         color: white;
         cursor: pointer;
         z-index: 10;
+    }
+}
+
+#history {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    background-color: #202020;
+    min-height: 100vh;
+
+    .history-section {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+
+        @media screen and (max-width: 770px) {
+            width: 100%;
+        }
+    }
+
+    .history-wrapper {
+        width: 100%;
+        padding: 4vw 0 6vw 0;
+
+        h2 {
+            text-align: center;
+            font-size: clamp(24px, 3vw, 40px);
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            color: #B1B1B1;
+            letter-spacing: 0.2em;
+            margin-bottom: 4vw;
+        }
+    }
+
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0 var(--paragraph-padding);
+    }
+
+    .timeline-item {
+        display: flex;
+        gap: 2vw;
+        border-left: 2px solid #505050;
+        padding-left: 2vw;
+        padding-bottom: 3vw;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #B1B1B1;
+        }
+    }
+
+    .timeline-year {
+        font-size: clamp(22px, 2.5vw, 36px);
+        font-family: Roboto, sans-serif;
+        font-weight: 700;
+        color: #d9d9d9;
+        min-width: 80px;
+        padding-top: 2px;
+        letter-spacing: 0.05em;
+    }
+
+    .timeline-events {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vw;
+        flex: 1;
+    }
+
+    .timeline-event {
+        display: flex;
+        align-items: baseline;
+        gap: 1.2vw;
+        padding: 0.8vw 1.2vw;
+        background: #2e2e2e;
+        border: 1px solid #3a3a3a;
+        border-radius: 4px;
+
+        &.current {
+            border-color: #d9d9d9;
+            background: #3C3C3C;
+
+            .timeline-month {
+                color: #fff;
+                font-weight: 700;
+            }
+
+            p {
+                color: #fff;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .timeline-month {
+        font-size: clamp(12px, 1vw, 16px);
+        font-family: Roboto, sans-serif;
+        color: #B1B1B1;
+        min-width: 2.5em;
+        text-align: center;
+        background: #3C3C3C;
+        border-radius: 3px;
+        padding: 2px 6px;
+        flex-shrink: 0;
+    }
+
+    .timeline-event p {
+        font-size: clamp(14px, 1.2vw, 18px);
+        color: #d9d9d9;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    @media screen and (max-width: 500px) {
+        .timeline-item {
+            gap: 4vw;
+        }
+
+        .timeline-year {
+            min-width: 60px;
+            font-size: 20px;
+        }
+
+        .timeline-events {
+            gap: 3vw;
+        }
+
+        .timeline-event {
+            gap: 3vw;
+            padding: 2vw;
+        }
+
+        .timeline-month {
+            font-size: 12px;
+        }
+
+        .timeline-event p {
+            font-size: 14px;
+        }
     }
 }
 
