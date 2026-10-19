@@ -126,54 +126,19 @@ const LoadingComponent = {
 const HeaderComponent = {
     // コンポーネントのテンプレート部分。ここにHTML構造を記述。
     template: `
-      <div class="hamburger-menu">
-        <button class="hamburger" aria-label="メニューを開く">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
     <header id="header" class="nav-menu">
         <div class="header-wrapper">
             <ul>
                 <li><a href="#top" id="top-btn">TOP</a></li>
                 <li><a href="#about" id="about-btn">ABOUT</a></li>
                 <li><a href="#works" id="works-btn">WORKS</a></li>
-                <li><a href="#design" id="design-btn">DESIGN</a></li>
+                <li><a href="#history" id="history-btn">HISTORY</a></li>
                 <li><a href="#sns" id="sns-btn">SNS</a></li>
             </ul>
         </div>
     </header>
     `,
-    mounted() {
-        // ハンバーガーメニューとナビゲーションメニューのDOM要素を取得
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        // ハンバーガーメニューボタンのクリックイベント
-        hamburger.addEventListener('click', function () {
-            event.stopPropagation();
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // ナビゲーションメニューの各リンクのクリックイベント
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', function () {
-                // メニューがアクティブな状態であれば非アクティブにする
-                if (navMenu.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
-            });
-        });
-        document.addEventListener('click', function () {
-            if (navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    }
+    // スマホではヘッダーを非表示にし、トップの .top-nav で移動する（ハンバーガーメニューは廃止）
 };
 
 // メインコンポーネントの定義
@@ -205,6 +170,15 @@ const MainComponent = {
                 <!-- コンテンツ（前面） -->
                 <h1>K-CREATE</h1>
                 <p class="top-text-line">Designing the Future</p>
+                <!-- スマホ専用ナビ（CSSで770px以下のみ表示） -->
+                <nav class="top-nav" aria-label="ページ内ナビゲーション">
+                    <ul>
+                        <li><a href="#about" id="top-nav-about">ABOUT</a></li>
+                        <li><a href="#works" id="top-nav-works">WORKS</a></li>
+                        <li><a href="#history" id="top-nav-history">HISTORY</a></li>
+                        <li><a href="#sns" id="top-nav-sns">SNS</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
         <section id="about" class="scroll-section">
@@ -228,10 +202,6 @@ const MainComponent = {
             </div>
             <div id="about-flex">
                 <div class="about-wrapper skli">
-                    <p>HTML、CSS、JavaScriptをはじめ、最新のフレームワークやライブラリ（React、Vue.jsなど）にも精通しています。
-また、Adobe Photoshop、Illustrator、XDを使用したデザイン制作の経験があり、バナー制作やECサイトのデザインカンプ作成も行ってきました。
-常にレスポンシブデザインとクロスブラウザ対応を意識し、ユーザーにとって快適な閲覧体験を追求しています。
-                    </p>
                     <div class="skli-sheet">
                         <div></div>
                         <div class="sklli-level">
@@ -247,6 +217,7 @@ const MainComponent = {
                         <div></div>
                     </div>
                 </div>
+            </div>
         </section>
         <section id="works" class="scroll-section">
             <div class="container">
@@ -266,97 +237,143 @@ const MainComponent = {
                         <li><a href="#">Figma</a></li>
                     </ul>
                 </div>
-                <div class="elbox">
-                <div class="box">
-                    <img src="image/works-image4.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
-                    <div class="content-group">
-                        <h2>習字教室のホームページHTML/CSS</h2>
-                        <p>●ポイント<br /> デバイスの画面サイズに応じたレイアウト調整。CSSの @keyframes を使った滑らかなアニメーション</p>
-                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
-                    </div>
-                <a href="https://ogata-shuuji.deca.jp/" target="_blank">見る</a>
+                <!-- スマホ用タブナビゲーション（開発 / 印刷物） -->
+                <div class="works-mobile-tabs">
+                    <button type="button" class="works-tab-btn" :class="{ active: currentWorksTab === 'devel' }" @click="currentWorksTab = 'devel'">
+                        <span class="tab-ja">開発</span>
+                        <span class="tab-en">DEVEL</span>
+                    </button>
+                    <button type="button" class="works-tab-btn" :class="{ active: currentWorksTab === 'prints' }" @click="currentWorksTab = 'prints'">
+                        <span class="tab-ja">印刷物</span>
+                        <span class="tab-en">PRINTS</span>
+                    </button>
                 </div>
-                <div class="box">
-                    <img src="image/works-image1.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
-                    <div class="content-group">
-                        <h2>Vue.js企業プロジェクトの自主製作</h2>
-                        <p>●ポイント<br />最新のVue.jsを使用して再利用可能なコンポーネントを設計し、それにより各デバイスに対応しました。</p>
-                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
-                    </div>
-                    <a href="https://koukiogata.github.io/hotel" target="_blank">見る</a>
-                </div>
-                <div class="box">
-                    <img src="image/works-image2.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
-                    <div class="content-group">
-                        <h2>株式会社タカヤコミュニケーションズ</h2>
-                        <p>●ポイント<br />JavaScriptを使用して、SVG内に動的な折れ線グラフを実装、データの範囲に応じたスケール変換を実装</p>
-                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
-                    </div>
-                    <a href="https://koukiogata.github.io/digital" target="_blank">見る</a>
-                </div>
-                <div class="box">
-                    <img src="image/works-image3.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
-                    <div class="content-group">
-                        <h2>HTML CSS JQuery基礎フレームワーク</h2>
-                        <p>●ポイント<br /> デバイスの画面サイズに応じたレイアウト調整。CSSの @keyframes を使った滑らかなアニメーション</p>
-                        <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
-                    </div>
-                    <a href="./web/index.html" target="_blank">見る</a>
-                </div>
-                <div class="box">
-                    <img src="image/works-image5.png" alt="Grand Slamサイトのスクリーンショット">
-                    <div class="content-group">
-                        <h2>Grand Slam</h2>
-                        <p>●ポイント<br /> モダンなデザインと滑らかなアニメーションを組み合わせたウェブサイト制作</p>
-                        <p>使用言語：HTML/CSS/Javascript<br>制作ツール：VisualStudioCode/Figma</p>
-                    </div>
-                    <a href="https://grandslam.surge.sh/" target="_blank">見る</a>
-                </div>
-                </div><!-- /.elbox works -->
-                <div class="scroll-track"><div class="scroll-thumb"></div></div>
-                <!-- デザインコンテンツ -->
-                <div class="designbox">
-                    <h2>FLYER</h2>
-                    <div class="elbox">
-                        <div class="element" v-for="item in flyerItems" :key="item.id">
-                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
-                            <div class="text">
-                                <h3>{{ item.title }}</h3>
-                                <p>{{ item.description }}</p>
-                            </div>
-                            <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
+
+                <!-- スマホ用作品一覧（カード画面フィット・写真＋タイトルリンクのみ） -->
+                <div class="works-mobile-content">
+                    <!-- DEVELタブ：開発案件実績 -->
+                    <div v-show="currentWorksTab === 'devel'" class="works-mobile-grid">
+                        <div class="works-mobile-card" v-for="item in develItems" :key="item.id">
+                            <a :href="item.url" target="_blank" rel="noopener noreferrer" class="card-img-link">
+                                <img :src="item.image" :alt="item.title" loading="lazy">
+                            </a>
+                            <h3 class="card-title">
+                                <a :href="item.url" target="_blank" rel="noopener noreferrer" :title="item.title">
+                                    {{ truncateTitle(item.title) }}
+                                </a>
+                            </h3>
                         </div>
                     </div>
-                    <div class="scroll-track"><div class="scroll-thumb"></div></div>
-                </div>
-                <div class="designbox">
-                    <h2>BANNER</h2>
-                    <div class="elbox">
-                        <div class="element" v-for="item in bannerItems" :key="item.id">
-                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
-                            <div class="text">
-                                <h3>{{ item.title }}</h3>
-                                <p>{{ item.description }}</p>
-                            </div>
-                            <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
+
+                    <!-- PRINTSタブ：印刷物案件実績 -->
+                    <div v-show="currentWorksTab === 'prints'" class="works-mobile-grid">
+                        <div class="works-mobile-card" v-for="item in flyerItems" :key="item.id">
+                            <a href="#" @click.prevent="openModal(item.image ? item.image.url : '')" class="card-img-link">
+                                <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title" loading="lazy">
+                            </a>
+                            <h3 class="card-title">
+                                <a href="#" @click.prevent="openModal(item.image ? item.image.url : '')" :title="item.title">
+                                    {{ truncateTitle(item.title) }}
+                                </a>
+                            </h3>
                         </div>
                     </div>
-                    <div class="scroll-track"><div class="scroll-thumb"></div></div>
                 </div>
-                <div class="designbox">
-                    <h2>UI/UX</h2>
+
+                <!-- PC用作品一覧（スマホでは非表示） -->
+                <div class="works-desktop-content">
                     <div class="elbox">
-                        <div class="element" v-for="item in websiteItems" :key="item.id">
-                            <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
-                            <div class="text">
-                                <h3>{{ item.title }}</h3>
-                                <p>{{ item.text }}</p>
-                            </div>
-                            <a :href="'./works/?id=' + item.id">みる</a>
+                    <div class="box">
+                        <img src="image/works-image4.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>習字教室のホームページHTML/CSS</h2>
+                            <p>●ポイント<br /> デバイスの画面サイズに応じたレイアウト調整。CSSの @keyframes を使った滑らかなアニメーション</p>
+                            <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
                         </div>
+                    <a href="https://ogata-shuuji.deca.jp/" target="_blank">見る</a>
                     </div>
+                    <div class="box">
+                        <img src="image/works-image1.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>Vue.js企業プロジェクトの自主製作</h2>
+                            <p>●ポイント<br />最新のVue.jsを使用して再利用可能なコンポーネントを設計し、それにより各デバイスに対応しました。</p>
+                            <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
+                        </div>
+                        <a href="https://koukiogata.github.io/hotel" target="_blank">見る</a>
+                    </div>
+                    <div class="box">
+                        <img src="image/works-image2.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>株式会社タカヤコミュニケーションズ</h2>
+                            <p>●ポイント<br />JavaScriptを使用して、SVG内に動的な折れ線グラフを実装、データの範囲に応じたスケール変換を実装</p>
+                            <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
+                        </div>
+                        <a href="https://koukiogata.github.io/digital" target="_blank">見る</a>
+                    </div>
+                    <div class="box">
+                        <img src="image/works-image3.png" alt="Vue.jsを使った架空の職業訓練サイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>HTML CSS JQuery基礎フレームワーク</h2>
+                            <p>●ポイント<br /> デバイスの画面サイズに応じたレイアウト調整。CSSの @keyframes を使った滑らかなアニメーション</p>
+                            <p>使用言語：HTML/CSS/Javascript<br>スタイル:SCSS</br><br>制作ツール：VisualStudioCode/Figma</p>
+                        </div>
+                        <a href="./web/index.html" target="_blank">見る</a>
+                    </div>
+                    <div class="box">
+                        <img src="image/works-image5.png" alt="Grand Slamサイトのスクリーンショット">
+                        <div class="content-group">
+                            <h2>Grand Slam</h2>
+                            <p>●ポイント<br /> モダンなデザインと滑らかなアニメーションを組み合わせたウェブサイト制作</p>
+                            <p>使用言語：HTML/CSS/Javascript<br>制作ツール：VisualStudioCode/Figma</p>
+                        </div>
+                        <a href="https://grandslam.surge.sh/" target="_blank">見る</a>
+                    </div>
+                    </div><!-- /.elbox works -->
                     <div class="scroll-track"><div class="scroll-thumb"></div></div>
-                </div>
+                    <!-- デザインコンテンツ -->
+                    <div class="designbox">
+                        <h2>FLYER</h2>
+                        <div class="elbox">
+                            <div class="element" v-for="item in flyerItems" :key="item.id">
+                                <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
+                                <div class="text">
+                                    <h3>{{ item.title }}</h3>
+                                    <p>{{ item.description }}</p>
+                                </div>
+                                <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
+                            </div>
+                        </div>
+                        <div class="scroll-track"><div class="scroll-thumb"></div></div>
+                    </div>
+                    <div class="designbox">
+                        <h2>BANNER</h2>
+                        <div class="elbox">
+                            <div class="element" v-for="item in bannerItems" :key="item.id">
+                                <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
+                                <div class="text">
+                                    <h3>{{ item.title }}</h3>
+                                    <p>{{ item.description }}</p>
+                                </div>
+                                <a href="#" class="openModal" @click.prevent="openModal(item.image ? item.image.url : '')">みる</a>
+                            </div>
+                        </div>
+                        <div class="scroll-track"><div class="scroll-thumb"></div></div>
+                    </div>
+                    <div class="designbox">
+                        <h2>UI/UX</h2>
+                        <div class="elbox">
+                            <div class="element" v-for="item in websiteItems" :key="item.id">
+                                <img :src="item.image ? item.image.url + '?w=600' : ''" :alt="item.title">
+                                <div class="text">
+                                    <h3>{{ item.title }}</h3>
+                                    <p>{{ item.text }}</p>
+                                </div>
+                                <a :href="'./works/?id=' + item.id">みる</a>
+                            </div>
+                        </div>
+                        <div class="scroll-track"><div class="scroll-thumb"></div></div>
+                    </div>
+                </div><!-- /.works-desktop-content -->
             </div>
             <div class="modalsection">
                 <div class="modal" v-if="isModalOpen" style="display: flex;" @click.self="closeModal">
@@ -367,17 +384,120 @@ const MainComponent = {
                 </div>
             </div>
         </section>
-        <section id="design" class="scroll-section">
+        <section id="history" class="scroll-section">
+            <div class="history-container">
+                <div class="history-header">
+                    <h2>HISTORY</h2>
+                    <p class="history-subtitle">経歴・キャリアの歩み</p>
+                </div>
+                <div class="career-timeline">
+                    <div v-for="(item, index) in historyList" :key="index"
+                         class="career-card" :class="{ 'is-current': item.isCurrent }">
+                        <div class="career-node">
+                            <span class="node-dot"></span>
+                            <span class="node-line" v-if="index < historyList.length - 1"></span>
+                        </div>
+                        <div class="career-card-inner">
+                            <div class="career-meta">
+                                <span class="career-period">{{ item.period }}</span>
+                                <span class="current-badge" v-if="item.isCurrent">CURRENT</span>
+                            </div>
+                            <h3 class="career-title">{{ item.title }}</h3>
+                            <div class="career-role" v-if="item.role">
+                                <span class="role-badge">{{ item.role }}</span>
+                            </div>
+                            <div class="career-skills" v-if="item.skills && item.skills.length">
+                                <span class="skill-chip" v-for="skill in item.skills" :key="skill">{{ skill }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     `,
     data() {
         return {
+            currentWorksTab: 'devel',
+            develItems: [
+                {
+                    id: 'shuji',
+                    title: '習字教室のホームページHTML/CSS',
+                    image: 'image/works-image4.png',
+                    url: 'https://ogata-shuuji.deca.jp/'
+                },
+                {
+                    id: 'hotel',
+                    title: 'Vue.js企業プロジェクトの自主製作',
+                    image: 'image/works-image1.png',
+                    url: 'https://koukiogata.github.io/hotel'
+                },
+                {
+                    id: 'takaya',
+                    title: '株式会社タカヤコミュニケーションズ',
+                    image: 'image/works-image2.png',
+                    url: 'https://koukiogata.github.io/digital'
+                },
+                {
+                    id: 'jquery',
+                    title: 'HTML CSS JQuery基礎フレームワーク',
+                    image: 'image/works-image3.png',
+                    url: './web/index.html'
+                },
+                {
+                    id: 'grandslam',
+                    title: 'Grand Slam',
+                    image: 'image/works-image5.png',
+                    url: 'https://grandslam.surge.sh/'
+                }
+            ],
             flyerItems: [],
             bannerItems: [],
             websiteItems: [],
             isModalOpen: false,
-            selectedModalImage: ''
+            selectedModalImage: '',
+            historyList: [
+                {
+                    period: '2023.03',
+                    title: 'バンタンデザイン研究所 大阪校 卒業',
+                    role: 'デザイン専攻',
+                    desc: 'デザイン基礎・グラフィック表現の修得',
+                    skills: ['デザイン基礎', 'グラフィック表現', 'Illustrator', 'Photoshop'],
+                    isCurrent: false
+                },
+                {
+                    period: '2023.03 – 2023.12',
+                    title: '三和商事株式会社',
+                    role: 'グラフィックデザイナー / ECサイト運用',
+                    desc: '自社商品カタログ・チラシ・POPデザイン制作、ECサイト管理・商品画像制作、入出庫管理',
+                    skills: ['Illustrator', 'Photoshop', 'EC運営', '販促物デザイン'],
+                    isCurrent: false
+                },
+                {
+                    period: '2024.01 – 2024.12',
+                    title: 'Freelance & Skill Development',
+                    role: 'フリーランスデザイナー / IT学習',
+                    desc: 'デザイン制作案件の受託・納品、並行してWeb/IT開発スキルの習得',
+                    skills: ['Webデザイン', 'UI設計', 'コーディング基礎'],
+                    isCurrent: false
+                },
+                {
+                    period: '2025.01 – 2025.12',
+                    title: 'Y＆I group株式会社',
+                    role: 'QAエンジニア（アプリ検証・品質管理）',
+                    desc: 'ECアプリのテスト・デバッグ、仕様書に基づく動作検証、不具合報告、修正後の再テスト・品質保証',
+                    skills: ['テスト設計・実行', '品質管理', 'バグトラッキング'],
+                    isCurrent: false
+                },
+                {
+                    period: '2026.01 – Present',
+                    title: '株式会社ミライズ',
+                    role: 'テクニカルサポート',
+                    desc: 'PC初期設定・ハード/ソフトのトラブル対応、課題ヒアリングに基づく最適なソリューション提案',
+                    skills: ['トラブルシューティング', 'ユーザーサポート', 'ヒアリング・提案'],
+                    isCurrent: true
+                }
+            ]
         };
     },
     created() {
@@ -415,6 +535,10 @@ const MainComponent = {
             .catch(err => console.error('Fetch error:', err));
     },
     methods: {
+        truncateTitle(title, maxLen = 9) {
+            if (!title) return '';
+            return title.length > maxLen ? title.slice(0, maxLen) + '...' : title;
+        },
         openModal(imageUrl) {
             this.selectedModalImage = imageUrl;
             this.isModalOpen = true;
@@ -455,6 +579,39 @@ const MainComponent = {
     },
 };
 
+// TOPに戻るボタン（TOPセクションを過ぎたら表示）
+const BackToTopComponent = {
+    template: `
+      <button type="button" id="back-to-top" class="back-to-top" :class="{ 'is-visible': isVisible }"
+          aria-label="ページの先頭（TOP）に戻る" @click="scrollToTop">
+          <span class="back-to-top__arrow" aria-hidden="true"></span>
+          <span class="back-to-top__label">TOP</span>
+      </button>
+    `,
+    data() {
+        return { isVisible: false };
+    },
+    mounted() {
+        this.onScroll = () => {
+            const top = document.querySelector('.top-contenir');
+            // TOPセクションの高さの半分を超えてスクロールしたら表示
+            const threshold = (top ? top.offsetHeight : window.innerHeight) * 0.5;
+            this.isVisible = window.scrollY > threshold;
+        };
+        window.addEventListener('scroll', this.onScroll, { passive: true });
+        this.onScroll();
+    },
+    unmounted() {
+        window.removeEventListener('scroll', this.onScroll);
+    },
+    methods: {
+        scrollToTop() {
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        }
+    }
+};
+
 // フッターコンポーネントの定義
 const FooterComponent = {
     template: `
@@ -481,6 +638,9 @@ const FooterComponent = {
     // フッターに関連するロジックやデータもここで追加可能
 };
 
+// オープニングアニメーションの有効/無効（true に戻すと再び表示されます）
+const ENABLE_OPENING_ANIMATION = false;
+
 // Vueアプリケーションの作成。各コンポーネントを使用してページ全体を構成。
 const app = Vue.createApp({
     components: {
@@ -488,10 +648,11 @@ const app = Vue.createApp({
         'header-component': HeaderComponent,
         'main-component': MainComponent,
         'footer-component': FooterComponent,
+        'back-to-top': BackToTopComponent,
     },
     data() {
         return {
-            isLoading: true,
+            isLoading: ENABLE_OPENING_ANIMATION,
             currentSection: '',  // 現在のセクション
             sections: [],  // スクロールセクションの配列
             navLinks: []  // ナビゲーションリンクの配列
